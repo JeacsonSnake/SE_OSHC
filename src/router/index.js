@@ -1,27 +1,153 @@
 import Vue from 'vue'
+import store from '../store'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+
+import Login from '../views/Login/index.vue'
+import HomePage from '../views/Home/index.vue'
+import Register from '../views/Register/index.vue'
+import UserPage from '../views/UserPage/index.vue'
+import MyPost from '../views/UserPage/MyPost.vue'
+import SearchPage from '../views/SearchPage/index.vue'
+import Follower from '../views/UserPage/Follower.vue'
+import PostContent from '../views/PostContent/index.vue'
+import Following from '../views/UserPage/Following.vue'
+import MyCollection from '../views/UserPage/MyCollection.vue'
+import UserInfomation from '../views/UserPage/UserInfomation.vue'
+import BrowsingHistory from '../views/UserPage/BrowsingHistory.vue'
+import PostsSearchLayer from '../views/SearchPage/PostsSearchLayer.vue'
+import FollowerFollowing from '../views/UserPage/FollowerFollowing.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    {
+        name: 'homePage',
+        path: '/',
+        component: HomePage,
+        
+    },
+
+    {
+        path: '/user',
+        component: UserPage,
+        meta:{needAuth: true},
+        children: [
+            {
+                name: 'userPage',
+                path: '',
+                component: UserInfomation,
+            },
+            {
+                name: 'MyCollection',
+                path: 'collection',
+                component: MyCollection,
+            },
+            {
+                path: 'fo',
+                component: FollowerFollowing,
+                children: [
+                    {
+                        name: 'FollowerFollowing',
+                        path: '',
+                        component: Following
+                    },
+
+                    {
+                        name: 'Follower',
+                        path: 'Follow',
+                        component: Follower
+                    }
+                ]
+            },
+            {
+                name: 'MyPost',
+                path: 'post',
+                component: MyPost,
+            },
+            {
+                name: 'BrowsingHistory',
+                path: 'history',
+                component: BrowsingHistory,
+            },
+        ]
+    },
+
+    {
+        name: 'loginPage',
+        path: '/login',
+        component: Login,
+        meta: { noBar: true },
+    },
+    
+    {
+        name: 'RegisterPage',
+        path: '/register',
+        component: Register,
+        meta:{noBar: true}
+    },
+
+    {
+        name: 'searchPage',
+        path: '/search',
+        component: SearchPage,
+        meta: { noSearch: true }
+    },
+
+    {
+        name: 'postContent',
+        path: '/post',
+        component: PostContent,
+    },
 ]
+
+// 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 
 const router = new VueRouter({
   routes
+})
+
+router.beforeEach((to, from, next) => {
+    if (to.meta.noBar) {
+        store.commit('CHANGEBAR', false);
+    } else {
+        store.commit('CHANGEBAR', true);
+    }
+
+    if (to.meta.noSearch) {
+        store.commit('CHANGESEARCH', false);
+    } else {
+        store.commit('CHANGESEARCH', true);
+    }
+
+    if (window.sessionStorage.getItem("token")) {
+        store.commit('SETAUTH', true);
+    }
+
+    // if(Vue.prototype.$httpRequestList.length>0){       //检查是否有需要中断的请求
+    //   Vue.prototype.$httpRequestList.forEach(item=>{ //遍历,执行中断方法并传入中断信息
+    //       item('interrupt');    
+    //   })
+    // }
+        next();
+    // if (!to.meta.needAuth) {
+    //     next();       
+    // } else {
+    //     if (store.state.isAuth) {
+    //         next();
+    //     } else {
+    //         alert("需要登录才可以进行后续操作!!");
+    //         next({
+    //             path: '/login',
+    //             query: {
+    //                 redirect: to.fullPath
+    //             }
+    //         })
+    //     }
+    // }
 })
 
 export default router

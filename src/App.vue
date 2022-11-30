@@ -1,32 +1,51 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+      <HeadNavBar></HeadNavBar>
+    <router-view />
   </div>
 </template>
 
-<style lang="scss">
+<script>
+import HeadNavBar from "./components/HeadNavBar.vue";
+
+export default {
+  data() {
+    return {
+      circleUrl: "",
+    };
+  },
+
+  components: {
+    HeadNavBar,
+  },
+
+  methods: {
+    pushHomePage() {
+      this.$router.push({
+        name: "homePage",
+      });
+    },
+    pushLoginPage() {
+      this.$router.push({
+        name: "login",
+      });
+    },
+  },
+
+};
+</script>
+
+
+
+<style scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'HarmonyOS_Sans_SC_Regular', 'HarmonyOS_Sans_SC_Medium', 'HarmonyOS_Sans_SC_Thin', 'Times New Roman', Times, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+    background-color: #e8e2e0;
 }
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
+
