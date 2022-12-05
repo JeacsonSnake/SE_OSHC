@@ -12,7 +12,7 @@
               </div>
               <div class="BriefContentArea">
                 <p class="BriefContent">
-                try to push again to the master
+                改一改传到devA上面 23:21
                 </p>
               </div>
               <div class="ImageGroup">
