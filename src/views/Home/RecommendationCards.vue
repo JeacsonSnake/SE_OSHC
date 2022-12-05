@@ -42,7 +42,7 @@
               </div>
               <div class="BriefContentArea">
                 <p class="BriefContent">
-                    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+                   try to push to the dev
                 </p>
               </div>
               <div class="ImageGroup">
