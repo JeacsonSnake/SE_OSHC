@@ -12,7 +12,7 @@
               </div>
               <div class="BriefContentArea">
                 <p class="BriefContent">
-                    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+                try to push again to the master
                 </p>
               </div>
               <div class="ImageGroup">
