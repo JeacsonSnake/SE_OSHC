@@ -1,3 +1,3 @@
 import mockjs from "mockjs";
 
-console.log(mockjs);
+// console.log(mockjs);
