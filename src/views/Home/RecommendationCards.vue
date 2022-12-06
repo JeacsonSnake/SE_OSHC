@@ -12,7 +12,7 @@
               </div>
               <div class="BriefContentArea">
                 <p class="BriefContent">
-                    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+                    to connect again 22:05
                 </p>
               </div>
               <div class="ImageGroup">

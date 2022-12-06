@@ -12,7 +12,7 @@
       <div class="BulletinBoard">
         <img src="../../assets/images/label_head/公告标签.png" alt="" id="BulletinTag" />
         <div class="BulletinContent">
-          <p>change</p>
+          <p>push to devA ,try connect</p>
         </div>
       </div>
       <RecommendationsRankings></RecommendationsRankings>
