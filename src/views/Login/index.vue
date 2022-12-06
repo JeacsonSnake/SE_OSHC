@@ -22,12 +22,12 @@
         >
           <el-form-item
             label="用户名"
-            prop="userName"
+            prop="userEmail"
             style="margin-bottom: 35px"
           >
             <el-input
               type="text"
-              v-model="ruleForm.userName"
+              v-model="ruleForm.userEmail"
               autocomplete="off"
             ></el-input>
           </el-form-item>
@@ -70,9 +70,9 @@
 <script>
 export default {
   data() {
-    const validateUserName = (rule, value, callback) => {
+    const validateUserEmail = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("请输入用户名"));
+        callback(new Error("请输入用户邮箱"));
       } else {
         callback();
       }
@@ -88,11 +88,11 @@ export default {
 
     return {
       ruleForm: {
-        userName: "",
+        userEmail: "",
         pass: "",
       },
       rules: {
-        userName: [{ validator: validateUserName, trigger: "blur" }],
+        userEmail: [{ validator: validateUserEmail, trigger: "blur" }],
         pass: [{ validator: validatePass, trigger: "blur" }],
       },
       load: false,
@@ -104,7 +104,7 @@ export default {
       this.$refs.ruleForm.validate(async (valid) => {
         if (valid) {
           const v = {
-            username: this.$refs.ruleForm.model.userName,
+            userEmail: this.$refs.ruleForm.model.userEmail,
             password: this.$refs.ruleForm.model.pass,
           };
           await this.$store.dispatch("login", v);
@@ -119,11 +119,14 @@ export default {
               this.load = false;
             });
           } else {
+            this.$cookies.set("elecoCookies", "a8dg9as7a98efasbjsejtq49", {expires: "1h"});
             this.$message({
-              message: "登陆成功！跳转至主页",
+              message: "登陆成功！正在跳转至主页……",
               type: "success",
             });
-            this.$router.push("/");
+            setTimeout(() => {
+                this.$router.push("/");
+            }, 1000);
           }
         } else {
           console.log("error submit!!");

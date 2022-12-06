@@ -3,7 +3,7 @@ import axios from "axios";
 
 const requests = axios.create({
     //基础路径
-    baseURL: "/",
+    baseURL: "http://192.168.0.105:8080/",
     //请求超时时间： 5s
     // timeout: 5000,
     // headers: headers

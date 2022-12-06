@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <HeadNavBar></HeadNavBar>
+    <HeadNavBar></HeadNavBar>
     <router-view />
   </div>
 </template>
@@ -19,6 +19,10 @@ export default {
     HeadNavBar,
   },
 
+  watch: {
+    $route: "getAuth",
+  },
+
   methods: {
     pushHomePage() {
       this.$router.push({
@@ -30,8 +34,15 @@ export default {
         name: "login",
       });
     },
+    getAuth() {
+      if (this.$cookies.isKey("elecoCookies")) {
+        this.$store.commit("SETAUTH", true);
+        window.location.reload(); //监测到路由发生跳转时刷新一次页面
+      } else {
+        this.$store.commit("SETAUTH", false);
+      }
+    },
   },
-
 };
 </script>
 
@@ -40,7 +51,8 @@ export default {
 <style lang="scss" scoped>
 @import "./style/variables.scss";
 #app {
-  font-family: 'HarmonyOS_Sans_SC_Regular', 'HarmonyOS_Sans_SC_Medium', 'HarmonyOS_Sans_SC_Thin', 'Times New Roman', Times, serif;
+  font-family: "HarmonyOS_Sans_SC_Regular", "HarmonyOS_Sans_SC_Medium",
+    "HarmonyOS_Sans_SC_Thin", "Times New Roman", Times, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --heightRate: calc(100vh / #{$base-height});
@@ -49,6 +61,5 @@ export default {
   color: #2c3e50;
   background-color: #e8e2e0;
 }
-
 </style>
 

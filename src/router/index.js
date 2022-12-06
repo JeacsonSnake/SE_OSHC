@@ -104,6 +104,7 @@ const routes = [
         name: 'postContent',
         path: '/post',
         component: PostContent,
+        meta:{needAuth: true},
     },
 ]
 
@@ -124,13 +125,24 @@ router.beforeEach((to, from, next) => {
         store.commit('CHANGEBAR', true);
     }
 
+    // if (to.name === "loginPage") {
+    //     window.localStorage.setItem("refresh",'1');
+    // }
+
+    // if (from.name === "loginPage") {
+    //     if (window.localStorage.getItem("refresh") === "1") {
+    //         router.go();
+    //         window.localStorage.setItem("refresh",'0');
+    //     }
+    // }
+
     if (to.meta.noSearch) {
         store.commit('CHANGESEARCH', false);
     } else {
         store.commit('CHANGESEARCH', true);
     }
 
-    if (window.sessionStorage.getItem("token")) {
+    if (window.localStorage.getItem("user")) {
         store.commit('SETAUTH', true);
     }
 
@@ -139,22 +151,22 @@ router.beforeEach((to, from, next) => {
     //       item('interrupt');    
     //   })
     // }
-        next();
-    // if (!to.meta.needAuth) {
-    //     next();       
-    // } else {
-    //     if (store.state.isAuth) {
-    //         next();
-    //     } else {
-    //         alert("需要登录才可以进行后续操作!!");
-    //         next({
-    //             path: '/login',
-    //             query: {
-    //                 redirect: to.fullPath
-    //             }
-    //         })
-    //     }
-    // }
+        // next();
+    if (!to.meta.needAuth) {
+        next();       
+    } else {
+        if (store.state.isAuth) {
+            next();
+        } else {
+            alert("需要登录才可以进行后续操作!!");
+            next({
+                path: '/login',
+                query: {
+                    redirect: to.fullPath
+                }
+            })
+        }
+    }
 })
 
 export default router
