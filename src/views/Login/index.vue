@@ -16,14 +16,14 @@
           status-icon
           :rules="rules"
           ref="ruleForm"
-          label-width="65px"
+          label-width="70px"
           class="demo-ruleForm ElForm"
           size="large"
         >
           <el-form-item
             label="用户名"
             prop="userName"
-            style="margin-bottom: 35px"
+            style="margin-bottom: calc(100vh / 1080px * 35px);"
           >
             <el-input
               type="text"
@@ -49,8 +49,7 @@
             >
             <el-button
               round
-              @click="resetForm('ruleForm')"
-              style="width: 180px"
+              @click="resetForm('ruleForm')"      
               class="clearBtns btns"
               >清空</el-button
             >
@@ -160,9 +159,9 @@ a {
 }
 
 #webImage {
-  width: 350px;
-  margin-top: 60px;
-  margin-bottom: 80px;
+    width:  calc(100% / 1920px * 350px);
+  margin-top:calc(753.6px / 1080px * 60px);
+  margin-bottom: calc(753.6px / 1080px * 80px);
 }
 
 .cage {
@@ -170,20 +169,21 @@ a {
 }
 
 .login {
-  width: 900px;
-  height: 600px;
-  background-color: rgba(228, 228, 228, 0.66);
+  
+  width:  calc(100% / 1920px * 900px);
+  height: calc(100vh / 1080px * 600px);
+ background-color: rgba(228, 228, 228, 0.66);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   .goBack {
-    width: 150px;
-    height: 45px;
-    margin-left: 10px;
+    width:  calc(1536px / 1920px * 150px);
+    height: calc(753.6px / 1080px * 45px);
+    margin-left: 12px;
     margin-top: 10px;
-    font-size: 20px;
+    font-size: 18px;
     color: #129fc6;
     display: flex;
     letter-spacing: 5px;
@@ -192,25 +192,25 @@ a {
   }
 
   .title {
-    width: 220px;
-    height: 102px;
-    font-size: 60px;
+    width:  calc(1536px / 1920px * 220px);
+    height: calc(753.6px / 1080px * 102px);
+    font-size: 50px;
     letter-spacing: 13px;
-    margin-bottom: 50px;
-    margin-top: 40px;
+    margin-bottom: calc(753.6px / 1080px * 60px);
+    margin-top: calc(753.6px / 1080px * 40px);
     color: #00a8d5;
   }
 
   .form {
     width: 100%;
-    height: 190px;
+    height: calc(753.6px / 1080px * 190px);
     position: relative;
     display: flex;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: calc(1536px / 1920px * 50px);
     .ElForm {
       position: absolute;
-      left: 19.7%;
+      left: calc(1536px / 1920px * 19.7%);
     }
 
     :deep() .el-form-item__label {
@@ -224,10 +224,15 @@ a {
 
     .loginBtns {
       background-color: #00a8d5;
-      width: 180px;
-      margin-right: 40px;
+      width: calc(1536px / 1920px * 180px);
+      margin-right: calc(1536px / 1920px * 40px);
     }
-
+    .clearBtns {
+      position:relative;
+      left:10%;
+      width: calc(1536px / 1920px * 180px);
+      margin-right: calc(1536px / 1920px * 40px);
+    }
     .clearBtns:hover,
     .clearBtns:focus {
       color: #cbdae4;

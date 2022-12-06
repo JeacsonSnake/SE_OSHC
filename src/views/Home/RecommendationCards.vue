@@ -103,8 +103,8 @@ export default {
 
   methods: {
     toPostPage() {
-         this.$router.push({ name: "postContent" });
-    }
+      this.$router.push({ name: "postContent" });
+    },
   },
 };
 </script>

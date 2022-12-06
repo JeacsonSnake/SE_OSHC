@@ -49,7 +49,7 @@ export default {
   width: 325px;
   height: 935px;
   display: inline-block;
-  margin-left: 213px;
+  margin-left: 103px;
   #WebIconImage {
     width: 100%;
     height: fit-content;
