@@ -15,6 +15,7 @@ specifiers:
   sass: ^1.32.7
   sass-loader: ^12.0.0
   vue: ^2.6.14
+  vue-cookies: ^1.8.2
   vue-router: ^3.5.1
   vue-template-compiler: ^2.6.14
   vuex: ^3.6.2
@@ -28,6 +29,7 @@ dependencies:
   mavon-editor: registry.npmmirror.com/mavon-editor/2.10.4
   mockjs: registry.npmmirror.com/mockjs/1.1.0
   vue: 2.7.14
+  vue-cookies: registry.npmmirror.com/vue-cookies/1.8.2
   vue-router: 3.6.5_vue@2.7.14
   vuex: 3.6.2_vue@2.7.14
   webpack: registry.npmmirror.com/webpack/5.75.0
@@ -7184,6 +7186,12 @@ packages:
     name: util-deprecate
     version: 1.0.2
     dev: true
+
+  registry.npmmirror.com/vue-cookies/1.8.2:
+    resolution: {integrity: sha512-+NfoC5l+7ybuVwpnqsf52qndnoYMjEb4EFhX4/j9RzzQP00dNzuJELsWuW2p8omNUzNlSgWGVyyWoOeJr347tw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-cookies/-/vue-cookies-1.8.2.tgz}
+    name: vue-cookies
+    version: 1.8.2
+    dev: false
 
   registry.npmmirror.com/vue-hot-reload-api/2.3.4:
     resolution: {integrity: sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz}

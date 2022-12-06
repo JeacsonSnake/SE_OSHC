@@ -12,6 +12,8 @@ import { mavonEditor } from "mavon-editor";
 import "mavon-editor/dist/css/index.css";
 Vue.component("mavon-editor", mavonEditor);
 
+import VueCookies from 'vue-cookies'
+Vue.use(VueCookies)
 
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
