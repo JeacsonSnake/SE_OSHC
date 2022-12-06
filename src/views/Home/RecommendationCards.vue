@@ -42,7 +42,7 @@
               </div>
               <div class="BriefContentArea">
                 <p class="BriefContent">
-                    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+                   test second 
                 </p>
               </div>
               <div class="ImageGroup">
