@@ -8,6 +8,7 @@ import Register from '../views/Register/index.vue'
 import UserPage from '../views/UserPage/index.vue'
 import MyPost from '../views/UserPage/MyPost.vue'
 import SearchPage from '../views/SearchPage/index.vue'
+import testPage from '../views/testPage/index.vue'
 import Follower from '../views/UserPage/Follower.vue'
 import PostContent from '../views/PostContent/index.vue'
 import Following from '../views/UserPage/Following.vue'
@@ -91,6 +92,12 @@ const routes = [
         path: '/search',
         component: SearchPage,
         meta: { noSearch: true }
+    },
+
+    {
+        name: 'testPage',
+        path: '/test',
+        component: testPage,
     },
 
     {

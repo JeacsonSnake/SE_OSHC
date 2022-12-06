@@ -37,7 +37,8 @@ export default {
 
 
 
-<style scoped>
+<style lang="scss" scoped>
+@import "./style/variables.scss";
 #app {
   font-family: 'HarmonyOS_Sans_SC_Regular', 'HarmonyOS_Sans_SC_Medium', 'HarmonyOS_Sans_SC_Thin', 'Times New Roman', Times, serif;
   -webkit-font-smoothing: antialiased;

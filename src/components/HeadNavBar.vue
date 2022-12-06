@@ -65,7 +65,6 @@ export default {
 
   methods: {
     HWIdentification() {
-      console.log("send!!");
       this.$store.commit("HWIDENTIFICATION", true);
     },
 
@@ -117,18 +116,18 @@ export default {
 }
 
 .headNavbar {
-  height: 70px;
+  height: calc(var(--heightRate) * 70);
   width: 100%;
   display: flex;
   align-items: center;
   position: fixed;
   z-index: 20;
-  border-bottom: 2px solid rgb(0, 0, 0);
+  border-bottom: calc(var(--heightRate) * 2) solid rgb(150, 146, 146);
 }
 
 .WebIcon {
-  height: 50px;
-  margin-left: 136px;
+  height: calc(var(--heightRate) * 50);
+  margin-left: calc(var(--widthRate) * 136);
 }
 
 .IconImg {
@@ -137,15 +136,15 @@ export default {
 }
 
 .navSearchBar {
-  margin-left: 15.625vw;
+  margin-left: calc(var(--widthRate) * 300.89);
 }
 
 #publishItem {
-  margin-left: 4.427vw;
+  margin-left: calc(var(--widthRate) * 110);
 }
 
 .btnColor {
-  font-size: 20px;
+  font-size: calc(var(--heightRate) * 20);
 }
 
 .btnColor:focus,
@@ -159,8 +158,8 @@ export default {
 }
 
 .userDisplay {
-  width: 175px;
-  margin-left: 110px;
+  width: calc(var(--widthRate) * 175);
+  margin-left: calc(var(--widthRate) * 110);
 }
 
 .user {
@@ -173,9 +172,9 @@ export default {
 }
 
 #userName {
-  width: 125px;
-  margin-left: 14px;
-  font-size: 20px;
+  width: calc(var(--widthRate) * 125);
+  margin-left: calc(var(--widthRate) * 14);
+  font-size: calc(var(--heightRate) * 20);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
