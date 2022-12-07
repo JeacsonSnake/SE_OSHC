@@ -39,17 +39,17 @@ export default {
 
 .homePage {
   background-color: #f2f2f2;
-  padding-top: 115px;
+  padding-top:calc(100vh / 1080px * 125px);
   display: flex;
   width: 100%;
   height: 100vh;
 }
 
 .leftSlide {
-  width: 325px;
-  height: 935px;
+  width:  calc(1536px / 1920px * 325px);
+  height: calc(100vh / 1080px * 935px);
   display: inline-block;
-  margin-left: 103px;
+  margin-left: calc(1536px / 1920px * 103px);
   #WebIconImage {
     width: 100%;
     height: fit-content;
