@@ -57,9 +57,9 @@ export default {
 }
 
 .rightSlide {
-  width: 1080px;
-  height: 938px;
-  margin-left: 107px;
+  width: calc(1536px / 1920px * 1280px);
+  height: calc(100vh / 1080px * 938px);
+  margin-left: calc(1536px / 1920px * 107px);
   display: inline-block;
   border: 1px solid #808080;
   box-sizing: border-box;
@@ -69,14 +69,14 @@ export default {
 
 .BulletinBoard {
   position: relative;
-  width: 1000px;
-  height: 26px;
+  width: calc(1536px / 1920px * 1000px);
+  height:  calc(100vh / 1080px * 26px);
   border: 1px solid #808080;
   border-radius: 10px;
   box-sizing: border-box;
-  margin-left: 40px;
-  margin-top: 37px;
-  margin-bottom: 25px;
+  margin-left:calc(1536px / 1920px * 40px);
+  margin-top: calc(100vh / 1080px * 37px);
+  margin-bottom: calc(100vh / 1080px * 25px);
   #BulletinTag {
     position: absolute;
     left: 0%;
