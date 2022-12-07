@@ -23,12 +23,21 @@
 <script>
 import HotSection from "@/components/HotSection/index.vue";
 import RecommendationsRankings from './RecommendationsRankings.vue';
+import {test} from '../../api/index'
 export default {
 
   components: {
     HotSection,
     RecommendationsRankings,
   },
+
+  created() {
+    test().then((res) => {
+        console.log(res);
+    }).catch((err) => {
+        console.log(err);
+    })
+  }
 };
 </script>
 

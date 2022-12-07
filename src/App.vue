@@ -37,9 +37,12 @@ export default {
     getAuth() {
       if (this.$cookies.isKey("elecoCookies")) {
         this.$store.commit("SETAUTH", true);
-        window.location.reload(); //监测到路由发生跳转时刷新一次页面
       } else {
         this.$store.commit("SETAUTH", false);
+      }
+
+      if (this.$route.name === "homePage") {
+        window.location.reload(); //监测到路由发生跳转时刷新一次页面
       }
     },
   },

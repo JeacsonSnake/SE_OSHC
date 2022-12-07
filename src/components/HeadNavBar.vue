@@ -31,11 +31,10 @@
           >
             <el-avatar
               :src="circleUrl"
+              :size="130"
               @click="pushUserPage({ id })"
             ></el-avatar>
-            <span class="userName" @click="pushUserPage({ id })">{{
-              username
-            }}</span>
+            <span class="userName">{{ username }}</span>
             <div class="userInfoBlock">
               <div class="row">
                 <div class="column">
@@ -152,8 +151,9 @@ export default {
       this.$cookies.remove("elecoCookies");
       window.localStorage.removeItem("user");
       this.userCardHide();
-      window.location.reload();
-      this.pushHomePage();
+      setTimeout(() => {
+        this.pushHomePage();
+      }, 1000);
     },
 
     userCardShow() {
@@ -248,15 +248,16 @@ export default {
     top: -15%;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     border-radius: calc(var(--heightRate) * 15);
     border: calc(var(--heightRate) * 3) solid rgba(128, 128, 128, 1);
     &:hover {
-      cursor: pointer;
+      cursor: default;
     }
     ::v-deep() .el-avatar {
-      width: calc(var(--heightRate) * 168);
-      height: calc(var(--heightRate) * 180);
+      //   width: calc(var(--heightRate) * 168);
+      //   height: calc(var(--heightRate) * 180);
       margin-top: calc(var(--heightRate) * 20);
       border: calc(var(--heightRate) * 3) solid rgba(128, 128, 128, 1);
     }

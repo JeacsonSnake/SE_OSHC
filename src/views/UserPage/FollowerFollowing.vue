@@ -3,7 +3,7 @@
     <div class="nav">
       <el-menu
         :default-active="activeIndex"
-        class="el-menu-demo navMenu"
+        class="navMenu"
         mode="horizontal"
         @select="handleSelect"
       >
@@ -45,15 +45,35 @@ export default {
   border-radius: 10px;
 
   .nav {
-    width: 950px;
-    height: 75px;
-    border-bottom: 0.4px solid #808080;
+    width: calc(var(--widthRate) * 952);
+    height: calc(var(--heightRate) * 89);
+    border-bottom: calc(var(--heightRate) * 1) solid rgba(166, 166, 166, 1);
+    display: flex;
+    align-items: center;
     .navMenu {
-      width: 140px;
-      height: 60px;
-      margin-top: 15px;
-      margin-left: 30px;
-      margin-bottom: 15px;
+      width: calc(var(--widthRate) * 292);
+      height: calc(var(--heightRate) * 40);
+      margin-left: calc(var(--widthRate) * 27);
+      border: calc(var(--heightRate) * 1) solid rgba(128, 128, 128, 1);
+      border-radius: calc(var(--heightRate) * 18);
+      overflow: hidden;
+
+      ::v-deep() .el-menu-item {
+        width: calc(var(--widthRate) * 146);
+        height: calc(var(--heightRate) * 40);
+        font-size: calc(var(--heightRate) * 24);
+        font-weight: 500;
+        letter-spacing: calc(var(--heightRate) * 5);
+        line-height: calc(var(--heightRate) * 40);
+        color: #808080;
+        text-align: center;
+        vertical-align: middle;
+      }
+      ::v-deep() .is-active {
+        background-color: rgba(23, 145, 205, 1);
+        color: rgba(255, 255, 255, 1);
+        border: none;
+      }
     }
   }
 }

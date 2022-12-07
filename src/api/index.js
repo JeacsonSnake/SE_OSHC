@@ -1,5 +1,5 @@
 //API接口统一管理点
-import requests from "./request";
+import {requests, mockRequests} from "./request";
 import Vue from 'vue'
 import axios from "axios";
 
@@ -105,13 +105,32 @@ export const registerApi = (value) => {
     })
 }
 
+// export const loginApi = (value) => {
+//     return requests({
+//         url: 'user/login',
+//         method: 'post',
+//         params: {
+//             useremail: value.userEmail,
+//             password: value.password
+//         }
+//     })
+// }
+
 export const loginApi = (value) => {
-    return requests({
-        url: 'user/login',
+    return mockRequests({
+        url: 'http://127.0.0.1:4523/m1/1325294-0-default/user/login',
         method: 'post',
         params: {
             useremail: value.userEmail,
             password: value.password
         }
+    })
+}
+
+
+export const test = (value) => {
+    return mockRequests({
+        url: 'api/news',
+        method: 'get',
     })
 }

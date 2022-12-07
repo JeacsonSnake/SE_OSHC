@@ -66,10 +66,24 @@ export default new Vuex.Store({
                         userJoinTime: res.data.userJoinTime,
                         userGitAddress: res.data.userGitAddress,
                     }
+                    const userDetail = {
+                        avatar: res.data.avatar,
+                        following: res.data.following,
+                        follower: res.data.follower,
+                        userName: res.data.userName,
+                        userBrief: res.data.userBrief,
+                        userEmail: res.data.userEmail,
+                        ipLocation: res.data.ipLocation,
+                        userGender: res.data.userGender,
+                        userId: res.data.userId,
+                        userJoinTime: res.data.userJoinTime,
+                        userGitAddress: res.data.userGitAddress,
+                    }
                     context.commit('INPUTERROR', false);
                     context.commit('SETAUTH', true);
                     // window.sessionStorage.setItem("token", res.data.token);
-                    window.localStorage.setItem("user",JSON.stringify(user));
+                    window.localStorage.setItem("user", JSON.stringify(user));
+                    window.localStorage.setItem("userDetail", JSON.stringify(userDetail));
 
 
                 } else if (res.status === 403) {
