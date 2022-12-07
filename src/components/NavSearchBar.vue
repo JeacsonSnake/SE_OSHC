@@ -23,11 +23,11 @@ export default {
 
 <style  lang="scss" scoped>
 .left {
-  margin-left: 200px;
+  margin-left: calc(1536px / 1920px * 200px);
 }
 
 #searchRow {
-  width: 700px;
+  width: calc(1536px / 1920px * 700px);
   &:focus {
     border: 0.5px solid #00bdc8;
   }
@@ -51,9 +51,9 @@ export default {
 }
 
 #searchBtn {
-  width: 81px;
+  width: calc(1536px / 1920px * 81px);
   font-size: 30px;
-  height: 40px;
+  height: calc(100vh / 1080px * 40px);
   margin: -6px -21px;
   padding: 0 20px;
   background-color: #00bdc8;
@@ -65,24 +65,23 @@ export default {
 #search-box {
   position: fixed;
   z-index: 15;
-  width: 100%;
-  width: 641px;
-  height: 300px;
+  width: calc(1536px / 1920px * 641px);
+  height: calc(100vh / 1080px * 300px);
   margin-top: 0px;
-  padding-bottom: 20px;
+  padding-bottom: calc(100vh / 1080px * 20px);
 }
 
 .search-title {
   color: #d3e3ea;
   font-size: 15px;
-  margin-bottom: 5px;
+  margin-bottom: calc(100vh / 1080px * 5px);
 }
 
 .remove-history {
   color: #bdbaba;
   font-size: 15px;
   float: right;
-  margin-top: -2px;
+  margin-top: calc(100vh / 1080px * -2px);
   cursor: pointer;
 }
 </style>

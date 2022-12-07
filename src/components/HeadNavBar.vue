@@ -137,11 +137,11 @@ export default {
 }
 
 .navSearchBar {
-  margin-left: 15.625vw;
+  margin-left: calc(1536px / 1920px * 15.625vw);
 }
 
 #publishItem {
-  margin-left: 4.427vw;
+  margin-left: calc(1536px / 1920px * 4.427vw);
 }
 
 .btnColor {
@@ -159,8 +159,8 @@ export default {
 }
 
 .userDisplay {
-  width: 175px;
-  margin-left: 110px;
+  width: calc(1536px / 1920px * 175px);
+  margin-left: calc(1536px / 1920px * 110px);
 }
 
 .user {
@@ -173,8 +173,8 @@ export default {
 }
 
 #userName {
-  width: 125px;
-  margin-left: 14px;
+  width: calc(1536px / 1920px * 125px);
+  margin-left: calc(1536px / 1920px * 14px);
   font-size: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
