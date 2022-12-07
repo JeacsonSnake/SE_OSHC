@@ -72,7 +72,7 @@ export default {
 .BulletinBoard {
   position: relative;
   width: calc(1536px / 1920px * 1000px);
-  height:  calc(100vh / 1080px * 26px);
+  height:  calc(100vh / 1080px * 39px);
   border: 1px solid #808080;
   border-radius: 10px;
   box-sizing: border-box;
@@ -81,8 +81,8 @@ export default {
   margin-bottom: calc(100vh / 1080px * 25px);
   #BulletinTag {
     position: absolute;
-    left: 0%;
-    top: -5%;
+    left: -0.5%;
+    top: -3%;
   }
 
   .BulletinContent {
