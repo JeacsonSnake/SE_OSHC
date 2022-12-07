@@ -132,18 +132,17 @@ export default {
 
 <style lang="scss" scoped>
 .RankingList {
-  margin-top: 25px;
+  margin-top: calc(100vh / 1080px * 25px);
 
   .TopRank {
-    width: 280px;
-    height: 37px;
+    width: calc(1536px / 1920px * 280px);
+    height: calc(100vh / 1080px * 37px);
     display: flex;
-    margin-bottom: 40px;
-
+    margin-bottom: calc(100vh / 1080px * 40px);
     .RankImage {
-      width: 37px;
-      height: 37px;
-      margin-right: 28px;
+      width: calc(1536px / 1920px * 37px);
+      height: calc(100vh / 1080px * 37px);
+      margin-right: calc(100vh / 1080px * 28px);
     }
 
     .RankInfo {
@@ -151,8 +150,8 @@ export default {
       flex-wrap: wrap;
 
       .RankTitle {
-        height: 22px;
-        max-width: 215px;
+        height: calc(100vh / 1080px * 22px);
+        max-width: calc(1536px / 1920px * 215px);
         font-size: 12px;
         font-family: "HarmonyOS_Sans_SC_Medium";
         letter-spacing: 1px;
@@ -162,74 +161,76 @@ export default {
       }
 
       .RankSign {
-        height: 19px;
+        height: calc(100vh / 1080px * 19px);
         display: flex;
         font-family: "HarmonyOS_Sans_SC_Thin";
-        font-size: 8px;
+        font-size: 7px;
         align-items: center;
 
         .PostTag {
-          width: 70px;
-          max-width: 100px;
-          height: 15px;
+          width: calc(1536px / 1920px * 70px);
+          max-width: calc(1536px / 1920px * 100px);
+          height: calc(100vh / 1080px * 20px);
           background-color: #01d1bb;
           color: #a6a6a6;
           border-radius: 15px;
           color: #ffffff;
-          font-size: 8px;
-          margin-right: 4px;
+          font-size: 6px;
+          margin-right: calc(1536px / 1920px * 4px);
           overflow: hidden;
           text-overflow: ellipsis;
           font-family: "HarmonyOS_Sans_SC_Regular";
         }
 
         p {
-          margin-right: 5px;
-          margin-left: 5px;
+          margin-right: calc(1536px / 1920px * 5px);
+          margin-left: calc(1536px / 1920px * 5px);
         }
 
         #PubName {
-          max-width: 40px;
+          max-width: calc(1536px / 1920px * 40px);
           text-overflow: ellipsis;
           overflow: hidden;
         }
 
         #noMargin {
-          margin-left: 5px;
+          margin-left: calc(1536px / 1920px * 5px);
         }
 
         #eye {
-          width: 10px;
-          height: 10px;
-          margin-right: 5px;
-          margin-left: 5px;
+          width: calc(1536px / 1920px * 10px);
+          height: calc(100vh / 1080px * 10px);
+          margin-right: calc(1536px / 1920px * 5px);
+          margin-left: calc(1536px / 1920px * 5px);
         }
 
         .EliteTag,
         .HotTag,
         .TopTag {
-          width: 30px;
-          height: 20px;
-          margin-left: 5px;
+          width: calc(1536px / 1920px * 30px);
+          height: calc(100vh / 1080px * 20px);
+          margin-left: calc(1536px / 1920px * 5px);
         }
       }
     }
   }
 
   .EvalRank {
-    width: 270px;
-    height: 22px;
-    margin-left: 10px;
-    margin-bottom: 20px;
+    width: calc(1536px / 1920px * 270px);
+    height: calc(100vh / 1080px * 22px);
+    margin-left: calc(1536px / 1920px * 0px);
+    margin-bottom: calc(100vh / 1080px * 20px);
     display: flex;
     align-items: center;
     position: relative;
     .RankNum {
-      width: 18px;
-      height: 18px;
-      margin-right: 14px;
+      width: calc(1536px / 1920px * 30px);
+      height: calc(100vh / 1080px * 20px);
+      margin-right: calc(1536px / 1920px * 14px);
       background-image: url(../../assets/images/rank/RANK_Circle.png);
       background-size: contain;
+      background-repeat:no-repeat;
+      background-position:center;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -238,9 +239,9 @@ export default {
     }
 
     .RankTitle {
-      height: 22px;
-      max-width: 190px;
-      line-height: 22px;
+      height: calc(100vh / 1080px * 22px);
+      max-width: calc(1536px / 1920px * 190px);
+      line-height: calc(100vh / 1080px * 22px);
       font-size: 12px;
       font-family: "HarmonyOS_Sans_SC_Medium";
       letter-spacing: 1px;
@@ -257,9 +258,9 @@ export default {
       .EliteTag,
       .HotTag,
       .TopTag {
-        width: 30px;
-        height: 20px;
-        margin-left: 5px;
+        width: calc(1536px / 1920px * 30px);
+        height: calc(100vh / 1080px * 20px);
+        margin-left: calc(1536px / 1920px * 5px);
       }
     }
   }
