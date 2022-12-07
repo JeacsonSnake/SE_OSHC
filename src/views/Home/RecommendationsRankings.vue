@@ -1,14 +1,22 @@
 <template>
   <div class="RecommendationsRankings">
         <div class="Recommendations">
-          <img src="../../assets/images/label_head/推荐.png" alt="" />
+          <img src="../../assets/images/label_head/推荐.png" 
+          alt="" 
+          style="width:70px;margin-top:15px;"/>
           <RecommendationCards></RecommendationCards>
         </div>
         <div class="DividingLine">
-          <img src="../../assets/images/small_icon/分割线.png" alt="" />
+          <img src="../../assets/images/small_icon/分割线.png"
+           alt="" 
+           style="width:5px;height:540px;
+           margin-top:-35px;"/>
         </div>
         <div class="Rankings">
-          <img src="../../assets/images/label_head/排行.png" alt="" style="margin-bottom: 25px"/>
+          <img src="../../assets/images/label_head/排行.png"
+          alt=""
+           style="margin-bottom: 25px;
+           margin-top:15px;width:70px"/>
           <RankingList></RankingList>
         </div>
       </div>

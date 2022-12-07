@@ -119,9 +119,9 @@ export default {
 
   .RecommendationCard {
     width: calc(1536px / 1920px * 563px);
-    height: calc(100vh / 1080px * 203px);
+    height: calc(100vh / 1080px * 233px);
     margin-left: calc(1536px / 1920px *  17px);
-    margin-top: calc(100vh / 1080px * 14px);
+    margin-top: calc(100vh / 1080px * 34px);
     margin-bottom: 23px;
     color: #808080;
     display: flex;
@@ -147,7 +147,7 @@ export default {
       .HotTag,
       .TopTag {
         width:calc(1536px / 1920px * 30px);
-        height: calc(100vh / 1080px * 20px);
+        height: calc(100vh / 1080px * 25px);
         margin-right: calc(1536px / 1920px * 5px);
       }
     }
@@ -157,7 +157,7 @@ export default {
       margin-bottom:  calc(100vh / 1080px * 8px);
       .PostTag {
         width:calc(1536px / 1920px * 70px);
-        height: calc(100vh / 1080px * 15px);
+        height: calc(100vh / 1080px * 24px);
         background-color: #01d1bb;
         border-radius: 15px;
         color: #ffffff;
@@ -168,7 +168,7 @@ export default {
 
     .BriefContentArea {
       width:calc(1536px / 1920px * 560px);
-      height: calc(100vh / 1080px * 22px);
+      height: calc(100vh / 1080px * 25px);
 
       .BriefContent {
         font-size: 14px;
@@ -191,7 +191,7 @@ export default {
 
     .PublisherArea {
       display: flex;
-      margin-top:  calc(100vh / 1080px * 2px);
+      margin-top:  calc(100vh / 1080px * 5px);
       align-items: center;
       font-family: "HarmonyOS_Sans_SC_Thin";
       .SmallAvatar {

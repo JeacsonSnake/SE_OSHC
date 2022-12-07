@@ -49,16 +49,18 @@ export default {
   width:  calc(1536px / 1920px * 325px);
   height: calc(100vh / 1080px * 935px);
   display: inline-block;
+
   margin-left: calc(1536px / 1920px * 214px);
   #WebIconImage {
     width: 100%;
-    height: fit-content;
+    height:fit-content;
   }
 }
 
 .rightSlide {
   width: calc(1536px / 1920px * 1080px);
-  height: calc(100vh / 1080px * 938px);
+  height: calc(100vh / 1080px * 1038px);
+  // margin-top:calc(100vh / 1080px * 115px);
   margin-left: calc(1536px / 1920px * 107px);
   display: inline-block;
   border: 1px solid #808080;
@@ -84,6 +86,7 @@ export default {
   }
 
   .BulletinContent {
+    height:50px;
   }
 }
 

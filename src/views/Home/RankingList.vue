@@ -132,7 +132,7 @@ export default {
 
 <style lang="scss" scoped>
 .RankingList {
-  margin-top: calc(100vh / 1080px * 25px);
+  margin-top: calc(100vh / 1080px * 15px);
 
   .TopRank {
     width: calc(1536px / 1920px * 280px);
@@ -151,6 +151,7 @@ export default {
 
       .RankTitle {
         height: calc(100vh / 1080px * 22px);
+        margin-bottom:5px;
         max-width: calc(1536px / 1920px * 215px);
         font-size: 12px;
         font-family: "HarmonyOS_Sans_SC_Medium";
@@ -164,7 +165,7 @@ export default {
         height: calc(100vh / 1080px * 19px);
         display: flex;
         font-family: "HarmonyOS_Sans_SC_Thin";
-        font-size: 7px;
+        font-size: 5px;
         align-items: center;
 
         .PostTag {
