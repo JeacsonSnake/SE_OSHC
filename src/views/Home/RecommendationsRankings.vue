@@ -25,13 +25,13 @@ export default {
 
 <style lang="scss" scoped>
 .RecommendationsRankings {
-  width: 1020px;
-  height: 840px;
-  margin-left: 20px;
+  width:  calc(1536px / 1920px * 1020px);
+  height: calc(100vh / 1080px * 840px);
+  margin-left:  calc(1536px / 1920px * 20px);
   display: flex;
   .Recommendations {
-    width: 670px;
-    height: 840px;
+    width: calc(1536px / 1920px * 670px);
+    height:  calc(100vh / 1080px * 840px);
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -39,14 +39,14 @@ export default {
   }
 
   .DividingLine {
-    width: 55px;
-    height: 840px;
-    margin-top: 78px;
+    width: calc(1536px / 1920px * 55px);
+    height: calc(100vh / 1080px * 840px);
+    margin-top:calc(100vh / 1080px * 78px);
   }
 
   .Rankings {
-    width: 295px;
-    height: 840px;
+    width:calc(1536px / 1920px * 295px) ;
+    height: calc(100vh / 1080px * 840px);
     display: flex;
     align-items: flex-start;
     flex-direction: column;

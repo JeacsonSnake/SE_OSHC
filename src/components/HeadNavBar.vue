@@ -117,7 +117,7 @@ export default {
 }
 
 .headNavbar {
-  height: 70px;
+  height: calc(100vh / 1080px * 70px);
   width: 100%;
   display: flex;
   align-items: center;
@@ -127,8 +127,8 @@ export default {
 }
 
 .WebIcon {
-  height: 50px;
-  margin-left: 136px;
+  height: calc(100vh / 1080px * 50px);
+  margin-left: calc(1536px / 1920px * 136px);
 }
 
 .IconImg {

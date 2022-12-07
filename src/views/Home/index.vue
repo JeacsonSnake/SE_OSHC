@@ -39,7 +39,7 @@ export default {
 
 .homePage {
   background-color: #f2f2f2;
-  padding-top:calc(100vh / 1080px * 125px);
+  padding-top:calc(100vh / 1080px * 115px);
   display: flex;
   width: 100%;
   height: 100vh;
@@ -49,7 +49,7 @@ export default {
   width:  calc(1536px / 1920px * 325px);
   height: calc(100vh / 1080px * 935px);
   display: inline-block;
-  margin-left: calc(1536px / 1920px * 103px);
+  margin-left: calc(1536px / 1920px * 214px);
   #WebIconImage {
     width: 100%;
     height: fit-content;
@@ -57,7 +57,7 @@ export default {
 }
 
 .rightSlide {
-  width: calc(1536px / 1920px * 1280px);
+  width: calc(1536px / 1920px * 1080px);
   height: calc(100vh / 1080px * 938px);
   margin-left: calc(1536px / 1920px * 107px);
   display: inline-block;

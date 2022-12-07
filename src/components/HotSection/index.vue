@@ -92,7 +92,7 @@ export default {
 
   .HotSectionContent {
     width: 100%;
-    height: calc(100vh / 1080px * 700px);
+    height: calc(100vh / 1080px * 750px);
     border: 1px solid #808080;
     display: flex;
     flex-direction: column;
@@ -102,10 +102,9 @@ export default {
     display: flex;
     .HotSectionCard {
       height: calc(100vh / 1080px * 85px);
-      margin-top: calc(100vh / 1080px * 30px);
-
+      margin-top: calc(100vh / 1080px * 25px);
       margin-bottom: calc(100vh / 1080px * 10px);
-      margin-left: calc(1536px / 1920px * 35px);
+      margin-left: calc(1536px / 1920px * 32px);
       display: flex;
       flex-direction: row;
       img {
