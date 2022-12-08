@@ -1,6 +1,7 @@
 <template>
   <div class="HotSection">
-    <img src="../../assets/images/label_head/HotTag.png" alt="" id="HotTag" />
+    <img src="../../assets/images/label_head/HotTag.png" 
+    alt="" id="HotTag" />
     <div class="HotSectionContent">
       <div
         class="HotSectionCard"
@@ -102,15 +103,15 @@ export default {
     display: flex;
     .HotSectionCard {
       height: calc(100vh / 1080px * 85px);
-      margin-top: calc(100vh / 1080px * 25px);
+      margin-top: calc(100vh / 1080px * 35px);
       margin-bottom: calc(100vh / 1080px * 10px);
       margin-left: calc(1536px / 1920px * 32px);
       display: flex;
       flex-direction: row;
       img {
-        width: calc(1536px / 1920px * 85px);
-        height: calc(100vh / 1080px * 85px);
-        margin-top:calc(100vh / 1080px * 10px);
+        width: calc(var(--widthRate) * 100px);
+        height: calc(100vh / 1080px * 100px);
+        // margin-top:calc(100vh / 1080px * 10px);
         // padding-top:calc(100vh / 1080px * 10px);
         margin-right: calc(1536px / 1920px * 20px);
         border-radius: 5px;
@@ -122,7 +123,8 @@ export default {
         align-items: flex-start;
         .title {
           font-family: "HarmonyOS_Sans_SC_Regular";
-          font-size: 17px;
+          font-size: 14px;
+          font-weight:bold;
           color: #808080;
         }
 

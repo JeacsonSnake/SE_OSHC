@@ -201,6 +201,7 @@ export default {
       p {
         margin-right:calc(1536px / 1920px * 5px);
         margin-left:calc(1536px / 1920px * 5px);
+        font-size:14px;
       }
 
       #PubName {

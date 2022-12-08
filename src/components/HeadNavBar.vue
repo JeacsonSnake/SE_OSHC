@@ -123,7 +123,7 @@ export default {
   align-items: center;
   position: fixed;
   z-index: 20;
-  border-bottom: 2px solid rgb(0, 0, 0);
+  border-bottom: 1px solid rgb(0, 0, 0);
 }
 
 .WebIcon {
