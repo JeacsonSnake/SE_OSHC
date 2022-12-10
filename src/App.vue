@@ -38,6 +38,8 @@ export default {
       if (this.$cookies.isKey("elecoCookies")) {
         this.$store.commit("SETAUTH", true);
       } else {
+        window.localStorage.removeItem("user");
+        window.localStorage.removeItem("userDetail");
         this.$store.commit("SETAUTH", false);
       }
 

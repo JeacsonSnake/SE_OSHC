@@ -2,6 +2,7 @@ import Vue from 'vue'
 import store from '../store'
 import VueRouter from 'vue-router'
 
+import PostRelease from '../views/PostRelease/index.vue'
 import Login from '../views/Login/index.vue'
 import HomePage from '../views/Home/index.vue'
 import Register from '../views/Register/index.vue'
@@ -91,13 +92,14 @@ const routes = [
         name: 'searchPage',
         path: '/search',
         component: SearchPage,
-        meta: { noSearch: true }
+        meta: { noSearch: true, needAuth: true }
     },
 
     {
         name: 'testPage',
         path: '/test',
         component: testPage,
+        // meta:{needAuth: true},
     },
 
     {
@@ -105,6 +107,13 @@ const routes = [
         path: '/post',
         component: PostContent,
         meta:{needAuth: true},
+    },
+
+    {
+        name: 'PostRelease',
+        path: '/release',
+        component: PostRelease,
+        // meta:{needAuth: true},
     },
 ]
 
@@ -143,7 +152,11 @@ router.beforeEach((to, from, next) => {
     }
 
     if (window.localStorage.getItem("user")) {
+        // console.log(`store.state.isAuth`, store.state.isAuth);
         store.commit('SETAUTH', true);
+        // console.log(`store.state.isAuth change`, store.state.isAuth);
+    } else {
+        // console.log(`store.state.isAuth no change`, store.state.isAuth);
     }
 
     // if(Vue.prototype.$httpRequestList.length>0){       //检查是否有需要中断的请求

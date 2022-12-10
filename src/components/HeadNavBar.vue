@@ -10,6 +10,7 @@
         />
       </div>
       <NavSearchBar></NavSearchBar>
+
       <div class="userDisplay">
         <div class="user" v-show="isAuth" @mouseover="userCardShow()">
           <el-avatar :size="36" :src="circleUrl"></el-avatar>
@@ -23,64 +24,64 @@
             >登录/注册</el-button
           >
         </div>
-        <keep-alive>
-          <div
-            class="userCard"
-            v-show="showUserCard"
-            @mouseleave="userCardHide()"
-          >
-            <el-avatar
-              :src="circleUrl"
-              :size="130"
-              @click="pushUserPage({ id })"
-            ></el-avatar>
-            <span class="userName">{{ username }}</span>
-            <div class="userInfoBlock">
-              <div class="row">
-                <div class="column">
-                  <img src="../assets/images/small_icon/性别.png" alt="" />
-                  <span>{{ gender }}</span>
-                </div>
 
-                <div class="column">
-                  <img src="../assets/images/small_icon/ip.png" alt="" />
-                  <span>{{ ipLocation }}</span>
-                </div>
+        <div
+          class="userCard"
+          v-show="showUserCard"
+          @mouseleave="userCardHide()"
+        >
+          <el-avatar
+            :src="circleUrl"
+            :size="130"
+            @click="pushUserPage({ id })"
+          ></el-avatar>
+          <span class="userName">{{ username }}</span>
+          <div class="userInfoBlock">
+            <div class="row">
+              <div class="column">
+                <img src="../assets/images/small_icon/性别.png" alt="" />
+                <span>{{ gender }}</span>
               </div>
-              <div class="row">
-                <div class="column">
-                  <img src="../assets/images/small_icon/邮箱.png" alt="" />
-                  <span>{{ userEmail }}</span>
-                </div>
-              </div>
-              <div class="row">
-                <div class="column">
-                  <img src="../assets/images/small_icon/github.png" alt="" />
-                  <span>{{ userGitAddress }}</span>
-                </div>
+
+              <div class="column">
+                <img src="../assets/images/small_icon/ip.png" alt="" />
+                <span>{{ ipLocation }}</span>
               </div>
             </div>
-            <div>
-              <el-button
-                class="btnColor marginbtm20"
-                round
-                @click="pushUserPage({ id })"
-              >
-                我的主页
-              </el-button>
+            <div class="row">
+              <div class="column">
+                <img src="../assets/images/small_icon/邮箱.png" alt="" />
+                <span>{{ userEmail }}</span>
+              </div>
             </div>
-            <div>
-              <el-button
-                class="btnColor marginbtm20 btnRed"
-                round
-                @click="logOut()"
-              >
-                退出登录
-              </el-button>
+            <div class="row">
+              <div class="column">
+                <img src="../assets/images/small_icon/github.png" alt="" />
+                <span>{{ userGitAddress }}</span>
+              </div>
             </div>
           </div>
-        </keep-alive>
+          <div>
+            <el-button
+              class="btnColor marginbtm20"
+              round
+              @click="pushUserPage({ id })"
+            >
+              我的主页
+            </el-button>
+          </div>
+          <div>
+            <el-button
+              class="btnColor marginbtm20 btnRed"
+              round
+              @click="logOut()"
+            >
+              退出登录
+            </el-button>
+          </div>
+        </div>
       </div>
+
       <div id="publishItem">
         <el-button class="btnColor" round @click="HWI()"> 硬件识别 </el-button>
       </div>
@@ -150,6 +151,7 @@ export default {
       });
       this.$cookies.remove("elecoCookies");
       window.localStorage.removeItem("user");
+      window.localStorage.removeItem("userDetail");
       this.userCardHide();
       setTimeout(() => {
         this.pushHomePage();
@@ -199,7 +201,7 @@ export default {
   display: flex;
   align-items: center;
   position: fixed;
-  z-index: 20;
+  z-index: 2000;
   border-bottom: calc(var(--heightRate) * 2) solid rgb(150, 146, 146);
 }
 
@@ -241,6 +243,7 @@ export default {
   position: relative;
   .userCard {
     position: absolute;
+    z-index: 2004;
     width: calc(var(--widthRate) * 280);
     height: calc(var(--heightRate) * 490);
     background-color: #ffffff;

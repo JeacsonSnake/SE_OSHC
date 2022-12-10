@@ -1,5 +1,5 @@
 //API接口统一管理点
-import {requests, mockRequests} from "./request";
+import {requests, mockRequests, imgRequests} from "./request";
 import Vue from 'vue'
 import axios from "axios";
 
@@ -132,5 +132,14 @@ export const test = (value) => {
     return mockRequests({
         url: 'api/news',
         method: 'get',
+    })
+}
+
+export const imgUpload = (formdata) => {
+    console.log(`formdata.get("file")`, formdata.get("file"));
+    return imgRequests({
+        url: 'v2/upload',
+        method: 'post',
+        data: formdata
     })
 }

@@ -1,7 +1,6 @@
 <template>
   <div class="markdown-container">
     <div class="container">
-      <div class="title">编辑器</div>
       <mavon-editor
         v-model="content"
         ref="md"
@@ -20,6 +19,9 @@
 // import { mavonEditor } from "mavon-editor";
 // import "mavon-editor/dist/css/index.css";
 import axios from "axios";
+
+import { imgUpload } from "../api";
+
 export default {
   data: function () {
     return {
@@ -33,18 +35,33 @@ export default {
   // },
   methods: {
     // 将图片上传到服务器，返回地址替换到md中
-    $imgAdd(pos, $file) {
+    async $imgAdd(pos, $file) {
       var formdata = new FormData();
+      console.log("1: ", formdata);
+      let $uid = "69725009da0618599d1292a14cc61198";
+      let $token = "e0356b167e3a0088501158ecad2acd1c";
       formdata.append("file", $file);
+      console.log(`$file`, $file);
+      formdata.append("uid", $uid);
+      console.log(`$uid`, $uid);
+      formdata.append("token", $token);
+      console.log(`$token`, $token);
+
       //将下面上传接口替换为你自己的服务器接口
-      axios({
-        url: "/common/upload",
-        method: "post",
-        data: formdata,
-        headers: { "Content-Type": "multipart/form-data" },
-      }).then((url) => {
-        this.$refs.md.$img2Url(pos, url);
-      });
+      console.log(
+        formdata.get("file"),
+        formdata.get("uid"),
+        formdata.get("token")
+      );
+
+      await imgUpload(formdata)
+        .then((res) => {
+          console.log(res);
+          // this.$refs.md.$img2Url(pos, url);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
     change(value, render) {
       // render 为 markdown 解析后的结果
@@ -62,14 +79,6 @@ export default {
 .markdown-container {
   .editor-btn {
     margin-top: 20px;
-  }
-  .title {
-    padding-bottom: 30px;
-    text-align: center;
-    font-size: 20px;
-    letter-spacing: 1px;
-    color: #333;
-    font-weight: 600;
   }
 }
 </style>
