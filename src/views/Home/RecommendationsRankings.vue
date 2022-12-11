@@ -33,7 +33,7 @@ export default {
 
 <style lang="scss" scoped>
 .RecommendationsRankings {
-  width:  calc(1536px / 1920px * 1020px);
+  width:  calc(var(--widthRate) * 1020px);
   height: calc(100vh / 1080px * 840px);
   margin-left:  calc(1536px / 1920px * 20px);
   display: flex;

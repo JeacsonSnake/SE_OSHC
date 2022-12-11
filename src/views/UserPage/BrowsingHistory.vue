@@ -22,7 +22,7 @@
                 <img src="../../assets/images/post_example/示例图3.png" alt="" class="CardImage" />
               </div>
               <div class="PublisherArea">
-                <el-avatar :size="20" :src="circleUrl"  class="SmallAvatar"></el-avatar>
+                <el-avatar :size="18" :src="circleUrl"  class="SmallAvatar"></el-avatar>
                 <p id="PubName">Rick Ashley</p>
                 <p>·</p>
                 <p id="PublishTime">三天前</p>
@@ -127,14 +127,14 @@ export default {
   border-radius: 10px;
   position: relative;
   .RecommendationCards {
-    width: 800px;
-    height: 675px;
+    width:calc(var(--widthRate) * 800px);
+    height:calc(100vh / 1080px * 675px);
     margin-top: 80px;
     margin-left: 76px;
 
     .RecommendationCard {
-      width: 800px;
-      height: 210px;
+      width:calc(var(--widthRate) * 800px);
+      height:calc(100vh / 1080px * 210px);
       margin-top: 20px;
       color: #808080;
       display: flex;
@@ -147,27 +147,28 @@ export default {
         display: flex;
         margin-bottom: 12px;
         .title {
-          max-width: 445px;
-          height: 22px;
-          font-size: 20px;
+          max-width:calc(var(--widthRate) * 445px);
+          height:calc(100vh / 1080px * 22px);
+          font-size: 14px;
           font-weight: 600;
           overflow: hidden;
           text-overflow: ellipsis;
-          margin-right: 15px;
+          margin-right:calc(var(--widthRate) * 15px);
           color: #808080;
         }
         .EliteTag,
         .HotTag,
         .TopTag {
-          width: 30px;
-          height: 20px;
-          margin-right: 5px;
+          width:calc(var(--widthRate) * 30px);
+          height:calc(100vh / 1080px * 20px);
+          // margin-right:5px;
+          margin-left:5px;
         }
       }
 
       .BriefContentArea {
-        width: 650px;
-        height: 22px;
+        width:calc(var(--widthRate) * 650px);
+        height:calc(100vh / 1080px * 22px);
 
         .BriefContent {
           font-size: 12px;
@@ -180,18 +181,18 @@ export default {
       }
 
       .ImageGroup {
-        height: 100px;
-        margin-top: 2px;
+        height:calc(100vh / 1080px * 100px);
+        margin-top:calc(100vh / 1080px * 2px);
         .CardImage {
-          width: 152px;
+          width: calc(1536px / 1920px * 152px);
           height: 100%;
-          margin-right: 20px;
+          margin-right:20px;
         }
       }
 
       .PublisherArea {
         display: flex;
-        margin-top: 10px;
+        margin-top: calc(100vh / 1080px * 10px);
         align-items: center;
         font-family: "HarmonyOS_Sans_SC_Thin";
 
@@ -199,27 +200,27 @@ export default {
           display: flex;
           align-items: center;
           .PostTag {
-            width: 70px;
-            height: 15px;
+            width:calc(var(--widthRate) * 70px);
+            height:calc(100vh / 1080px * 15px);
             background-color: #01d1bb;
-            border-radius: 15px;
+            border-radius: 10px;
             color: #ffffff;
             font-size: 10px;
-            margin-right: 4px;
+            margin-right:calc(var(--widthRate) * 4px);
           }
         }
 
         .SmallAvatar {
-          margin-right: 5px;
+          margin-right:calc(var(--widthRate) * 5px);
         }
 
         p {
-          margin-right: 5px;
-          margin-left: 5px;
+          margin-right:calc(var(--widthRate) * 5px);
+          margin-left:calc(var(--widthRate) * 5px);
         }
 
         #PubName {
-          max-width: 200px;
+          max-width:calc(var(--widthRate) * 200px);
           text-overflow: ellipsis;
           overflow: hidden;
         }
@@ -229,8 +230,8 @@ export default {
         }
 
         #eye {
-          width: 16px;
-          height: 16px;
+          width:calc(var(--widthRate) * 16px);
+          height:calc(100vh / 1080px * 16px);
           margin-right: 5px;
           margin-left: 5px;
         }
@@ -239,7 +240,7 @@ export default {
   }
 
   .elPag {
-    margin-top: 70px;
+    margin-top:calc(100vh / 1080px * 70px);
     display: flex;
     align-items: center;
     justify-content: center;
