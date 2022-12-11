@@ -10,6 +10,7 @@ import UserPage from '../views/UserPage/index.vue'
 import MyPost from '../views/UserPage/MyPost.vue'
 import SearchPage from '../views/SearchPage/index.vue'
 import testPage from '../views/testPage/index.vue'
+import TagPage from '../views/TagPage/index.vue'
 import Follower from '../views/UserPage/Follower.vue'
 import PostContent from '../views/PostContent/index.vue'
 import Following from '../views/UserPage/Following.vue'
@@ -113,6 +114,13 @@ const routes = [
         name: 'PostRelease',
         path: '/release',
         component: PostRelease,
+        // meta:{needAuth: true},
+    },
+
+    {
+        name: 'tagPage',
+        path: '/tag',
+        component: TagPage,
         // meta:{needAuth: true},
     },
 ]

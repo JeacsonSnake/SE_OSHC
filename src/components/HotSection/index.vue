@@ -2,13 +2,19 @@
   <div class="HotSection">
     <img src="../../assets/images/label_head/HotTag.png" alt="" id="HotTag" />
     <div class="HotSectionContent">
-      <div class="HotSectionCard" v-for="(HotSection, i) in HotSectionData" :key="HotSection.id">
+      <div
+        class="HotSectionCard"
+        v-for="(HotSection, i) in HotSectionData"
+        :key="HotSection.id"
+      >
         <img :src="HotSection.imgUrl" alt="" />
         <div class="HotSectionInfo">
-          <p class="title">{{HotSection.title}}</p>
-          <p class="postNumber small">贴子数：{{HotSection.postNumber}}</p>
-          <p class="hotview small">热度：{{HotSection.hotView}}</p>
-          <p class="lastReport small">最新动态：{{timeAgo(HotSection.lastReportTime)}}</p>
+          <p class="title">{{ HotSection.title }}</p>
+          <p class="postNumber small">贴子数：{{ HotSection.postNumber }}</p>
+          <p class="hotview small">热度：{{ HotSection.hotView }}</p>
+          <p class="lastReport small">
+            最新动态：{{ timeAgo(HotSection.lastReportTime) }}
+          </p>
         </div>
       </div>
     </div>
@@ -16,7 +22,7 @@
 </template>
 
 <script>
-import {timeago} from "../../../utils/formatTime";
+import { timeago } from "../../../utils/formatTime";
 export default {
   data() {
     return {
@@ -24,7 +30,7 @@ export default {
         {
           id: 1,
           title: "ARDUINO",
-          imgUrl: require('../../assets/images/tag_example/ARDUINO.jpg'),
+          imgUrl: require("../../assets/images/tag_example/ARDUINO.jpg"),
           postNumber: 200,
           hotView: 2343,
           lastReportTime: "2022-8-18 20:02:09",
@@ -32,7 +38,7 @@ export default {
         {
           id: 2,
           title: "ARDUINO",
-          imgUrl: require('../../assets/images/tag_example/ARDUINO.jpg'),
+          imgUrl: require("../../assets/images/tag_example/ARDUINO.jpg"),
           postNumber: 200,
           hotView: 2343,
           lastReportTime: "2022-8-18 20:02:09",
@@ -40,7 +46,7 @@ export default {
         {
           id: 3,
           title: "ARDUINO",
-          imgUrl: require('../../assets/images/tag_example/ARDUINO.jpg'),
+          imgUrl: require("../../assets/images/tag_example/ARDUINO.jpg"),
           postNumber: 200,
           hotView: 2343,
           lastReportTime: "2022-8-18 20:02:09",
@@ -48,7 +54,7 @@ export default {
         {
           id: 4,
           title: "ARDUINO",
-          imgUrl: require('../../assets/images/tag_example/ARDUINO.jpg'),
+          imgUrl: require("../../assets/images/tag_example/ARDUINO.jpg"),
           postNumber: 200,
           hotView: 2343,
           lastReportTime: "2022-8-18 20:02:09",
@@ -56,7 +62,7 @@ export default {
         {
           id: 5,
           title: "ARDUINO",
-          imgUrl: require('../../assets/images/tag_example/ARDUINO.jpg'),
+          imgUrl: require("../../assets/images/tag_example/ARDUINO.jpg"),
           postNumber: 200,
           hotView: 2343,
           lastReportTime: "2022-8-18 20:02:09",
@@ -64,9 +70,7 @@ export default {
       ],
     };
   },
-  computed: {
-    
-  },
+  computed: {},
   methods: {
     timeAgo(val) {
       return timeago(val);
@@ -77,7 +81,7 @@ export default {
 
 <style lang="scss" scoped>
 .HotSection {
-  margin-top: 20px;
+  margin-top: calc(var(--heightRate) * 20);
   display: flex;
   flex-direction: column;
 
@@ -88,25 +92,26 @@ export default {
 
   .HotSectionContent {
     width: 100%;
-    height: 750px;
-    border: 1px solid #808080;
+    height: calc(var(--heightRate) * 750);
+    border: calc(var(--heightRate) * 1) solid #808080;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    border-radius: 0 20px 20px 20px;
+    border-radius: 0 calc(var(--heightRate) * 20) calc(var(--heightRate) * 20)
+      calc(var(--heightRate) * 20);
     background-color: #ffffff;
     display: flex;
     .HotSectionCard {
-      height: 85px;
-      margin-top: 30px;
-      margin-left: 35px;
+      height: calc(var(--heightRate) * 85);
+      margin-top: calc(var(--heightRate) * 30);
+      margin-left: calc(var(--widthRate) * 30);
       display: flex;
       flex-direction: row;
       img {
-        width: 85px;
-        height: 85px;
-        margin-right: 20px;
-        border-radius: 5px;
+        width: calc(var(--heightRate) * 80);
+        height: calc(var(--heightRate) * 80);
+        margin-right: calc(var(--widthRate) * 20);
+        border-radius: calc(var(--heightRate) * 10);
       }
 
       .HotSectionInfo {
