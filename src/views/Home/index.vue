@@ -48,10 +48,10 @@ export default {
 
 .homePage {
   background-color: #f2f2f2;
-  padding-top: 115px;
+  padding-top: calc(var(--heightRate) * 115);
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: calc(var(--heightRate) * 1080);
 }
 
 .leftSlide {
