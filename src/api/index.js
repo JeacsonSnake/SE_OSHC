@@ -143,3 +143,25 @@ export const imgUpload = (formdata) => {
         data: formdata
     })
 }
+
+export const followingApi = (value) => {
+    return mockRequests({
+        url: 'http://127.0.0.1:4523/m1/1325294-0-default/user/follow',
+        method: 'get',
+        params: {
+            userId: value.userId,
+            needPage: value.needPage
+        }
+    })
+}
+
+export const followerApi = (value) => {
+    return mockRequests({
+        url: 'http://127.0.0.1:4523/m1/1325294-0-default/user/fans',
+        method: 'get',
+        params: {
+            userId: value.userId,
+            needPage: value.needPage
+        }
+    })
+}

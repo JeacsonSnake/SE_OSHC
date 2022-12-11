@@ -32,6 +32,11 @@ export default {
       }
     },
   },
+  mounted() {
+    if (this.$route.name == "Follower") {
+        this.activeIndex = "2";
+    }
+  }
 };
 </script>
 

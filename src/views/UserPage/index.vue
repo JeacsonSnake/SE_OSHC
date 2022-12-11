@@ -169,8 +169,13 @@ export default {
     ];
     this.clearNavColor();
     for (let index = 0; index < this.navBarColorBool.length; index++) {
-      if (this.$route.name == routerName[index])
+      if (this.$route.name == routerName[index]) {
         this.navBarColorBool[index] = true;
+        break;
+      } else if (this.$route.name == "Follower") {
+        this.navBarColorBool[1] = true;
+        break;
+      }
     }
   },
 };

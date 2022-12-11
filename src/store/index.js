@@ -3,7 +3,9 @@ import Vuex from 'vuex'
 
 import {
     loginApi,
-    registerApi
+    registerApi,
+    followingApi,
+    followerApi
 } from '../api'
 
 Vue.use(Vuex)
@@ -17,6 +19,15 @@ export default new Vuex.Store({
         inputError: false,
         showUserCard: false,
         isRepeat: false,
+        isFollowEmpty: true,
+        followObj: {
+            "totalNum": "1",
+            "totalPage": "1",
+            "nowPage": "1",
+            "showNum": "1",
+            "followingObjArr": [],
+            "followerObjArr": []
+        }
   },
   getters: {
   },
@@ -47,6 +58,14 @@ export default new Vuex.Store({
 
         ISREPEAT(state, value) {
             state.isRepeat = value;
+        },
+
+        ISFOLLOWEMPTY(state, value) {
+            state.isFollowEmpty = value;
+        },
+
+        SETFOLLOWOBJ(state, value) {
+            state.followObj = { ...value };
         }
   },
     actions: {
@@ -109,5 +128,39 @@ export default new Vuex.Store({
                 console.log(err);
             })
         },
+
+        async getFollowingArr(context, value) {
+            await followingApi(value).then((res) => {
+                if (res.code === 200) {
+                    if (res.data.totalNum == '0') {
+                        context.commit('ISFOLLOWEMPTY', true);
+                    } else {
+                        context.commit('ISFOLLOWEMPTY', false);
+                        context.commit('SETFOLLOWOBJ',res.data);
+                    }
+                }else {
+                    throw 'Err!'
+                }
+            }).catch((err) => {
+                console.log(err);
+            })
+        },
+
+        async getFollowerArr(context, value) {
+            await followerApi(value).then((res) => {
+                if (res.code === 200) {
+                    if (res.data.totalNum == '0') {
+                        context.commit('ISFOLLOWEMPTY', true);
+                    } else {
+                        context.commit('ISFOLLOWEMPTY', false);
+                        context.commit('SETFOLLOWOBJ',res.data);
+                    }
+                }else {
+                    throw 'Err!'
+                }
+            }).catch((err) => {
+                console.log(err);
+            })
+        }
   },
 })
