@@ -103,7 +103,7 @@ export default {
   border-radius: 10px;
 
   .userBoard {
-    width:calc(100vw / 1920 * 300);
+    width:calc(100vw / 1920 * 340);
     height:calc(100vh / 1080 * 476);
     margin:0 auto;  //左右居中
     margin-top:calc(100vh / 1080 * 42);
