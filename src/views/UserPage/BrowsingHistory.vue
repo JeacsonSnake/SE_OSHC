@@ -13,7 +13,7 @@
               </div>
               <div class="BriefContentArea">
                 <p class="BriefContent">
-                    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+                    dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
                 </p>
               </div>
               <div class="ImageGroup">
@@ -123,29 +123,29 @@ export default {
   height: 100%;
   background-image: url("../../assets/images/background/浏览记录背景.png");
   background-size: contain;
-  border: 2px solid #808080;
+  border: 1px solid #808080;
   border-radius: 10px;
   position: relative;
   .RecommendationCards {
-    width:calc(var(--widthRate) * 800px);
+    width:calc(var(--widthRate) * 800);
     height:calc(100vh / 1080px * 675px);
-    margin-top: 80px;
-    margin-left: 76px;
+    margin-top:calc(100vh / 1080px * 80px);
+    margin-left:calc(100vw / 1920 * 76);
 
     .RecommendationCard {
       width:calc(var(--widthRate) * 800px);
-     height:calc(100vh / 1080px * 210px);
-      margin-top: 20px;
+     height:calc(100vh / 1080px * 240px);
+      margin-top:20px;
       color: #808080;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       border-bottom: 0.4px solid #a9a9a9;
-
+    
       .TitleArea {
         width: inherit;
         display: flex;
-        margin-bottom: 12px;
+        margin-bottom:calc(100vh / 1080px * 12px);
         .title {
           max-width:calc(var(--widthRate) * 445px);
           height:calc(100vh / 1080px * 22px);
@@ -220,13 +220,14 @@ export default {
         }
 
         #PubName {
+          margin-left:5px;
           max-width:calc(var(--widthRate) * 200px);
           text-overflow: ellipsis;
           overflow: hidden;
         }
 
         #noMargin {
-          margin-left: 5px;
+          margin-left:calc(var(--widthRate) * 5);
         }
 
         #eye {
@@ -240,7 +241,7 @@ export default {
   }
 
   .elPag {
-    margin-top:calc(100vh / 1080px * 70px);
+    margin-top:calc(100vh / 1080px * 150px);
     display: flex;
     align-items: center;
     justify-content: center;
