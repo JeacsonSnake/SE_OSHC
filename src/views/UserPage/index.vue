@@ -184,17 +184,17 @@ export default {
 <style lang="scss" scoped>
 .userPage {
   background-color: #f2f2f2;
-  padding-top: 105px;
+  padding-top:calc(100vh / 1080px * 105px);
   display: flex;
   width: 100%;
   height: 100vh;
 }
 
 .leftSlide {
-  width: 410px;
-  height: 930px;
+  width:calc(100vw / 1920 * 410);
+  height:calc(100vh / 1080 * 1000);
   display: inline-block;
-  margin-left: 213px;
+  margin-left:calc(100vw / 1920 * 213);
   background-color: #fff;
   border-radius: 10px;
   border: 1px solid #808080;
@@ -202,34 +202,34 @@ export default {
   border-radius: 10px;
 
   .userBoard {
-    width: 340px;
-    height: 476px;
-    margin-left: 35px;
-    margin-top: 42px;
+    width:calc(100vw / 1920 * 340);
+    height:calc(100vh / 1080 * 496);
+    margin:0 auto;  //左右居中
+    margin-top:calc(100vh / 1080 * 42);
     background-color: #c0ccd1;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 35px;
+    margin-bottom:calc(100vh / 1080px * 35px) ;
     .Avatar {
-      margin-top: 19px;
-      margin-bottom: 36px;
+      margin-top:calc(100vh / 1080 * 19);
+      margin-bottom:calc(100vh / 1080 * 36);
     }
 
     .userName {
-      font-size: 30px;
-      height: 45px;
-      max-width: 260px;
-      line-height: 45px;
+      font-size: 23px;
+      height:calc(var(--heighthRate) * 45);
+      max-width:calc(100vw / 1920 * 260);
+      line-height:calc(100vh / 1080 * 45);
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
     .userInfo {
-      width: 175px;
-      height: 80px;
-      margin-top: 25px;
+      width:calc(var(--widthRate) * 250);
+      height:calc(100vh / 1080 * 80);
+      margin-top:calc(100vh / 1080 * 25);
       display: flex;
       flex-direction: column;
       font-size: 12px;
@@ -240,22 +240,22 @@ export default {
       }
 
       .bigIcon {
-        width: 16px;
-        height: 16px;
-        margin-right: 5px;
+        width:calc(var(--widthRate) * 16);
+        height:calc(100vh / 1080 * 16);
+        margin-right:calc(100vw / 1920 * 5);
       }
 
       .genderIP,
       .email,
       .gitHub {
         width: 100%;
-        height: 20px;
-        line-height: 20px;
+        height:calc(100vh / 1080 * 20);
+        line-height:calc(100vh / 1080 * 20);
       }
 
       .email,
       .gitHub {
-        margin-top: 10px;
+        margin-top:calc(100vh / 1080 * 10);
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -271,7 +271,7 @@ export default {
 
         .gender,
         .ip {
-          width: 66px;
+          width:calc(var(--widthRate) * 80);
           height: 100%;
           display: flex;
         }
@@ -280,9 +280,9 @@ export default {
   }
 
   .navbar {
-    width: 410px;
-    height: 375px;
-    border-top: 2px solid #cccccc;
+    width:calc(var(--widthRate) * 410);
+    height:calc(100vh / 1080 * 395);
+    border-top:calc(100vh / 1080 * 2) solid #cccccc;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -293,8 +293,8 @@ export default {
     }
 
     .selectBtn {
-      width: 300px;
-      height: 70px;
+      width:calc(var(--widthRate) * 300);
+      height: calc(100vh / 1080 * 70);
       margin-top: 5px;
       border-bottom: 1px solid #808080;
       display: flex;
@@ -302,9 +302,9 @@ export default {
       .navBarTitle {
         height: 100%;
         width: fit-content;
-        line-height: 70px;
-        font-size: 36px;
-        margin-right: 20px;
+        line-height:calc(100vh / 1080 * 70);
+        font-size: 28px;
+        margin-right:calc(100vw / 1920 * 30);
         cursor: pointer;
       }
     }
@@ -316,9 +316,9 @@ export default {
 }
 
 .rightSlide {
-  width: 950px;
-  height: 930px;
-  margin-left: 128px;
+  width:calc(100vw / 1920 * 950);
+  height: calc(100vh / 1080 * 1000);
+  margin-left:calc(100vw / 1920 * 128);
   display: inline-block;
 }
 </style>

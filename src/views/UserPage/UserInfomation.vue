@@ -72,46 +72,46 @@ export default {
   height: 100%;
   background-image: url("../../assets/images/background/用户信息背景.png");
   background-size: contain;
-  border: 2px solid #808080;
+  border: 1px solid #808080;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   .upper {
-    margin-top: 60px;
-    width: 590px;
+    margin-top:calc(100vh / 1080 * 60);
+    width:calc(var(--widthRate) * 590);
     display: flex;
     flex-direction: column;
     align-items: center;
     .userName {
-      margin-top: 30px;
-      font-size: 36px;
-      height: 45px;
-      max-width: 600px;
+      margin-top:calc(100vh / 1080 * 30);
+      font-size: 30px;
+      height:calc(var(--heightRate) * 65);
+      max-width:calc(var(--widthRate) * 600);
       line-height: 45px;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
     .shortInfo {
-      margin-top: 10px;
+      margin-top: calc(var(--heightRate) * 10);
       font-size: 24px;
-      height: 30px;
+      height: calc(var(--heightRate) * 30);
       width: fit-content;
       line-height: 30px;
     }
   }
 
   .middle {
-    width: 410px;
-    height: 250px;
+    width:calc(var(--widthRate) * 410);
+    height:calc(100vh / 1080 * 250);
     margin-top: 68px;
     font-size: 24px;
     display: flex;
     flex-direction: column;
     .shortInfo {
-      margin-top: 10px;
+      margin-top:calc(var(--heightRate) * 10);
       font-size: 24px;
       height: 30px;
       width: fit-content;

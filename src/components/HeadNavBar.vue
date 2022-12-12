@@ -216,6 +216,7 @@ export default {
 }
 
 .navSearchBar {
+
   margin-left: calc(var(--widthRate) * 300.89);
 }
 

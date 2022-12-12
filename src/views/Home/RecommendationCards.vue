@@ -12,7 +12,7 @@
               </div>
               <div class="BriefContentArea">
                 <p class="BriefContent">
-                    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+                    to connect again 22:05
                 </p>
               </div>
               <div class="ImageGroup">
@@ -42,7 +42,7 @@
               </div>
               <div class="BriefContentArea">
                 <p class="BriefContent">
-                    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+                   test second 
                 </p>
               </div>
               <div class="ImageGroup">
@@ -103,25 +103,25 @@ export default {
 
   methods: {
     toPostPage() {
-         this.$router.push({ name: "postContent" });
-    }
+      this.$router.push({ name: "postContent" });
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .RecommendationCards {
-  width: 580px;
-  height: 678px;
-  margin-top: 15px;
-  margin-left: 41px;
+  width: calc(1536px / 1920px * 580px);
+  height: calc(100vh / 1080px * 678px);
+  margin-top: calc(100vh / 1080px * 15px);
+  margin-left: calc(1536px / 1920px * 41px);
   cursor: pointer;
 
   .RecommendationCard {
-    width: 563px;
-    height: 203px;
-    margin-left: 17px;
-    margin-top: 14px;
+    width: calc(1536px / 1920px * 563px);
+    height: calc(100vh / 1080px * 233px);
+    margin-left: calc(1536px / 1920px *  17px);
+    margin-top: calc(100vh / 1080px * 34px);
     margin-bottom: 23px;
     color: #808080;
     display: flex;
@@ -134,30 +134,30 @@ export default {
       display: flex;
 
       .title {
-        max-width: 445px;
-        height: 22px;
+        max-width:calc(1536px / 1920px * 445px);
+        height: calc(100vh / 1080px * 22px);
         font-size: 14px;
         font-weight: 600;
         overflow: hidden;
         text-overflow: ellipsis;
-        margin-right: 15px;
+        margin-right:calc(1536px / 1920px * 15px);
         color: #808080;
       }
       .EliteTag,
       .HotTag,
       .TopTag {
-        width: 30px;
-        height: 20px;
-        margin-right: 5px;
+        width:calc(1536px / 1920px * 30px);
+        height: calc(100vh / 1080px * 25px);
+        margin-right: calc(1536px / 1920px * 5px);
       }
     }
 
     .PostTags {
-      margin-top: 8px;
-      margin-bottom: 8px;
+      margin-top:  calc(100vh / 1080px * 8px);
+      margin-bottom:  calc(100vh / 1080px * 8px);
       .PostTag {
-        width: 70px;
-        height: 15px;
+        width:calc(1536px / 1920px * 70px);
+        height: calc(100vh / 1080px * 24px);
         background-color: #01d1bb;
         border-radius: 15px;
         color: #ffffff;
@@ -167,8 +167,8 @@ export default {
     }
 
     .BriefContentArea {
-      width: 560px;
-      height: 22px;
+      width:calc(1536px / 1920px * 560px);
+      height: calc(100vh / 1080px * 25px);
 
       .BriefContent {
         font-size: 14px;
@@ -180,44 +180,45 @@ export default {
     }
 
     .ImageGroup {
-      height: 100px;
-      margin-top: 2px;
+      height: calc(100vh / 1080px * 100px);
+      margin-top: calc(100vh / 1080px * 2px);
       .CardImage {
-        width: 152px;
-        height: 100%;
-        margin-right: 7px;
+        width:calc(1536px / 1920px * 152px);
+        height:100%;
+        margin-right:  calc(100vh / 1080px * 7px);
       }
     }
 
     .PublisherArea {
       display: flex;
-      margin-top: 2px;
+      margin-top:  calc(100vh / 1080px * 5px);
       align-items: center;
       font-family: "HarmonyOS_Sans_SC_Thin";
       .SmallAvatar {
-        margin-right: 5px;
+        margin-right:calc(1536px / 1920px * 5px);
       }
 
       p {
-        margin-right: 5px;
-        margin-left: 5px;
+        margin-right:calc(1536px / 1920px * 5px);
+        margin-left:calc(1536px / 1920px * 5px);
+        font-size:14px;
       }
 
       #PubName {
-        max-width: 200px;
+        max-width:calc(1536px / 1920px * 200px);
         text-overflow: ellipsis;
         overflow: hidden;
       }
 
       #noMargin {
-        margin-left: 5px;
+        margin-left:calc(1536px / 1920px * 5px);
       }
 
       #eye {
-        width: 16px;
-        height: 16px;
-        margin-right: 5px;
-        margin-left: 5px;
+        width:calc(1536px / 1920px * 16px);
+        height: calc(100vh / 1080px * 16px);
+        margin-right:calc(1536px / 1920px * 5px);
+        margin-left:calc(1536px / 1920px * 5px);
       }
     }
   }

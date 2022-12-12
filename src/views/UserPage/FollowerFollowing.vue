@@ -46,7 +46,7 @@ export default {
   height: 100%;
   background-image: url("../../assets/images/background/fo背景.png");
   background-size: contain;
-  border: 2px solid #808080;
+  border: 1px solid #808080;
   border-radius: 10px;
 
   .nav {

@@ -1,6 +1,7 @@
 <template>
   <div class="HotSection">
-    <img src="../../assets/images/label_head/HotTag.png" alt="" id="HotTag" />
+    <img src="../../assets/images/label_head/HotTag.png" 
+    alt="" id="HotTag" />
     <div class="HotSectionContent">
       <div
         class="HotSectionCard"
@@ -116,8 +117,8 @@ export default {
       cursor: pointer;
 
       img {
-        width: calc(var(--heightRate) * 80);
-        height: calc(var(--heightRate) * 80);
+        width: calc(var(--heightRate) * 100);
+        height: calc(var(--heightRate) * 100);
         margin-right: calc(var(--widthRate) * 20);
         border-radius: calc(var(--heightRate) * 10);
       }
@@ -129,7 +130,8 @@ export default {
 
         .title {
           font-family: "HarmonyOS_Sans_SC_Regular";
-          font-size: 18px;
+          font-size: 14px;
+          font-weight:bold;
           color: #808080;
         }
 

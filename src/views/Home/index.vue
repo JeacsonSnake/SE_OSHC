@@ -12,7 +12,7 @@
       <div class="BulletinBoard">
         <img src="../../assets/images/label_head/公告标签.png" alt="" id="BulletinTag" />
         <div class="BulletinContent">
-          <p>sssssssssssssss</p>
+          <p>push to devA ,try connect</p>
         </div>
       </div>
       <RecommendationsRankings></RecommendationsRankings>
@@ -55,20 +55,22 @@ export default {
 }
 
 .leftSlide {
-  width: 325px;
-  height: 935px;
+  width:  calc(1536px / 1920px * 325px);
+  height: calc(100vh / 1080px * 935px);
   display: inline-block;
-  margin-left: 213px;
+
+  margin-left: calc(1536px / 1920px * 214px);
   #WebIconImage {
     width: 100%;
-    height: fit-content;
+    height:fit-content;
   }
 }
 
 .rightSlide {
-  width: 1080px;
-  height: 938px;
-  margin-left: 107px;
+  width: calc(1536px / 1920px * 1080px);
+  height: calc(100vh / 1080px * 1038px);
+  // margin-top:calc(100vh / 1080px * 115px);
+  margin-left: calc(1536px / 1920px * 107px);
   display: inline-block;
   border: 1px solid #808080;
   box-sizing: border-box;
@@ -78,21 +80,22 @@ export default {
 
 .BulletinBoard {
   position: relative;
-  width: 1000px;
-  height: 26px;
+  width: calc(1536px / 1920px * 1000px);
+  height:  calc(100vh / 1080px * 39px);
   border: 1px solid #808080;
   border-radius: 10px;
   box-sizing: border-box;
-  margin-left: 40px;
-  margin-top: 37px;
-  margin-bottom: 25px;
+  margin-left:calc(1536px / 1920px * 40px);
+  margin-top: calc(100vh / 1080px * 37px);
+  margin-bottom: calc(100vh / 1080px * 25px);
   #BulletinTag {
     position: absolute;
-    left: 0%;
-    top: -5%;
+    left: -0.5%;
+    top: -3%;
   }
 
   .BulletinContent {
+    height:50px;
   }
 }
 

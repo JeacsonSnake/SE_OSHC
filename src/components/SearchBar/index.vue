@@ -33,7 +33,9 @@
           :type="search.type"
           @click="searchHandler(search.name)"
           @close="closeHandler(search)"
-          style="margin-right: 5px; margin-bottom: 5px; cursor: pointer"
+          style="margin-right: 5px; 
+          margin-bottom: 5px; 
+          cursor: pointer"
           >{{ search.name }}</el-tag
         >
         <dt class="search-title">热门搜索</dt>
@@ -153,10 +155,10 @@ export default {
 }
 
 #searchBtn {
-  width: 81px;
+  width: calc(1536px / 1920px * 81px);
   font-size: 30px;
   height: 40px;
-  margin: -6px -21px;
+  margin:-6px -21px;
   padding: 0 20px;
   background-color: #00bdc8;
   color: rgb(232, 240, 243);
@@ -168,8 +170,8 @@ export default {
   position: fixed;
   z-index: 15;
   width: 100%;
-  width: 641px;
-  height: 300px;
+  width: calc(1536px / 1920px * 641px);
+  height: calc(100vh / 1080px * 300px) ;
   margin-top: 0px;
   padding-bottom: 20px;
 }
@@ -184,7 +186,7 @@ export default {
   color: #bdbaba;
   font-size: 15px;
   float: right;
-  margin-top: -2px;
+  margin-top:  -calc(100vh / 1080px * 2px);
   cursor: pointer;
 }
 </style>
