@@ -41,19 +41,20 @@ export default {
   height: 100%;
   background-image: url("../../assets/images/background/fo背景.png");
   background-size: contain;
-  border: 2px solid #808080;
+  border: 1px solid #808080;
   border-radius: 10px;
 
   .nav {
-    width: 950px;
-    height: 75px;
+  width:calc(100vw / 1920 * 950);
+  height:75px;
+    // width: 950px;
+    // height: 75px;
     border-bottom: 0.4px solid #808080;
     .navMenu {
-      width: 140px;
-      height: 60px;
-      margin-top: 15px;
-      margin-left: 30px;
-      margin-bottom: 15px;
+      width:140px;
+      height:60px;
+      margin-left:30px;
+      margin-bottom:35px;
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="following">
     <div class="followCard">
-      <el-avatar :size="60" :src="circleUrl" class="Avatar"></el-avatar>
+      <el-avatar :size="50" :src="circleUrl" class="Avatar"></el-avatar>
       <div class="followInfo">
         <p class="followName">Feaidn</p>
         <p class="briefContent">asdfghkjhgtreghjhgfds</p>
@@ -10,7 +10,7 @@
     </div>
 
     <div class="followCard">
-      <el-avatar :size="60" :src="circleUrl" class="Avatar"></el-avatar>
+      <el-avatar :size="50" :src="circleUrl" class="Avatar"></el-avatar>
       <div class="followInfo">
         <p class="followName">Feaidn</p>
         <p class="briefContent">asdfghkjhgtreghjhgfds</p>
@@ -19,7 +19,7 @@
     </div>
 
     <div class="followCard">
-      <el-avatar :size="60" :src="circleUrl" class="Avatar"></el-avatar>
+      <el-avatar :size="50" :src="circleUrl" class="Avatar"></el-avatar>
       <div class="followInfo">
         <p class="followName">Feaidn</p>
         <p class="briefContent">asdfghkjhgtreghjhgfds</p>
@@ -28,7 +28,7 @@
     </div>
 
     <div class="followCard">
-      <el-avatar :size="60" :src="circleUrl" class="Avatar"></el-avatar>
+      <el-avatar :size="50" :src="circleUrl" class="Avatar"></el-avatar>
       <div class="followInfo">
         <p class="followName">Feaidn</p>
         <p class="briefContent">asdfghkjhgtreghjhgfds</p>
@@ -37,7 +37,7 @@
     </div>
 
     <div class="followCard">
-      <el-avatar :size="60" :src="circleUrl" class="Avatar"></el-avatar>
+      <el-avatar :size="50" :src="circleUrl" class="Avatar"></el-avatar>
       <div class="followInfo">
         <p class="followName">Feaidn</p>
         <p class="briefContent">asdfghkjhgtreghjhgfds</p>
@@ -46,7 +46,7 @@
     </div>
 
     <div class="followCard">
-      <el-avatar :size="60" :src="circleUrl" class="Avatar"></el-avatar>
+      <el-avatar :size="50" :src="circleUrl" class="Avatar"></el-avatar>
       <div class="followInfo">
         <p class="followName">Feaidn</p>
         <p class="briefContent">asdfghkjhgtreghjhgfds</p>
@@ -55,7 +55,7 @@
     </div>
 
     <div class="followCard">
-      <el-avatar :size="60" :src="circleUrl" class="Avatar"></el-avatar>
+      <el-avatar :size="50" :src="circleUrl" class="Avatar"></el-avatar>
       <div class="followInfo">
         <p class="followName">Feaidn</p>
         <p class="briefContent">asdfghkjhgtreghjhgfds</p>
@@ -96,30 +96,30 @@ export default {
 
 <style lang="scss" scoped>
 .followCard {
-  width: 900px;
-  height: 80px;
-  margin-left: 27px;
-  margin-top: 20px;
+  width:calc(100vw / 1920 * 900);
+  height:calc(100vh / 1080 * 80);
+  margin-left:calc(100vw / 1920 * 27);
+  margin-top:calc(100vh / 1080 * 20);
   border-bottom: 0.4px solid #808080;
   display: flex;
   position: relative;
 
   .Avatar {
-    margin-left: 22px;
-    margin-right: 30px;
+  margin-left:calc(100vw / 1920 * 22);
+  margin-right:calc(100vw / 1920 * 30);
   }
 
   .followInfo {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 50px;
-    max-width: 600px;
+    height:calc(var(--heightRate) * 50);
+    max-width:calc(var(--widthRate) * 600);
     .followName {
       font-size: 24px;
       color: #1791cd;
       width: fit-content;
-      margin-bottom: 5px;
+      margin-bottom:calc(100vh / 1080 * 5);
     }
 
     .briefContent {
@@ -130,17 +130,17 @@ export default {
   }
 
   .followBtn {
-    height: 47px;
-    width: 120px;
+    height:calc(100vh / 1080 * 47);
+    width:calc(100vw / 1920 * 120);
     position: absolute;
-    right: 0%;
-    top: 10%;
-    font-size: 20px;
+    right: 5%;
+    top: 8%;
+    font-size: 15px;
   }
 }
 
 .elPag {
-  margin-top: 70px;
+  margin-top:calc(100vh / 1080 * 70);
   display: flex;
   align-items: center;
   justify-content: center;
