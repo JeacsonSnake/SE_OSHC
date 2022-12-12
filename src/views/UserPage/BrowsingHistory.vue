@@ -22,7 +22,7 @@
                 <img src="../../assets/images/post_example/示例图3.png" alt="" class="CardImage" />
               </div>
               <div class="PublisherArea">
-                <el-avatar :size="18" :src="circleUrl"  class="SmallAvatar"></el-avatar>
+                <el-avatar :size="20" :src="circleUrl"  class="SmallAvatar"></el-avatar>
                 <p id="PubName">Rick Ashley</p>
                 <p>·</p>
                 <p id="PublishTime">三天前</p>
