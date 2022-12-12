@@ -134,7 +134,7 @@ export default {
 
     .RecommendationCard {
       width:calc(var(--widthRate) * 800px);
-      height:calc(100vh / 1080px * 210px);
+     height:calc(100vh / 1080px * 210px);
       margin-top: 20px;
       color: #808080;
       display: flex;
