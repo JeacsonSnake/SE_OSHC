@@ -23,6 +23,10 @@ export default {
     $route: "getAuth",
   },
 
+  mounted() {
+    this.getAuth();
+  },
+
   methods: {
     pushHomePage() {
       this.$router.push({
