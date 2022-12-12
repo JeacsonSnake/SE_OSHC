@@ -93,7 +93,7 @@ export default {
 
 .leftSlide {
   width:calc(100vw / 1920 * 410);
-  height:calc(100vh / 1080 * 980);
+  height:calc(100vh / 1080 * 1000);
   display: inline-block;
   margin-left:calc(100vw / 1920 * 213);
   background-color: #fff;
@@ -104,7 +104,7 @@ export default {
 
   .userBoard {
     width:calc(100vw / 1920 * 340);
-    height:calc(100vh / 1080 * 476);
+    height:calc(100vh / 1080 * 496);
     margin:0 auto;  //左右居中
     margin-top:calc(100vh / 1080 * 42);
     background-color: #c0ccd1;
@@ -214,7 +214,7 @@ export default {
 
 .rightSlide {
   width:calc(100vw / 1920 * 950);
-  height: calc(100vh / 1080 * 980);
+  height: calc(100vh / 1080 * 1000);
   margin-left:calc(100vw / 1920 * 128);
   display: inline-block;
 }
