@@ -1,80 +1,38 @@
 <template>
   <div class="follower">
-    <div class="followCard">
-      <el-avatar :size="50" :src="circleUrl" class="Avatar"></el-avatar>
-      <div class="followInfo">
-        <p class="followName">Feaidn</p>
-        <p class="briefContent">asdfghkjhgtreghjhgfds</p>
-      </div>
-      <el-button round class="followBtn">关注</el-button>
+    <div v-if="isEmpty">
+      <el-empty description="没有粉丝" :image-size="300"></el-empty>
     </div>
-
-    <div class="followCard">
-      <el-avatar :size="50" :src="circleUrl" class="Avatar"></el-avatar>
-      <div class="followInfo">
-        <p class="followName">Feaidn</p>
-        <p class="briefContent">asdfghkjhgtreghjhgfds</p>
+    <div v-else>
+      <div
+        class="followCard"
+        v-for="(item, index) in followerObjArr"
+        :key="index"
+      >
+        <el-avatar
+          :size="60"
+          :src="item.followerAvatar"
+          class="Avatar"
+        ></el-avatar>
+        <div class="followInfo">
+          <p class="followName">{{ item.followerName }}</p>
+          <p class="briefContent">{{ item.followerBrief }}</p>
+        </div>
+        <el-button round class="followBtn">关注</el-button>
       </div>
-      <el-button round class="followBtn">关注</el-button>
-    </div>
 
-    <div class="followCard">
-      <el-avatar :size="50" :src="circleUrl" class="Avatar"></el-avatar>
-      <div class="followInfo">
-        <p class="followName">Feaidn</p>
-        <p class="briefContent">asdfghkjhgtreghjhgfds</p>
-      </div>
-      <el-button round class="followBtn">关注</el-button>
+      <el-pagination
+        @current-change="handleCurrentChange"
+        :current-page.sync="followerObj.nowPage"
+        hide-on-single-page
+        :page-size="followerObj.showNum"
+        background
+        layout="prev, pager, next, jumper"
+        :total="followerObj.totalNum"
+        class="elPag"
+      >
+      </el-pagination>
     </div>
-
-    <div class="followCard">
-      <el-avatar :size="50" :src="circleUrl" class="Avatar"></el-avatar>
-      <div class="followInfo">
-        <p class="followName">Feaidn</p>
-        <p class="briefContent">asdfghkjhgtreghjhgfds</p>
-      </div>
-      <el-button round class="followBtn">关注</el-button>
-    </div>
-
-    <div class="followCard">
-      <el-avatar :size="50" :src="circleUrl" class="Avatar"></el-avatar>
-      <div class="followInfo">
-        <p class="followName">Feaidn</p>
-        <p class="briefContent">asdfghkjhgtreghjhgfds</p>
-      </div>
-      <el-button round class="followBtn">关注</el-button>
-    </div>
-
-    <div class="followCard">
-      <el-avatar :size="50" :src="circleUrl" class="Avatar"></el-avatar>
-      <div class="followInfo">
-        <p class="followName">Feaidn</p>
-        <p class="briefContent">asdfghkjhgtreghjhgfds</p>
-      </div>
-      <el-button round class="followBtn">关注</el-button>
-    </div>
-
-    <div class="followCard">
-      <el-avatar :size="50" :src="circleUrl" class="Avatar"></el-avatar>
-      <div class="followInfo">
-        <p class="followName">Feaidn</p>
-        <p class="briefContent">asdfghkjhgtreghjhgfds</p>
-      </div>
-      <el-button round class="followBtn">关注</el-button>
-    </div>
-
-    <el-pagination
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
-      :current-page.sync="currentPage3"
-      hide-on-single-page
-      :page-size="100"
-      background
-      layout="prev, pager, next, jumper"
-      :total="1000"
-      class="elPag"
-    >
-    </el-pagination>
   </div>
 </template>
 
@@ -86,10 +44,32 @@ export default {
     };
   },
 
+  computed: {
+    isEmpty() {
+      return this.$store.state.isFollowEmpty;
+    },
+    followerObj() {
+      return this.$store.state.followObj;
+    },
+    followerObjArr() {
+      return this.followerObj.followerObjArr;
+    },
+  },
+
   methods: {
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
     },
+  },
+
+  mounted() {
+    const userDetail = JSON.parse(window.localStorage.getItem("userDetail"));
+    const data = {
+      nowPage: this.$store.state.followObj.nowPage,
+      userId: userDetail.userId,
+    };
+
+    this.$store.dispatch("getFollowerArr", data);
   },
 };
 </script>
@@ -117,7 +97,7 @@ export default {
     max-width:calc(var(--widthRate) * 600);
     .followName {
       font-size: 24px;
-      color: #00BDC8;
+      color: #00bdc8;
       width: fit-content;
       margin-bottom:calc(100vh / 1080 * 5);
     }

@@ -2,12 +2,15 @@ import Vue from 'vue'
 import store from '../store'
 import VueRouter from 'vue-router'
 
+import PostRelease from '../views/PostRelease/index.vue'
 import Login from '../views/Login/index.vue'
 import HomePage from '../views/Home/index.vue'
 import Register from '../views/Register/index.vue'
 import UserPage from '../views/UserPage/index.vue'
 import MyPost from '../views/UserPage/MyPost.vue'
 import SearchPage from '../views/SearchPage/index.vue'
+import testPage from '../views/testPage/index.vue'
+import TagPage from '../views/TagPage/index.vue'
 import Follower from '../views/UserPage/Follower.vue'
 import PostContent from '../views/PostContent/index.vue'
 import Following from '../views/UserPage/Following.vue'
@@ -90,13 +93,35 @@ const routes = [
         name: 'searchPage',
         path: '/search',
         component: SearchPage,
-        meta: { noSearch: true }
+        meta: { noSearch: true, needAuth: true }
+    },
+
+    {
+        name: 'testPage',
+        path: '/test',
+        component: testPage,
+        // meta:{needAuth: true},
     },
 
     {
         name: 'postContent',
         path: '/post',
         component: PostContent,
+        meta:{needAuth: true},
+    },
+
+    {
+        name: 'PostRelease',
+        path: '/release',
+        component: PostRelease,
+        // meta:{needAuth: true},
+    },
+
+    {
+        name: 'tagPage',
+        path: '/tag',
+        component: TagPage,
+        // meta:{needAuth: true},
     },
 ]
 
@@ -117,14 +142,29 @@ router.beforeEach((to, from, next) => {
         store.commit('CHANGEBAR', true);
     }
 
+    // if (to.name === "loginPage") {
+    //     window.localStorage.setItem("refresh",'1');
+    // }
+
+    // if (from.name === "loginPage") {
+    //     if (window.localStorage.getItem("refresh") === "1") {
+    //         router.go();
+    //         window.localStorage.setItem("refresh",'0');
+    //     }
+    // }
+
     if (to.meta.noSearch) {
         store.commit('CHANGESEARCH', false);
     } else {
         store.commit('CHANGESEARCH', true);
     }
 
-    if (window.sessionStorage.getItem("token")) {
+    if (window.localStorage.getItem("user")) {
+        // console.log(`store.state.isAuth`, store.state.isAuth);
         store.commit('SETAUTH', true);
+        // console.log(`store.state.isAuth change`, store.state.isAuth);
+    } else {
+        // console.log(`store.state.isAuth no change`, store.state.isAuth);
     }
 
     // if(Vue.prototype.$httpRequestList.length>0){       //检查是否有需要中断的请求
@@ -132,22 +172,22 @@ router.beforeEach((to, from, next) => {
     //       item('interrupt');    
     //   })
     // }
-        next();
-    // if (!to.meta.needAuth) {
-    //     next();       
-    // } else {
-    //     if (store.state.isAuth) {
-    //         next();
-    //     } else {
-    //         alert("需要登录才可以进行后续操作!!");
-    //         next({
-    //             path: '/login',
-    //             query: {
-    //                 redirect: to.fullPath
-    //             }
-    //         })
-    //     }
-    // }
+        // next();
+    if (!to.meta.needAuth) {
+        next();       
+    } else {
+        if (store.state.isAuth) {
+            next();
+        } else {
+            alert("需要登录才可以进行后续操作!!");
+            next({
+                path: '/login',
+                query: {
+                    redirect: to.fullPath
+                }
+            })
+        }
+    }
 })
 
 export default router

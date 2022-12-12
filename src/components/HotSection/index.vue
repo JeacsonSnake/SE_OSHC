@@ -7,6 +7,7 @@
         class="HotSectionCard"
         v-for="(HotSection, i) in HotSectionData"
         :key="HotSection.id"
+        @click="toTagPage()"
       >
         <img :src="HotSection.imgUrl" alt="" />
         <div class="HotSectionInfo">
@@ -76,51 +77,57 @@ export default {
     timeAgo(val) {
       return timeago(val);
     },
+
+    toTagPage() {
+      this.$router.push({ name: "tagPage" });
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .HotSection {
-  margin-top: calc(100vh / 1080px * 20px);
+  margin-top: calc(var(--heightRate) * 20);
   display: flex;
   flex-direction: column;
 
   #HotTag {
-    width: fit-content;
+    width: calc(var(--widthRate) * 215);
     height: fit-content;
   }
 
   .HotSectionContent {
     width: 100%;
-    height: calc(100vh / 1080px * 751px);
-    border: 1px solid #808080;
+    height: calc(var(--heightRate) * 750);
+    border: calc(var(--heightRate) * 1) solid #808080;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    border-radius: 0 20px 20px 20px;
+    border-radius: 0 calc(var(--heightRate) * 10) calc(var(--heightRate) * 10)
+      calc(var(--heightRate) * 10);
     background-color: #ffffff;
     display: flex;
+
     .HotSectionCard {
-      height: calc(100vh / 1080px * 85px);
-      margin-top: calc(100vh / 1080px * 35px);
-      margin-bottom: calc(100vh / 1080px * 10px);
-      margin-left: calc(1536px / 1920px * 32px);
+      height: calc(var(--heightRate) * 85);
+      margin-top: calc(var(--heightRate) * 30);
+      margin-left: calc(var(--widthRate) * 30);
       display: flex;
       flex-direction: row;
+      cursor: pointer;
+
       img {
-        width: calc(var(--widthRate) * 100px);
-        height: calc(100vh / 1080px * 100px);
-        // margin-top:calc(100vh / 1080px * 10px);
-        // padding-top:calc(100vh / 1080px * 10px);
-        margin-right: calc(1536px / 1920px * 20px);
-        border-radius: 5px;
+        width: calc(var(--heightRate) * 100);
+        height: calc(var(--heightRate) * 100);
+        margin-right: calc(var(--widthRate) * 20);
+        border-radius: calc(var(--heightRate) * 10);
       }
 
       .HotSectionInfo {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+
         .title {
           font-family: "HarmonyOS_Sans_SC_Regular";
           font-size: 14px;

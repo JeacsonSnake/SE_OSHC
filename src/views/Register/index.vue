@@ -32,10 +32,17 @@
             ></el-input>
           </el-form-item>
           <el-form-item
-            label="密码"
-            prop="pass"
-            style="margin-bottom: calc(100vh / 1080px * 25px)"
+            label="邮箱"
+            prop="userEmail"
+            style="margin-bottom: 35px"
           >
+            <el-input
+              type="text"
+              v-model="ruleForm.userEmail"
+              autocomplete="off"
+            ></el-input>
+          </el-form-item>
+          <el-form-item label="密码" prop="pass" style="calc(100vh / 1080px * 35px)">
             <el-input
               type="password"
               v-model="ruleForm.pass"
@@ -94,6 +101,14 @@ export default {
       }
     };
 
+    const validateUserEmail = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("请输入用户邮箱"));
+      } else {
+        callback();
+      }
+    };
+
     const validatePass = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("请输入密码"));
@@ -118,6 +133,7 @@ export default {
     return {
       ruleForm: {
         userName: "",
+        userEmail: "",
         pass: "",
         checkPass: "",
         check: false,
@@ -128,6 +144,7 @@ export default {
           { validator: validateUserName, trigger: "blur" },
           { min: 2, max: 8, message: "长度在 2 到 8 个字符", trigger: "blur" },
         ],
+        userEmail: [{ validator: validateUserEmail, trigger: "blur" }],
         pass: [{ validator: validatePass, trigger: "blur" }],
         checkPass: [{ validator: validatePass2, trigger: "blur" }],
       },
@@ -139,7 +156,8 @@ export default {
         this.$refs.ruleForm.validate(async (valid) => {
           if (valid) {
             const v = {
-              username: this.$refs.ruleForm.model.userName,
+              userName: this.$refs.ruleForm.model.userName,
+              userEmail: this.$refs.ruleForm.model.userEmail,
               password: this.$refs.ruleForm.model.pass,
             };
             await this.$store.dispatch("regist", v);
@@ -147,7 +165,7 @@ export default {
             if (repeat) {
               this.$nextTick(() => {
                 this.$message({
-                  message: "该用户名已存在！！",
+                  message: "该用户邮箱已存在！！",
                   type: "error",
                 });
                 this.$store.commit("ISREPEAT", false);
@@ -218,6 +236,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 
   .goBack {
     width: calc(1536px / 1920px * 150px);
@@ -264,6 +283,26 @@ a {
       font-size: 24px;
     }
 
+    .checkAttr {
+      ::v-deep() .el-checkbox {
+        vertical-align: super;
+        
+        .el-checkbox__input.is-checked .el-checkbox__inner,
+        .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+          background-color: #00c4c3;
+          border-color: #00c4c3;
+        }
+
+        .el-checkbox__inner:hover {
+          border-color: #00c4c3;
+        }
+
+        .el-checkbox__input.is-checked + .el-checkbox__label {
+          color: #00c4c3;
+        }
+      }
+    }
+
     .loginBtns {
       background-color: #00bdc8;
       width: calc(1536px / 1920px * 180px);
@@ -274,6 +313,7 @@ a {
       left: 10%;
       width: calc(1536px / 1920px * 180px);
       margin-right: calc(1536px / 1920px * 40px);
+
     }
     .clearBtns:hover,
     .clearBtns:focus {

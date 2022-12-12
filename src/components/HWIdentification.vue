@@ -54,7 +54,7 @@
 
     <span slot="footer" class="dialog-footer">
       <el-button @click="handleClose()">取消识别</el-button>
-      <el-button type="primary" @click="HWIdentification(false)"> 确 定 </el-button>
+      <el-button type="primary" @click="HWI(false)"> 确 定 </el-button>
     </span>
   </el-dialog>
 </template>
@@ -86,7 +86,7 @@ export default {
   },
 
   methods: {
-    HWIdentification(value) {
+    HWI(value) {
       this.$store.commit("HWIDENTIFICATION", value);
     },
 

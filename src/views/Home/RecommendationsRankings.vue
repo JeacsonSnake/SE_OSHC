@@ -24,7 +24,7 @@
 
 <script>
 import RankingList from './RankingList.vue';
-import RecommendationCards from './RecommendationCards.vue';
+import RecommendationCards from '../../components/RecommendationCards.vue';
 export default {
   components: { RankingList, RecommendationCards },
 

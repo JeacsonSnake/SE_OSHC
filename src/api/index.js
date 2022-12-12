@@ -1,116 +1,167 @@
 //API接口统一管理点
-import requests from "./request";
+import {requests, mockRequests, imgRequests} from "./request";
 import Vue from 'vue'
 import axios from "axios";
 
-export const findSellingGood = (params) => {
-    //发请求
-    return requests({
-        url: '#',
-        method: 'get',
-        params,
-        cancelToken: new axios.CancelToken(c => {          
-        Vue.prototype.$httpRequestList.push(c);    //中断请求时,将对应中断方法存进集合
-      })
-    })
-}
+// export const findSellingGood = (params) => {
+//     //发请求
+//     return requests({
+//         url: '#',
+//         method: 'get',
+//         params,
+//         cancelToken: new axios.CancelToken(c => {          
+//         Vue.prototype.$httpRequestList.push(c);    //中断请求时,将对应中断方法存进集合
+//       })
+//     })
+// }
 
-export const searchGood = (value) => {
+// export const searchGood = (value) => {
+//     //发请求
+//     return requests({
+//         url: '#',
+//         method: 'get',
+//         params: {
+//             goodDescrip: value
+//         }
+//     })
+// }
+
+// export const searchUserByID = (value) => {
+//     //发请求
+//     return requests({
+//         url: '#',
+//         method: 'get',
+//         params: {
+//             userId: value,
+//         }
+//     })
+// }
+
+// export const searchSellerGoods = (value) => {
+//     //发请求
+//     return requests({
+//         url: '#',
+//         method: 'get',
+//         params: {
+//             sellerId: value,
+//         }
+//     })
+// }
+
+// export const searchBuyerGoods = (value) => {
+//     //发请求
+//     return requests({
+//         url: '#',
+//         method: 'get',
+//         params: {
+//             buyerId: value,
+//         }
+//     })
+// }
+
+// export const searchGoodByID = (value) => {
+//     return requests({
+//         url: '#',
+//         method: 'get',
+//         params: {
+//             userId: value.userId,
+//             goodId: value.goodId,
+//         }
+//     })
+// }
+
+// export const findHistory = (value) => {
+//     //发请求
+//     return requests({
+//         url: '#',
+//         method: 'get',
+//         params: {
+//             userId: value,
+//         }
+//     })
+// }
+
+// export const findCollect = (value) => {
+//     //发请求
+//     return requests({
+//         url: '#',
+//         method: 'get',
+//         params: {
+//             userId: value,
+//         }
+//     })
+// }
+
+export const registerApi = (value) => {
     //发请求
     return requests({
-        url: '#',
-        method: 'get',
+        url: 'user/register',
+        method: 'post',
         params: {
-            goodDescrip: value
+            useremail: value.userEmail,
+            password: value.password,
+            username: value.userName
         }
     })
 }
 
-export const searchUserByID = (value) => {
-    //发请求
-    return requests({
-        url: '#',
-        method: 'get',
+// export const loginApi = (value) => {
+//     return requests({
+//         url: 'user/login',
+//         method: 'post',
+//         params: {
+//             useremail: value.userEmail,
+//             password: value.password
+//         }
+//     })
+// }
+
+export const loginApi = (value) => {
+    return mockRequests({
+        url: 'http://127.0.0.1:4523/m1/1325294-0-default/user/login',
+        method: 'post',
         params: {
-            userId: value,
+            useremail: value.userEmail,
+            password: value.password
         }
     })
 }
 
-export const searchSellerGoods = (value) => {
-    //发请求
-    return requests({
-        url: '#',
+
+export const test = (value) => {
+    return mockRequests({
+        url: 'api/news',
         method: 'get',
-        params: {
-            sellerId: value,
-        }
     })
 }
 
-export const searchBuyerGoods = (value) => {
-    //发请求
-    return requests({
-        url: '#',
-        method: 'get',
-        params: {
-            buyerId: value,
-        }
+export const imgUpload = (formdata) => {
+    console.log(`formdata.get("file")`, formdata.get("file"));
+    return imgRequests({
+        url: 'v2/upload',
+        method: 'post',
+        data: formdata
     })
 }
 
-export const searchGoodByID = (value) => {
-    return requests({
-        url: '#',
+export const followingApi = (value) => {
+    return mockRequests({
+        url: 'http://127.0.0.1:4523/m1/1325294-0-default/user/follow',
         method: 'get',
         params: {
             userId: value.userId,
-            goodId: value.goodId,
+            needPage: value.needPage
         }
     })
 }
 
-export const findHistory = (value) => {
-    //发请求
-    return requests({
-        url: '#',
+export const followerApi = (value) => {
+    return mockRequests({
+        url: 'http://127.0.0.1:4523/m1/1325294-0-default/user/fans',
         method: 'get',
         params: {
-            userId: value,
-        }
-    })
-}
-
-export const findCollect = (value) => {
-    //发请求
-    return requests({
-        url: '#',
-        method: 'get',
-        params: {
-            userId: value,
-        }
-    })
-}
-
-export const registerModule = (value) => {
-    //发请求
-    return requests({
-        url: '#',
-        method: 'post',
-        params: {
-            username: value.username,
-            password: value.password
-        }
-    })
-}
-
-export const loginModule = (value) => {
-    return requests({
-        url: '#',
-        method: 'post',
-        params: {
-            username: value.username,
-            password: value.password
+            userId: value.userId,
+            needPage: value.needPage
         }
     })
 }

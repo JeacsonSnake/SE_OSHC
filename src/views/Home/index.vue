@@ -23,12 +23,21 @@
 <script>
 import HotSection from "@/components/HotSection/index.vue";
 import RecommendationsRankings from './RecommendationsRankings.vue';
+import {test} from '../../api/index'
 export default {
 
   components: {
     HotSection,
     RecommendationsRankings,
   },
+
+  created() {
+    test().then((res) => {
+        console.log(res);
+    }).catch((err) => {
+        console.log(err);
+    })
+  }
 };
 </script>
 
@@ -39,10 +48,10 @@ export default {
 
 .homePage {
   background-color: #f2f2f2;
-  padding-top:calc(100vh / 1080px * 115px);
+  padding-top: calc(var(--heightRate) * 115);
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: calc(var(--heightRate) * 1080);
 }
 
 .leftSlide {
