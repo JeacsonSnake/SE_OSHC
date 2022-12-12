@@ -6,6 +6,7 @@
         class="HotSectionCard"
         v-for="(HotSection, i) in HotSectionData"
         :key="HotSection.id"
+        @click="toTagPage()"
       >
         <img :src="HotSection.imgUrl" alt="" />
         <div class="HotSectionInfo">
@@ -75,6 +76,10 @@ export default {
     timeAgo(val) {
       return timeago(val);
     },
+
+    toTagPage() {
+      this.$router.push({ name: "tagPage" });
+    },
   },
 };
 </script>
@@ -86,7 +91,7 @@ export default {
   flex-direction: column;
 
   #HotTag {
-    width: fit-content;
+    width: calc(var(--widthRate) * 215);
     height: fit-content;
   }
 
@@ -97,16 +102,19 @@ export default {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    border-radius: 0 calc(var(--heightRate) * 20) calc(var(--heightRate) * 20)
-      calc(var(--heightRate) * 20);
+    border-radius: 0 calc(var(--heightRate) * 10) calc(var(--heightRate) * 10)
+      calc(var(--heightRate) * 10);
     background-color: #ffffff;
     display: flex;
+
     .HotSectionCard {
       height: calc(var(--heightRate) * 85);
       margin-top: calc(var(--heightRate) * 30);
       margin-left: calc(var(--widthRate) * 30);
       display: flex;
       flex-direction: row;
+      cursor: pointer;
+
       img {
         width: calc(var(--heightRate) * 80);
         height: calc(var(--heightRate) * 80);
@@ -118,6 +126,7 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+
         .title {
           font-family: "HarmonyOS_Sans_SC_Regular";
           font-size: 18px;
