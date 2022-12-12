@@ -93,7 +93,7 @@ export default {
 
 .leftSlide {
   width:calc(100vw / 1920 * 410);
-  height:calc(100vh / 1080 * 930);
+  height:calc(100vh / 1080 * 950);
   display: inline-block;
   margin-left:calc(100vw / 1920 * 213);
   background-color: #fff;
@@ -199,9 +199,9 @@ export default {
       .navBarTitle {
         height: 100%;
         width: fit-content;
-        line-height: 70px;
-        font-size: 36px;
-        margin-right: 20px;
+        line-height:calc(100vh / 1080 * 70);
+        font-size: 28px;
+        margin-right:calc(100vw / 1920 * 30);
         cursor: pointer;
       }
     }
