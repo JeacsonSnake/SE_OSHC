@@ -20,7 +20,7 @@ export default {
   },
 
   watch: {
-    $route: "getAuth",
+    $route: "authAndReload",
   },
 
   mounted() {
@@ -46,7 +46,10 @@ export default {
         window.localStorage.removeItem("userDetail");
         this.$store.commit("SETAUTH", false);
       }
+    },
 
+    authAndReload() {
+      this.getAuth();
       if (this.$route.name === "homePage") {
         window.location.reload(); //监测到路由发生跳转时刷新一次页面
       }
