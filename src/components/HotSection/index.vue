@@ -109,7 +109,7 @@ export default {
     display: flex;
 
     .HotSectionCard {
-      height: calc(var(--heightRate) * 85);
+      height: calc(var(--heightRate) * 100);
       margin-top: calc(var(--heightRate) * 30);
       margin-left: calc(var(--widthRate) * 30);
       display: flex;

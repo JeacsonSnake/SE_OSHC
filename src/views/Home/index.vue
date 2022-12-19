@@ -55,39 +55,45 @@ export default {
 }
 
 .leftSlide {
-  width:  calc(1536px / 1920px * 325px);
-  height: calc(100vh / 1080px * 935px);
+  width:  calc(var(--widthRate) * 325);
+  height: calc(var(--heightRate) * 938);
   display: inline-block;
 
-  margin-left: calc(1536px / 1920px * 214px);
+  margin-left: calc(var(--widthRate) * 214);
   #WebIconImage {
     width: 100%;
     height:fit-content;
   }
+
+  ::v-deep() .HotSection {
+    .HotSectionContent {
+        height: calc(var(--heightRate) * 724);
+    }
+  }
 }
 
 .rightSlide {
-  width: calc(1536px / 1920px * 1080px);
-  height: calc(100vh / 1080px * 1038px);
+  width: calc(var(--widthRate) * 1080);
+  height: calc(var(--heightRate) * 938);
   // margin-top:calc(100vh / 1080px * 115px);
-  margin-left: calc(1536px / 1920px * 107px);
+  margin-left: calc(var(--widthRate) * 108);
   display: inline-block;
-  border: 1px solid #808080;
+  border: calc(var(--heightRate) * 1) solid #808080;
   box-sizing: border-box;
-  border-radius: 20px;
+  border-radius: calc(var(--heightRate) * 10);
   background-color: #ffffff;
 }
 
 .BulletinBoard {
   position: relative;
-  width: calc(1536px / 1920px * 1000px);
-  height:  calc(100vh / 1080px * 39px);
-  border: 1px solid #808080;
-  border-radius: 10px;
+  width: calc(var(--widthRate) * 1000);
+  height:  calc(var(--heightRate) * 39);
+  border: calc(var(--heightRate) * 1) solid #808080;
+  border-radius: calc(var(--heightRate) * 10);
   box-sizing: border-box;
-  margin-left:calc(1536px / 1920px * 40px);
-  margin-top: calc(100vh / 1080px * 37px);
-  margin-bottom: calc(100vh / 1080px * 25px);
+  margin-left:calc(var(--widthRate) * 40);
+  margin-top: calc(var(--heightRate) * 37);
+  margin-bottom: calc(var(--heightRate) * 25);
   #BulletinTag {
     position: absolute;
     left: -0.5%;

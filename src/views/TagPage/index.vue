@@ -1,4 +1,3 @@
-import HotSection from '@/components/HotSection/index.vue';
 <template>
   <div class="tagPage">
     <div class="tagInfoBlock">
