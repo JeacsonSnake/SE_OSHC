@@ -20,6 +20,7 @@ export default new Vuex.Store({
         showUserCard: false,
         isRepeat: false,
         isFollowEmpty: true,
+        postTag:"接口测试数据1",
         followObj: {
             "totalNum": "1",
             "totalPage": "1",

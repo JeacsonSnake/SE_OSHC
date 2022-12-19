@@ -117,12 +117,28 @@ export const registerApi = (value) => {
 // }
 
 export const loginApi = (value) => {
-    return mockRequests({
-        url: 'http://127.0.0.1:4523/m1/1325294-0-default/user/login',
+    return requests({
+        url: 'user/login',
         method: 'post',
         params: {
             useremail: value.userEmail,
             password: value.password
+        }
+    })
+}
+
+export const postCreateApi = (value) => {
+    return requests({
+        url: 'post/create',
+        method: 'post',
+        params: {
+            userId: value.userId,
+            tags: value.postTag,
+            title: value.postTitle,
+            contentHtml: value.contentHtml,
+            contentMark: value.contentMark,
+            imgUrlArr: value.imgUrlArr,
+            postBrief: value.postBrief
         }
     })
 }
@@ -146,7 +162,7 @@ export const imgUpload = (formdata) => {
 
 export const followingApi = (value) => {
     return mockRequests({
-        url: 'http://127.0.0.1:4523/m1/1325294-0-default/user/follow',
+        url: 'user/follow',
         method: 'get',
         params: {
             userId: value.userId,
@@ -157,7 +173,7 @@ export const followingApi = (value) => {
 
 export const followerApi = (value) => {
     return mockRequests({
-        url: 'http://127.0.0.1:4523/m1/1325294-0-default/user/fans',
+        url: 'user/fans',
         method: 'get',
         params: {
             userId: value.userId,
