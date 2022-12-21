@@ -2,7 +2,7 @@ import Vue from 'vue'
 import store from '../store'
 import VueRouter from 'vue-router'
 
-import PostRelease from '../views/PostRelease/index.vue'
+// import PostRelease from '../views/PostRelease/index.vue'
 import Login from '../views/Login/index.vue'
 import HomePage from '../views/Home/index.vue'
 import Register from '../views/Register/index.vue'
@@ -110,12 +110,12 @@ const routes = [
         meta:{needAuth: true},
     },
 
-    {
-        name: 'PostRelease',
-        path: '/release',
-        component: PostRelease,
-        // meta:{needAuth: true},
-    },
+    // {
+    //     name: 'PostRelease',
+    //     path: '/release',
+    //     component: PostRelease,
+    //     // meta:{needAuth: true},
+    // },
 
     {
         name: 'tagPage',
