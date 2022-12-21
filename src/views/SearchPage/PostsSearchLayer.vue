@@ -9,10 +9,11 @@
         :key="index"
       >
         <div class="grid-content bg-purple">
-
         </div>
       </el-col>
     </el-row>
+
+    <div>>1123</div>
     <el-empty description="无搜索结果" v-show="isEmpty"></el-empty>
   </div>
 </template>
@@ -82,10 +83,9 @@ export default {
 .postsSearchLayer {
   border-radius: 12px;
   height: auto;
-  min-height: 608px;
-  max-height: 830px;
-  width: 1190px;
-  margin-top: 50px;
+  min-height: calc(100vh / 1080px * 930px);
+  width: calc(1536px / 1920px * 1190px);
+  margin-top: calc(100vh / 1080px * 50px);
   border-radius: 12px;
   position: relative;
   display: flex;
@@ -94,9 +94,9 @@ export default {
 }
 
 .el-row {
-  margin-bottom: 20px;
+  margin-bottom: calc(100vh / 1080px * 20px);
   &:first-child {
-    margin-top: 30px;
+    margin-top: calc(100vh / 1080px * 30px);
   }
 
   &:last-child {
@@ -122,7 +122,7 @@ export default {
 }
 .grid-content {
   border-radius: 4px;
-  min-height: 36px;
+  min-height: calc(100vh / 1080px * 36px);
 }
 .row-bg {
   padding: 10px 0;
@@ -142,8 +142,8 @@ export default {
 
 .cardBottom {
   height: 100%;
-  margin-top: 13px;
-  line-height: 24px;
+  margin-top: calc(100vh / 1080px * 13px);
+  line-height: calc(100vh / 1080px * 24px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -170,14 +170,14 @@ export default {
 }
 
 .user {
-  height: 25px;
+  height:  calc(100vh / 1080px * 25px);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 #userName {
-  width: 100px;
+  width:calc(1536px / 1920px * 100px);
   min-width: 0;
   height: 100%;
   margin: 0 20px;
