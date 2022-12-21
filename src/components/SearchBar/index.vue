@@ -168,6 +168,7 @@ export default {
 
 #search-box {
   position: fixed;
+
   z-index: 15;
   width: 100%;
   width: calc(1536px / 1920px * 641px);

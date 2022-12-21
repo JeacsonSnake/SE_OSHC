@@ -1,20 +1,8 @@
 <template>
   <div class="postsSearchLayer">
-    <el-row :gutter="20" v-show="!isUpdate">
-      <el-col
-        :span="5"
-        class="LayerCol"
-        style="margin-top: 30px"
-        v-for="(Goods, index) in searchData"
-        :key="index"
-      >
-        <div class="grid-content bg-purple">
-        </div>
-      </el-col>
-    </el-row>
-
-    <div>>1123</div>
-    <el-empty description="无搜索结果" v-show="isEmpty"></el-empty>
+   <div v-for="(item,index) in getSearchData" :key="idnex">
+  {{item}}
+   </div>
   </div>
 </template>
 
@@ -25,7 +13,17 @@ export default {
       circleUrl:
         "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
       //   value: false,
-      searchData: [],
+      
+      searchSection:[""],
+      getSearchData: [
+        {user:"RICK_A",date:"三天前",postLabel:"#ESP32",views:"114514",
+        topic:"[新人必备] ESP32是个啥?全网最详细介绍ESP32!",brief:"ESP32DDDDDDDDDDDDDDDDDD"},
+        {user:"RICK_b",date:"三天前",postLabel:"#ESP32",views:"1919810",
+        topic:"[新人必备] ESP32是个啥?全网最详细介绍ESP32!",brief:"ESP32DDDDDDDDDDDDDDDDDD"},
+        {user:"RICK_c",date:"三天前",postLabel:"#ESP32",views:"114514",
+        topic:"[新人必备] ESP32是个啥?全网最详细介绍ESP32!",brief:"ESP32DDDDDDDDDDDDDDDDDD"},
+        {user:"RICK_d",date:"三天前",postLabel:"#ESP32",views:"114514",
+        topic:"[新人必备] ESP32是个啥?全网最详细介绍ESP32!",brief:"ESP32DDDDDDDDDDDDDDDDDD"},],
       isEmpty: false,
     };
   },
