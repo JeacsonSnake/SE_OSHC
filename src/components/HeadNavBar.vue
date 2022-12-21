@@ -13,7 +13,7 @@
 
       <div class="userDisplay">
         <div class="user" v-show="isAuth" @mouseover="userCardShow()">
-          <el-avatar :size="36" :src="circleUrl"></el-avatar>
+          <el-avatar :size="36" :src="circleUrl" style="border: calc(var(--heightRate) * 1) solid #808080;"></el-avatar>
           <span id="userName">{{ username }}</span>
         </div>
         <div class="userLogin" v-show="!isAuth">
@@ -239,14 +239,14 @@ export default {
 }
 
 .userDisplay {
-  width: calc(var(--widthRate) * 175);
+  width: calc(var(--widthRate) * 200);
   margin-left: calc(var(--widthRate) * 110);
   position: relative;
   .userCard {
     position: absolute;
     z-index: 2004;
     width: calc(var(--widthRate) * 280);
-    height: calc(var(--heightRate) * 490);
+    height: calc(var(--heightRate) * 566);
     background-color: #ffffff;
     left: -22%;
     top: -15%;
