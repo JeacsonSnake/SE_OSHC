@@ -22,10 +22,10 @@ export default new Vuex.Store({
         isFollowEmpty: true,
         postTag:"接口测试数据1",
         followObj: {
-            "totalNum": "1",
-            "totalPage": "1",
-            "nowPage": "1",
-            "showNum": "1",
+            "totalNum": 1,
+            "totalPage": 1,
+            "nowPage": 1,
+            "showNum": 1,
             "followingObjArr": [],
             "followerObjArr": []
         }
@@ -139,6 +139,8 @@ export default new Vuex.Store({
                         context.commit('ISFOLLOWEMPTY', false);
                         context.commit('SETFOLLOWOBJ',res.data);
                     }
+                } else if (res.code = 409) {
+                    context.commit('ISFOLLOWEMPTY', true);
                 }else {
                     throw 'Err!'
                 }
@@ -156,6 +158,8 @@ export default new Vuex.Store({
                         context.commit('ISFOLLOWEMPTY', false);
                         context.commit('SETFOLLOWOBJ',res.data);
                     }
+                }else if (res.code = 409) {
+                    context.commit('ISFOLLOWEMPTY', true);
                 }else {
                     throw 'Err!'
                 }

@@ -11,12 +11,12 @@
       >
         <el-avatar
           :size="60"
-          :src="item.followerAvatar"
+          :src="item.followAvatar"
           class="Avatar"
         ></el-avatar>
         <div class="followInfo">
-          <p class="followName">{{ item.followerName }}</p>
-          <p class="briefContent">{{ item.followerBrief }}</p>
+          <p class="followName">{{ item.followName }}</p>
+          <p class="briefContent">{{ item.followBrief }}</p>
         </div>
         <el-button round class="followBtn">关注</el-button>
       </div>

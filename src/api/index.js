@@ -161,23 +161,25 @@ export const imgUpload = (formdata) => {
 }
 
 export const followingApi = (value) => {
-    return mockRequests({
-        url: 'user/follow',
-        method: 'get',
+    return requests({
+        url: 'user/GetFollow',
+        method: 'post',
         params: {
             userId: value.userId,
-            needPage: value.needPage
+            page: value.needPage,
+            size: 7
         }
     })
 }
 
 export const followerApi = (value) => {
-    return mockRequests({
-        url: 'user/fans',
-        method: 'get',
+    return requests({
+        url: 'user/GetFollower',
+        method: 'post',
         params: {
             userId: value.userId,
-            needPage: value.needPage
+            page: value.needPage,
+            size: 7
         }
     })
 }

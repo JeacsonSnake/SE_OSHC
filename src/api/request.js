@@ -3,7 +3,7 @@ import axios from "axios";
 
 const requests = axios.create({
     //基础路径
-    baseURL: "http://y4825r8474.zicp.vip:56140/",
+    baseURL: "http://182.160.3.202:8081/",
     //请求超时时间： 5s
     // timeout: 5000,
     // headers: headers
