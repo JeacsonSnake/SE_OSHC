@@ -41,7 +41,7 @@ export default {
   padding-top: calc(100vh / 1080px * 115px) ;
   display: flex;
   width: 100%;
-  height: calc(100vh / 1080px * 1130px) ;
+  height: calc(100vh / 1080px * 1280px) ;
 
   .leftSlide {
     margin-left: calc(1536px / 1920px * 215px);
@@ -57,7 +57,7 @@ export default {
   .rightSlide {
     width: calc(1536px / 1920px * 305px);
     height: calc(100vh / 1080px * 590px) ;
-    margin-left: calc(1536px / 1920px * 120px);
+    margin-left: calc(1536px / 1920px * 100px);
   }
 }
 </style>
