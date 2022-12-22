@@ -38,15 +38,15 @@ export default {
   background-image: url("../../assets/images/background/搜素结果页背景.png");
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: calc(100vh / 1080px * 115px) ;
+  padding-top: calc(var(--heightRate) * 115) ;
   display: flex;
   width: 100%;
-  height: calc(100vh / 1080px * 1130px) ;
+  height: calc(var(--heightRate) * 1130) ;
 
   .leftSlide {
-    margin-left: calc(1536px / 1920px * 215px);
+    margin-left: calc(var(--widthRate) * 215);
     #searchRow {
-      width: calc(1536px / 1920px * 1190px);
+      width: calc(var(--widthRate) * 1190);
 
       &:focus {
         border: 0.5px solid #00bdc8;
@@ -55,9 +55,9 @@ export default {
   }
 
   .rightSlide {
-    width: calc(1536px / 1920px * 305px);
-    height: calc(100vh / 1080px * 590px) ;
-    margin-left: calc(1536px / 1920px * 120px);
+    width: calc(var(--widthRate) * 305);
+    height: calc(var(--heightRate) * 590) ;
+    margin-left: calc(var(--widthRate) * 120);
   }
 }
 </style>
