@@ -3,7 +3,7 @@ import axios from "axios";
 
 const requests = axios.create({
     //基础路径
-    baseURL: "http://192.168.0.105:8080/",
+    baseURL: "http://182.160.3.202:8081/",
     //请求超时时间： 5s
     // timeout: 5000,
     // headers: headers
@@ -33,7 +33,7 @@ export {requests}
 const mockRequests = axios.create({
     // 使用mock生成假的请求
     //基础路径
-    baseURL: "",
+    baseURL: "http://127.0.0.1:4523/m1/1325294-0-default/",
     //请求超时时间： 5s
     // timeout: 5000,
     // headers: headers

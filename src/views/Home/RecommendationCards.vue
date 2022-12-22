@@ -7,12 +7,9 @@
                 <img src="../../assets/images/label_head/热门_w30px.png" class="HotTag"></img>
                 <img src="../../assets/images/label_head/置顶_w30px.png" class="TopTag"></img>
               </div>
-              <div class="PostTags">
-                <div class="PostTag">#灌水区</div>
-              </div>
               <div class="BriefContentArea">
                 <p class="BriefContent">
-                    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+                    to connect again 22:05
                 </p>
               </div>
               <div class="ImageGroup">
@@ -28,8 +25,12 @@
                 <img src="../../assets/images/small_icon/icon_浏览量.png" alt="" id="eye">
                 <p id="noMargin">浏览量</p>
                 <p>2355</p>
+                <div class="PostTags">
+                    <div class="PostTag">#灌水区</div>
+                </div>
               </div>
     </div>
+
     <div class="RecommendationCard" @click="toPostPage()">
               <div class="TitleArea">
                 <p class="title">纯手工自制一个十六位RISC架构CPU</p>
@@ -37,12 +38,9 @@
                 <img src="../../assets/images/label_head/热门_w30px.png" class="HotTag"></img>
                 <img src="../../assets/images/label_head/置顶_w30px.png" class="TopTag"></img>
               </div>
-              <div class="PostTags">
-                <div class="PostTag">#灌水区</div>
-              </div>
               <div class="BriefContentArea">
                 <p class="BriefContent">
-                    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+                    to connect again 22:05
                 </p>
               </div>
               <div class="ImageGroup">
@@ -58,8 +56,12 @@
                 <img src="../../assets/images/small_icon/icon_浏览量.png" alt="" id="eye">
                 <p id="noMargin">浏览量</p>
                 <p>2355</p>
+                <div class="PostTags">
+                    <div class="PostTag">#灌水区</div>
+                </div>
               </div>
     </div>
+
     <div class="RecommendationCard" @click="toPostPage()">
               <div class="TitleArea">
                 <p class="title">纯手工自制一个十六位RISC架构CPU</p>
@@ -67,12 +69,9 @@
                 <img src="../../assets/images/label_head/热门_w30px.png" class="HotTag"></img>
                 <img src="../../assets/images/label_head/置顶_w30px.png" class="TopTag"></img>
               </div>
-              <div class="PostTags">
-                <div class="PostTag">#灌水区</div>
-              </div>
               <div class="BriefContentArea">
                 <p class="BriefContent">
-                    ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+                    to connect again 22:05
                 </p>
               </div>
               <div class="ImageGroup">
@@ -88,8 +87,12 @@
                 <img src="../../assets/images/small_icon/icon_浏览量.png" alt="" id="eye">
                 <p id="noMargin">浏览量</p>
                 <p>2355</p>
+                <div class="PostTags">
+                    <div class="PostTag">#灌水区</div>
+                </div>
               </div>
     </div>
+
   </div>
 </template>
 
@@ -103,75 +106,79 @@ export default {
 
   methods: {
     toPostPage() {
-         this.$router.push({ name: "postContent" });
-    }
+      this.$router.push({ name: "postContent" });
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .RecommendationCards {
-  width: 580px;
-  height: 678px;
-  margin-top: 15px;
-  margin-left: 41px;
+  width: calc(var(--widthRate) * 580);
+  height: calc(var(--heightRate) * 678);
+  margin-top: calc(var(--heightRate) * 15);
+  margin-left: calc(var(--widthRate) * 41);
   cursor: pointer;
 
+  &:last-child {
+   border-bottom: calc(var(--heightRate) * 0) solid #808080;
+  }
+
   .RecommendationCard {
-    width: 563px;
-    height: 203px;
-    margin-left: 17px;
-    margin-top: 14px;
-    margin-bottom: 23px;
+    width: calc(var(--widthRate) * 560);
+    height: calc(var(--heightRate) * 203);
+    margin-left: calc(var(--widthRate) * 17);
+    margin-bottom: calc(var(--heightRate) * 25);
     color: #808080;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    border-bottom: 1px solid #808080;
+    border-bottom: calc(var(--heightRate) * 1) solid #808080;
 
     .TitleArea {
       width: inherit;
       display: flex;
 
       .title {
-        max-width: 445px;
-        height: 22px;
-        font-size: 14px;
+        max-width: calc(var(--widthRate) * 445);
+        height: calc(var(--heightRate) * 22);
+        font-size: calc(var(--heightRate) * 14);
         font-weight: 600;
         overflow: hidden;
         text-overflow: ellipsis;
-        margin-right: 15px;
+        margin-right: calc(var(--widthRate) * 15);
         color: #808080;
       }
       .EliteTag,
       .HotTag,
       .TopTag {
-        width: 30px;
-        height: 20px;
-        margin-right: 5px;
+        width: calc(var(--widthRate) * 30);
+        height: calc(var(--heightRate) * 25);
+        margin-right: calc(var(--widthRate) * 5);
       }
     }
 
     .PostTags {
-      margin-top: 8px;
-      margin-bottom: 8px;
+      margin-top: calc(var(--heightRate) * 8);
+      margin-bottom: calc(var(--heightRate) * 8);
       .PostTag {
-        width: 70px;
-        height: 15px;
+        width: calc(var(--widthRate) * 70);
+        height: calc(var(--heightRate) * 24);
         background-color: #01d1bb;
-        border-radius: 15px;
+        border-radius: calc(var(--heightRate) * 15);
         color: #ffffff;
-        font-size: 10px;
-        margin-right: 4px;
+        font-size: calc(var(--heightRate) * 10);
+        margin-right: calc(var(--widthRate) * 4);
       }
     }
 
     .BriefContentArea {
-      width: 560px;
-      height: 22px;
+      width: calc(var(--widthRate) * 560);
+      height: calc(var(--heightRate) * 25);
+      display: flex;
 
       .BriefContent {
-        font-size: 14px;
+        font-size: calc(var(--heightRate) * 14);
         font-weight: 600;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -180,44 +187,45 @@ export default {
     }
 
     .ImageGroup {
-      height: 100px;
-      margin-top: 2px;
+      height: calc(var(--heightRate) * 100);
+      margin-top: calc(var(--heightRate) * 2);
       .CardImage {
-        width: 152px;
+        width: calc(var(--widthRate) * 152);
         height: 100%;
-        margin-right: 7px;
+        margin-right: calc(var(--heightRate) * 7);
       }
     }
 
     .PublisherArea {
       display: flex;
-      margin-top: 2px;
+      margin-top: calc(var(--heightRate) * 5);
       align-items: center;
       font-family: "HarmonyOS_Sans_SC_Thin";
       .SmallAvatar {
-        margin-right: 5px;
+        margin-right: calc(var(--widthRate) * 5);
       }
 
       p {
-        margin-right: 5px;
-        margin-left: 5px;
+        margin-right: calc(var(--widthRate) * 5);
+        margin-left: calc(var(--widthRate) * 5);
+        font-size: calc(var(--heightRate) * 14);
       }
 
       #PubName {
-        max-width: 200px;
+        max-width: calc(var(--widthRate) * 200);
         text-overflow: ellipsis;
         overflow: hidden;
       }
 
       #noMargin {
-        margin-left: 5px;
+        margin-left: calc(var(--widthRate) * 5);
       }
 
       #eye {
-        width: 16px;
-        height: 16px;
-        margin-right: 5px;
-        margin-left: 5px;
+        width: calc(var(--widthRate) * 16);
+        height: calc(var(--heightRate) * 16);
+        margin-right: calc(var(--widthRate) * 5);
+        margin-left: calc(var(--widthRate) * 5);
       }
     }
   }

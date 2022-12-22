@@ -37,6 +37,6 @@ export function timeago (time) {
     result = "刚刚"
   }
  
-  console.log(result)
+//   console.log(result)
   return result
 }

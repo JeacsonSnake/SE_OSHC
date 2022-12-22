@@ -16,14 +16,14 @@
           status-icon
           :rules="rules"
           ref="ruleForm"
-          label-width="65px"
+          label-width="70px"
           class="demo-ruleForm ElForm"
           size="large"
         >
           <el-form-item
             label="用户名"
             prop="userEmail"
-            style="margin-bottom: 35px"
+            style="margin-bottom: calc(var(--heightRate) * 35)"
           >
             <el-input
               type="text"
@@ -50,7 +50,6 @@
             <el-button
               round
               @click="resetForm('ruleForm')"
-              style="width: 180px"
               class="clearBtns btns"
               >清空</el-button
             >
@@ -119,13 +118,15 @@ export default {
               this.load = false;
             });
           } else {
-            this.$cookies.set("elecoCookies", "a8dg9as7a98efasbjsejtq49", {expires: "1h"});
+            this.$cookies.set("elecoCookies", "a8dg9as7a98efasbjsejtq49", {
+              expires: "1h",
+            });
             this.$message({
               message: "登陆成功！正在跳转至主页……",
               type: "success",
             });
             setTimeout(() => {
-                this.$router.push("/");
+              this.$router.push("/");
             }, 1000);
           }
         } else {
@@ -163,9 +164,9 @@ a {
 }
 
 #webImage {
-  width: 350px;
-  margin-top: 60px;
-  margin-bottom: 80px;
+  width: calc(var(--widthRate) * 350);
+  margin-top: calc(var(--heightRate) * 60);
+  margin-bottom: calc(var(--heightRate) * 80);
 }
 
 .cage {
@@ -173,47 +174,48 @@ a {
 }
 
 .login {
-  width: 900px;
-  height: 600px;
+  width: calc(var(--widthRate) * 900);
+  height: calc(var(--heightRate)  * 720);
   background-color: rgba(228, 228, 228, 0.66);
-  border-radius: 12px;
+  border-radius: calc(var(--heightRate)  * 12);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 
   .goBack {
-    width: 150px;
-    height: 45px;
-    margin-left: 10px;
-    margin-top: 10px;
-    font-size: 20px;
+    width: calc(var(--widthRate) * 150);
+    height: calc(var(--heightRate) * 45);
+    margin-left: calc(var(--widthRate) * 12);
+    margin-top: calc(var(--heightRate) * 10);
+    font-size: calc(var(--heightRate) * 18);
     color: #129fc6;
     display: flex;
-    letter-spacing: 5px;
+    letter-spacing: calc(var(--widthRate) * 5);
     align-items: center;
     justify-content: center;
   }
 
   .title {
-    width: 220px;
-    height: 102px;
-    font-size: 60px;
-    letter-spacing: 13px;
-    margin-bottom: 50px;
-    margin-top: 40px;
+    width: calc(var(--widthRate) * 220);
+    height: calc(var(--heightRate) * 102);
+    font-size: calc(var(--heightRate) * 80);
+    letter-spacing: calc(var(--widthRate) * 13);
+    margin-bottom: calc(var(--heightRate) * 20);
+    margin-top: calc(var(--heightRate) * -70);
     color: #00a8d5;
   }
 
   .form {
     width: 100%;
-    height: 190px;
+    height: calc(var(--heightRate) * 240);
     position: relative;
     display: flex;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: calc(var(--heightRate) * 50);
     .ElForm {
       position: absolute;
-      left: 19.7%;
+      left: 15.7%;
     }
 
     :deep() .el-form-item__label {
@@ -222,15 +224,20 @@ a {
     }
 
     .btns {
-      font-size: 24px;
+      font-size: calc(var(--heightRate) * 35);
     }
 
     .loginBtns {
       background-color: #00a8d5;
-      width: 180px;
-      margin-right: 40px;
+      width: calc(var(--widthRate) * 180);
+      margin-right: calc(var(--widthRate) * 40);
     }
-
+    .clearBtns {
+      position: relative;
+      left: 10%;
+      width: calc(var(--widthRate) * 180);
+      margin-right: calc(var(--widthRate) * 40);
+    }
     .clearBtns:hover,
     .clearBtns:focus {
       color: #cbdae4;

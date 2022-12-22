@@ -12,7 +12,7 @@
       <div class="BulletinBoard">
         <img src="../../assets/images/label_head/公告标签.png" alt="" id="BulletinTag" />
         <div class="BulletinContent">
-          <p>sssssssssssssss</p>
+          <p>push to devA ,try connect</p>
         </div>
       </div>
       <RecommendationsRankings></RecommendationsRankings>
@@ -55,44 +55,53 @@ export default {
 }
 
 .leftSlide {
-  width: 325px;
-  height: 935px;
+  width:  calc(var(--widthRate) * 325);
+  height: calc(var(--heightRate) * 938);
   display: inline-block;
-  margin-left: 213px;
+
+  margin-left: calc(var(--widthRate) * 214);
   #WebIconImage {
     width: 100%;
-    height: fit-content;
+    height:fit-content;
+  }
+
+  ::v-deep() .HotSection {
+    .HotSectionContent {
+        height: calc(var(--heightRate) * 724);
+    }
   }
 }
 
 .rightSlide {
-  width: 1080px;
-  height: 938px;
-  margin-left: 107px;
+  width: calc(var(--widthRate) * 1080);
+  height: calc(var(--heightRate) * 938);
+  // margin-top:calc(100vh / 1080px * 115px);
+  margin-left: calc(var(--widthRate) * 108);
   display: inline-block;
-  border: 1px solid #808080;
+  border: calc(var(--heightRate) * 1) solid #808080;
   box-sizing: border-box;
-  border-radius: 20px;
+  border-radius: calc(var(--heightRate) * 10);
   background-color: #ffffff;
 }
 
 .BulletinBoard {
   position: relative;
-  width: 1000px;
-  height: 26px;
-  border: 1px solid #808080;
-  border-radius: 10px;
+  width: calc(var(--widthRate) * 1000);
+  height:  calc(var(--heightRate) * 39);
+  border: calc(var(--heightRate) * 1) solid #808080;
+  border-radius: calc(var(--heightRate) * 10);
   box-sizing: border-box;
-  margin-left: 40px;
-  margin-top: 37px;
-  margin-bottom: 25px;
+  margin-left:calc(var(--widthRate) * 40);
+  margin-top: calc(var(--heightRate) * 37);
+  margin-bottom: calc(var(--heightRate) * 25);
   #BulletinTag {
     position: absolute;
-    left: 0%;
-    top: -5%;
+    left: -0.5%;
+    top: -3%;
   }
 
   .BulletinContent {
+    height:50px;
   }
 }
 
