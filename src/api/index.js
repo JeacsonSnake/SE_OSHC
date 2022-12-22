@@ -183,3 +183,40 @@ export const followerApi = (value) => {
         }
     })
 }
+
+export const hotTagApi = (value) => {
+    return requests({
+        url: 'tag/hotTag',
+        method: 'get'
+    })
+}
+
+export const getTagApi = (value) => {
+    return requests({
+        url: 'tag/get',
+        method: 'get',
+        params: {
+            tagId: value
+        }
+    })
+}
+
+export const getTagPostApi = (value) => {
+    return requests({
+        url: 'tag/posts',
+        method: 'get',
+        params: {
+            tagId: value
+        }
+    })
+}
+
+export const getPostApi = (value) => {
+    return requests({
+        url: 'post/info',
+        method: 'get',
+        params: {
+            postId: value
+        }
+    })
+}

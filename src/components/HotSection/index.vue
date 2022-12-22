@@ -6,16 +6,16 @@
       <div
         class="HotSectionCard"
         v-for="(HotSection, i) in HotSectionData"
-        :key="HotSection.id"
-        @click="toTagPage()"
+        :key="i"
+        @click="toTagPage(HotSection.tagId)"
       >
-        <img :src="HotSection.imgUrl" alt="" />
+        <img :src="HotSection.tagImg ? HotSection.tagImg : require('../../assets/images/tag_example/灌水.jpeg') " alt="" />
         <div class="HotSectionInfo">
-          <p class="title">{{ HotSection.title }}</p>
-          <p class="postNumber small">贴子数：{{ HotSection.postNumber }}</p>
-          <p class="hotview small">热度：{{ HotSection.hotView }}</p>
+          <p class="title">{{ HotSection.tagTitle }}</p>
+          <p class="postNumber small">贴子数：{{ HotSection.tagPostNum }}</p>
+          <p class="hotview small">热度：{{ HotSection.tagHot }}</p>
           <p class="lastReport small">
-            最新动态：{{ timeAgo(HotSection.lastReportTime) }}
+            最新动态：{{ timeAgo(HotSection.lastPostTime ? HotSection.lastPostTime : Date.now()) }}
           </p>
         </div>
       </div>
@@ -28,60 +28,69 @@ import { timeago } from "../../../utils/formatTime";
 export default {
   data() {
     return {
-      HotSectionData: [
-        {
-          id: 1,
-          title: "ARDUINO",
-          imgUrl: require("../../assets/images/tag_example/ARDUINO.jpg"),
-          postNumber: 200,
-          hotView: 2343,
-          lastReportTime: "2022-8-18 20:02:09",
-        },
-        {
-          id: 2,
-          title: "ARDUINO",
-          imgUrl: require("../../assets/images/tag_example/ARDUINO.jpg"),
-          postNumber: 200,
-          hotView: 2343,
-          lastReportTime: "2022-8-18 20:02:09",
-        },
-        {
-          id: 3,
-          title: "ARDUINO",
-          imgUrl: require("../../assets/images/tag_example/ARDUINO.jpg"),
-          postNumber: 200,
-          hotView: 2343,
-          lastReportTime: "2022-8-18 20:02:09",
-        },
-        {
-          id: 4,
-          title: "ARDUINO",
-          imgUrl: require("../../assets/images/tag_example/ARDUINO.jpg"),
-          postNumber: 200,
-          hotView: 2343,
-          lastReportTime: "2022-8-18 20:02:09",
-        },
-        {
-          id: 5,
-          title: "ARDUINO",
-          imgUrl: require("../../assets/images/tag_example/ARDUINO.jpg"),
-          postNumber: 200,
-          hotView: 2343,
-          lastReportTime: "2022-8-18 20:02:09",
-        },
-      ],
+    //   HotSectionData: [
+    //     {
+    //       tagId: 1,
+    //       tagTitle: "ARDUINO",
+    //       tagImg: require("../../assets/images/tag_example/ARDUINO.jpg"),
+    //       tagPostNum: 200,
+    //       tagHot: 2343,
+    //       lastPostTime: "2022-8-18 20:02:09",
+    //     },
+    //     {
+    //       tagId: 2,
+    //       tagTitle: "ARDUINO",
+    //       tagImg: require("../../assets/images/tag_example/ARDUINO.jpg"),
+    //       tagPostNum: 200,
+    //       tagHot: 2343,
+    //       lastPostTime: "2022-8-18 20:02:09",
+    //     },
+    //     {
+    //       tagId: 3,
+    //       tagTitle: "ARDUINO",
+    //       tagImg: require("../../assets/images/tag_example/ARDUINO.jpg"),
+    //       tagPostNum: 200,
+    //       tagHot: 2343,
+    //       lastPostTime: "2022-8-18 20:02:09",
+    //     },
+    //     {
+    //       tagId: 4,
+    //       tagTitle: "ARDUINO",
+    //       tagImg: require("../../assets/images/tag_example/ARDUINO.jpg"),
+    //       tagPostNum: 200,
+    //       tagHot: 2343,
+    //       lastPostTime: "2022-8-18 20:02:09",
+    //     },
+    //     {
+    //       tagId: 5,
+    //       tagTitle: "ARDUINO",
+    //       tagImg: require("../../assets/images/tag_example/ARDUINO.jpg"),
+    //       tagPostNum: 200,
+    //       tagHot: 2343,
+    //       lastPostTime: "2022-8-18 20:02:09",
+    //     },
+    //   ],
     };
   },
-  computed: {},
+  computed: {
+    HotSectionData() {
+        return this.$store.state.hotTagArr
+    },
+  },
   methods: {
     timeAgo(val) {
       return timeago(val);
     },
 
-    toTagPage() {
-      this.$router.push({ name: "tagPage" });
+    toTagPage(tagId) {
+      this.$router.push({ name: "tagPage" , params: {tagId}});
     },
   },
+
+  mounted() {
+    this.$store.dispatch("getHotTag");
+
+  }
 };
 </script>
 

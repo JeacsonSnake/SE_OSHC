@@ -5,7 +5,11 @@ import {
     loginApi,
     registerApi,
     followingApi,
-    followerApi
+    followerApi,
+    hotTagApi,
+    getTagApi,
+    getTagPostApi,
+    getPostApi
 } from '../api'
 
 Vue.use(Vuex)
@@ -20,7 +24,9 @@ export default new Vuex.Store({
         showUserCard: false,
         isRepeat: false,
         isFollowEmpty: true,
-        postTag:"接口测试数据1",
+        postTag: "接口测试数据1",
+        tagId: "",
+        postId: "",
         followObj: {
             "totalNum": 1,
             "totalPage": 1,
@@ -28,7 +34,11 @@ export default new Vuex.Store({
             "showNum": 1,
             "followingObjArr": [],
             "followerObjArr": []
-        }
+        },
+        hotTagArr: [],
+        tagInfo: {},
+        postArr: [],
+        postInfo: {},
   },
   getters: {
   },
@@ -67,7 +77,31 @@ export default new Vuex.Store({
 
         SETFOLLOWOBJ(state, value) {
             state.followObj = { ...value };
-        }
+        },
+
+        SETHOTTAG(state, value) {
+            state.hotTagArr = value;
+        },
+
+        SETTAGINFO(state, value) {
+            state.tagInfo = { ...value };
+        },
+
+        SETPOSTARR(state, value) {
+            state.postArr = value;
+        },
+
+        SETTAGID(state, value) {
+            state.tagId = value;
+        },
+
+        SETPOSTID(state, value) {
+            state.tagId = value;
+        },
+
+        SETPOSTINFO(state, value) {
+            state.postInfo = { ...value };
+        },
   },
     actions: {
         async login(context, value) {
@@ -160,6 +194,54 @@ export default new Vuex.Store({
                     }
                 }else if (res.code = 409) {
                     context.commit('ISFOLLOWEMPTY', true);
+                }else {
+                    throw 'Err!'
+                }
+            }).catch((err) => {
+                console.log(err);
+            })
+        },
+
+        async getHotTag(context, value) {
+            await hotTagApi(value).then((res) => {
+                if (res.code === 200) {
+                        context.commit('SETHOTTAG', res.data);
+                }else {
+                    throw 'Err!'
+                }
+            }).catch((err) => {
+                console.log(err);
+            })
+        },
+
+        async getTag(context, value) {
+            await getTagApi(value).then((res) => {
+                if (res.code === 200) {
+                        context.commit('SETTAGINFO', res.data);
+                }else {
+                    throw 'Err!'
+                }
+            }).catch((err) => {
+                console.log(err);
+            })
+        },
+
+        async getTagPost(context, value) {
+            await getTagPostApi(value).then((res) => {
+                if (res.code === 200) {
+                        context.commit('SETPOSTARR', res.data.resultArrList);
+                }else {
+                    throw 'Err!'
+                }
+            }).catch((err) => {
+                console.log(err);
+            })
+        },
+
+        async getPostCotent(context, value) {
+            await getPostApi(value).then((res) => {
+                if (res.code === 200) {
+                        context.commit('SETPOSTINFO', res.data);
                 }else {
                     throw 'Err!'
                 }
