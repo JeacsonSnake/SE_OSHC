@@ -11,12 +11,12 @@
       >
         <el-avatar
           :size="60"
-          :src="item.followerAvatar"
+          :src="item.followAvatar"
           class="Avatar"
         ></el-avatar>
         <div class="followInfo">
-          <p class="followName">{{ item.followerName }}</p>
-          <p class="briefContent">{{ item.followerBrief }}</p>
+          <p class="followName">{{ item.followName }}</p>
+          <p class="briefContent">{{ item.followBrief }}</p>
         </div>
         <el-button round class="followBtn">关注</el-button>
       </div>
@@ -76,17 +76,19 @@ export default {
 
 <style lang="scss" scoped>
 .followCard {
-  width:calc(100vw / 1920 * 900);
-  height:calc(100vh / 1080 * 80);
-  margin-left:calc(100vw / 1920 * 27);
-  margin-top:calc(100vh / 1080 * 20);
-  border-bottom: 0.4px solid #808080;
+  width:calc(var(--widthRate) * 900);
+  height:calc(var(--heightRate) * 100);
+  margin-left:calc(var(--widthRate) * 27);
+  margin-top:calc(var(--heightRate) * 15);
+  margin-bottom:calc(var(--heightRate) * 15);
+  border-bottom: calc(var(--heightRate) * 1) solid #808080;
   display: flex;
   position: relative;
 
   .Avatar {
-    margin-left:calc(100vw / 1920 * 22);
-    margin-right:calc(100vw / 1920 * 30);
+    margin-left:calc(var(--widthRate) * 22);
+    margin-right:calc(var(--widthRate) * 30);
+    border: calc(var(--heightRate) * 1) solid #808080;
   }
 
   .followInfo {
@@ -96,31 +98,32 @@ export default {
     height:calc(var(--heightRate) * 50);
     max-width:calc(var(--widthRate) * 600);
     .followName {
-      font-size: 24px;
+      font-size: calc(var(--heightRate) * 29);
       color: #00bdc8;
       width: fit-content;
-      margin-bottom:calc(100vh / 1080 * 5);
+      margin-bottom:calc(var(--heightRate) * 5);
     }
 
     .briefContent {
-      font-size: 12px;
+      font-size: calc(var(--heightRate) * 12);
       color: #abbbc2;
       width: fit-content;
     }
   }
 
   .followBtn {
-    height:calc(100vh / 1080 * 47);
-    width:calc(100vw / 1920 * 120);
+    height: calc(var(--heightRate) * 47);
+    width: calc(var(--widthRate) * 120);
     position: absolute;
     right: 5%;
-    top: 8%;
-    font-size: 15px;
+    top: 11%;
+    font-size: calc(var(--heightRate) * 22);
+    line-height: calc(var(--heightRate) * 14);
   }
 }
 
 .elPag {
-  margin-top:calc(100vh / 1080 * 70);
+  margin-top:calc(var(--heightRate) * 25);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -184,78 +184,80 @@ export default {
 <style lang="scss" scoped>
 .userPage {
   background-color: #f2f2f2;
-  padding-top:calc(100vh / 1080px * 105px);
+  padding-top: calc(var(--heightRate) * 105);
   display: flex;
   width: 100%;
   height: 100vh;
 }
 
 .leftSlide {
-  width:calc(100vw / 1920 * 410);
-  height:calc(100vh / 1080 * 1000);
+  width: calc(var(--widthRate) * 410);
+  height: calc(var(--heightRate) * 1000);
   display: inline-block;
-  margin-left:calc(100vw / 1920 * 213);
+  margin-left: calc(var(--widthRate) * 213);
   background-color: #fff;
-  border-radius: 10px;
-  border: 1px solid #808080;
+  border-radius: calc(var(--heightRate) * 10);
+  border: calc(var(--heightRate) * 1) solid #808080;
   box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: calc(var(--heightRate) * 10);
 
   .userBoard {
-    width:calc(100vw / 1920 * 340);
-    height:calc(100vh / 1080 * 496);
-    margin:0 auto;  //左右居中
-    margin-top:calc(100vh / 1080 * 42);
+    width: calc(var(--widthRate) * 340);
+    height: calc(var(--heightRate) * 529);
+    margin: 0 auto; //左右居中
+    margin-top: calc(var(--heightRate) * 42);
     background-color: #c0ccd1;
-    border-radius: 12px;
+    border-radius: calc(var(--heightRate) * 12);
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom:calc(100vh / 1080px * 35px) ;
+    margin-bottom: calc(var(--heightRate) * 35);
     .Avatar {
-      margin-top:calc(100vh / 1080 * 19);
-      margin-bottom:calc(100vh / 1080 * 36);
+      margin-top: calc(var(--heightRate) * 19);
+      margin-bottom: calc(var(--heightRate) * 36);
+      border: calc(var(--heightRate) * 1) solid #808080;
     }
 
     .userName {
-      font-size: 23px;
-      height:calc(var(--heighthRate) * 45);
-      max-width:calc(100vw / 1920 * 260);
-      line-height:calc(100vh / 1080 * 45);
+      font-size: calc(var(--heightRate) * 23);
+      font-weight: 700;
+      height: calc(var(--heightRate) * 45);
+      max-width: calc(var(--widthRate) * 260);
+      line-height: calc(var(--heightRate) * 45);
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
     .userInfo {
-      width:calc(var(--widthRate) * 250);
-      height:calc(100vh / 1080 * 80);
-      margin-top:calc(100vh / 1080 * 25);
+      width: calc(var(--widthRate) * 250);
+      height: calc(var(--heightRate) * 80);
+      margin-top: calc(var(--heightRate) * 25);
       display: flex;
       flex-direction: column;
-      font-size: 12px;
+      font-size: calc(var(--heightRate) * 12);
       color: #383838;
       .smallIcon {
-        width: 12px;
-        height: 12px;
+        width: calc(var(--heightRate) * 12);
+        height: calc(var(--heightRate) * 12);
       }
 
       .bigIcon {
-        width:calc(var(--widthRate) * 16);
-        height:calc(100vh / 1080 * 16);
-        margin-right:calc(100vw / 1920 * 5);
+        width: calc(var(--widthRate) * 16);
+        height: calc(var(--heightRate) * 16);
+        margin-right: calc(var(--widthRate) * 5);
       }
 
       .genderIP,
       .email,
       .gitHub {
         width: 100%;
-        height:calc(100vh / 1080 * 20);
-        line-height:calc(100vh / 1080 * 20);
+        height: calc(var(--heightRate) * 20);
+        line-height: calc(var(--heightRate) * 20);
       }
 
       .email,
       .gitHub {
-        margin-top:calc(100vh / 1080 * 10);
+        margin-top: calc(var(--heightRate) * 10);
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -271,18 +273,25 @@ export default {
 
         .gender,
         .ip {
-          width:calc(var(--widthRate) * 80);
           height: 100%;
           display: flex;
+        }
+
+        .gender {
+          width: calc(var(--widthRate) * 80);
+        }
+
+        .ip {
+          width: calc(var(--widthRate) * 120);
         }
       }
     }
   }
 
   .navbar {
-    width:calc(var(--widthRate) * 410);
-    height:calc(100vh / 1080 * 395);
-    border-top:calc(100vh / 1080 * 2) solid #cccccc;
+    width: calc(var(--widthRate) * 410);
+    height: calc(var(--heightRate) * 395);
+    border-top: calc(var(--heightRate) * 2) solid #cccccc;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -293,18 +302,18 @@ export default {
     }
 
     .selectBtn {
-      width:calc(var(--widthRate) * 300);
-      height: calc(100vh / 1080 * 70);
-      margin-top: 5px;
-      border-bottom: 1px solid #808080;
+      width: calc(var(--widthRate) * 300);
+      height: calc(var(--heightRate) * 70);
+      margin-top: calc(var(--heightRate) * 5);
+      border-bottom: calc(var(--heightRate) * 1) solid #808080;
       display: flex;
       justify-content: flex-end;
       .navBarTitle {
         height: 100%;
         width: fit-content;
-        line-height:calc(100vh / 1080 * 70);
-        font-size: 28px;
-        margin-right:calc(100vw / 1920 * 30);
+        line-height: calc(var(--heightRate) * 70);
+        font-size: calc(var(--heightRate) * 28);
+        margin-right: calc(var(--widthRate) * 30);
         cursor: pointer;
       }
     }
@@ -316,9 +325,9 @@ export default {
 }
 
 .rightSlide {
-  width:calc(100vw / 1920 * 950);
-  height: calc(100vh / 1080 * 1000);
-  margin-left:calc(100vw / 1920 * 128);
+  width: calc(var(--widthRate) * 950);
+  height: calc(var(--heightRate) * 1000);
+  margin-left: calc(var(--widthRate) * 128);
   display: inline-block;
 }
 </style>

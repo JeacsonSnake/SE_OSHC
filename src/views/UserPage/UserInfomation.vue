@@ -3,10 +3,10 @@
     <div class="upper">
       <el-avatar :size="200" :src="userInfo.avatar" class="Avatar"></el-avatar>
       <p class="userName">{{ userInfo.userName }}</p>
+      <p class="shortInfo">IP属地: {{ userInfo.ipLocation }}</p>
       <p class="shortInfo">
         {{ userInfo.following }} 关注 | {{ userInfo.follower }} 粉丝
       </p>
-      <p class="shortInfo">IP属地: {{ userInfo.ipLocation }}</p>
     </div>
     <div class="middle">
       <div class="shortInfo">
@@ -72,54 +72,60 @@ export default {
   height: 100%;
   background-image: url("../../assets/images/background/用户信息背景.png");
   background-size: contain;
-  border: 1px solid #808080;
-  border-radius: 10px;
+  border: calc(var(--heightRate)* 1) solid #808080;
+  border-radius: calc(var(--heightRate)* 10);
   display: flex;
   flex-direction: column;
   align-items: center;
 
   .upper {
-    margin-top:calc(100vh / 1080 * 60);
+    margin-top:calc(var(--heightRate)* 60);
     width:calc(var(--widthRate) * 590);
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    .Avatar {
+        border: calc(var(--heightRate) * 1) solid #808080;
+    }
+
     .userName {
-      margin-top:calc(100vh / 1080 * 30);
-      font-size: 30px;
+      margin-top:calc(var(--heightRate) * 30);
+      font-size: calc(var(--heightRate)* 40);
+      font-weight: 700;
       height:calc(var(--heightRate) * 65);
       max-width:calc(var(--widthRate) * 600);
-      line-height: 45px;
+      line-height: calc(var(--heightRate)* 45);
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
     .shortInfo {
       margin-top: calc(var(--heightRate) * 10);
-      font-size: 24px;
+      font-size: calc(var(--heightRate)* 24);
       height: calc(var(--heightRate) * 30);
       width: fit-content;
-      line-height: 30px;
+      line-height: calc(var(--heightRate)* 30);
     }
   }
 
   .middle {
     width:calc(var(--widthRate) * 410);
-    height:calc(100vh / 1080 * 250);
-    margin-top: 68px;
-    font-size: 24px;
+    height:calc(var(--heightRate) * 250);
+    margin-top: calc(var(--heightRate)* 68);
+    font-size: calc(var(--heightRate)* 24);
     display: flex;
     flex-direction: column;
     .shortInfo {
       margin-top:calc(var(--heightRate) * 10);
-      font-size: 24px;
-      height: 30px;
+      font-size: calc(var(--heightRate)* 24);
+      height: calc(var(--heightRate)* 30);
       width: fit-content;
-      line-height: 30px;
+      line-height: calc(var(--heightRate)* 30);
       display: flex;
 
       .title {
-        width: 97px;
+        width: calc(var(--widthRate) * 97);
         height: 100%;
         text-align: justify-all;
         text-align-last: justify;
@@ -127,7 +133,7 @@ export default {
       }
 
       .infoContent {
-        margin-left: 5px;
+        margin-left: calc(var(--widthRate) * 5);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

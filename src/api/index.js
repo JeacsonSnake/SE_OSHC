@@ -117,12 +117,28 @@ export const registerApi = (value) => {
 // }
 
 export const loginApi = (value) => {
-    return mockRequests({
-        url: 'http://127.0.0.1:4523/m1/1325294-0-default/user/login',
+    return requests({
+        url: 'user/login',
         method: 'post',
         params: {
             useremail: value.userEmail,
             password: value.password
+        }
+    })
+}
+
+export const postCreateApi = (value) => {
+    return requests({
+        url: 'post/create',
+        method: 'post',
+        params: {
+            userId: value.userId,
+            tags: value.postTag,
+            title: value.postTitle,
+            contentHtml: value.contentHtml,
+            contentMark: value.contentMark,
+            imgUrlArr: value.imgUrlArr,
+            postBrief: value.postBrief
         }
     })
 }
@@ -145,23 +161,62 @@ export const imgUpload = (formdata) => {
 }
 
 export const followingApi = (value) => {
-    return mockRequests({
-        url: 'http://127.0.0.1:4523/m1/1325294-0-default/user/follow',
-        method: 'get',
+    return requests({
+        url: 'user/GetFollow',
+        method: 'post',
         params: {
             userId: value.userId,
-            needPage: value.needPage
+            page: value.needPage,
+            size: 7
         }
     })
 }
 
 export const followerApi = (value) => {
-    return mockRequests({
-        url: 'http://127.0.0.1:4523/m1/1325294-0-default/user/fans',
-        method: 'get',
+    return requests({
+        url: 'user/GetFollower',
+        method: 'post',
         params: {
             userId: value.userId,
-            needPage: value.needPage
+            page: value.needPage,
+            size: 7
+        }
+    })
+}
+
+export const hotTagApi = (value) => {
+    return requests({
+        url: 'tag/hotTag',
+        method: 'get'
+    })
+}
+
+export const getTagApi = (value) => {
+    return requests({
+        url: 'tag/get',
+        method: 'get',
+        params: {
+            tagId: value
+        }
+    })
+}
+
+export const getTagPostApi = (value) => {
+    return requests({
+        url: 'tag/posts',
+        method: 'get',
+        params: {
+            tagId: value
+        }
+    })
+}
+
+export const getPostApi = (value) => {
+    return requests({
+        url: 'post/info',
+        method: 'get',
+        params: {
+            postId: value
         }
     })
 }
