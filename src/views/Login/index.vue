@@ -23,7 +23,7 @@
           <el-form-item
             label="用户名"
             prop="userEmail"
-            style="margin-bottom: calc(var(--heightRate) * 35)"
+            style="margin-bottom: calc(var(--heightRate) * 35);"
           >
             <el-input
               type="text"

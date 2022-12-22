@@ -23,7 +23,6 @@
           <el-form-item
             label="用户名"
             prop="userName"
-            style="margin-bottom: calc(100vh / 1080px * 25px)"
           >
             <el-input
               type="text"
@@ -34,7 +33,7 @@
           <el-form-item
             label="邮箱"
             prop="userEmail"
-            style="margin-bottom: 35px"
+         
           >
             <el-input
               type="text"

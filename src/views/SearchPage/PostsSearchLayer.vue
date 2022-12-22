@@ -83,7 +83,57 @@ export default {
       circleUrl:
         "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
       //   value: false,
-      searchData: [],
+
+      searchSection: {
+        topic: "这里有相关搜索内容的子版块，是否进入?",
+        sectionLable: "ARDUINO",
+        posts: "114514",
+        hots: "1919810",
+        news: "666",
+      },
+
+      getSearchData: [
+        {
+          user: "RICK_A",
+          date: "三天前",
+          postLabel: "ESP32",
+          views: "114514",
+          topic: "[新人必备] ESP32是个啥?全网最详细介绍ESP32!",
+          brief: "ESP32DDDDDDDDDDDDDDDDDD",
+        },
+        {
+          user: "RICK_b",
+          date: "三天前",
+          postLabel: "ESP32",
+          views: "1919810",
+          topic: "[新人必备] ESP32是个啥?全网最详细介绍ESP32!",
+          brief: "ESP32DDDDDDDDDDDDDDDDDD",
+        },
+        {
+          user: "RICK_c",
+          date: "三天前",
+          postLabel: "ESP32",
+          views: "114514",
+          topic: "[新人必备] ESP32是个啥?全网最详细介绍ESP32!",
+          brief: "ESP32DDDDDDDDDDDDDDDDDD",
+        },
+        {
+          user: "RICK_d",
+          date: "三天前",
+          postLabel: "#ESP32",
+          views: "114514",
+          topic: "[新人必备] ESP32是个啥?全网最详细介绍ESP32!",
+          brief: "ESP32DDDDDDDDDDDDDDDDDD",
+        },
+        {
+          user: "RICK_e",
+          date: "三天前",
+          postLabel: "#ESP32",
+          views: "114514",
+          topic: "[新人必备] ESP32是个啥?全网最详细介绍ESP32!",
+          brief: "ESP32DDDDDDDDDDDDDDDDDD",
+        },
+      ],
       isEmpty: false,
 
       searchSection: {
@@ -192,15 +242,18 @@ export default {
 .postsSearchLayer {
   border-radius: calc(var(--heightRate) * 12);
   height: auto;
+
   min-height: calc(var(--heightRate) * 930);
   width: calc(var(--widthRate) * 1190);
   margin-top: calc(var(--heightRate) * 50);
   border-radius: calc(var(--heightRate) * 12);
+
   position: relative;
   display: flex;
   flex-direction: column;
   background-color: rgb(255, 255, 255);
 }
+
 
 .search_section_background {
   display: flex;
@@ -291,6 +344,7 @@ export default {
       // margin-top: calc(var(--heightRate) * 25);
     }
   }
+
 }
 //search_section right
 .search_section_right {
@@ -385,11 +439,190 @@ export default {
   height: calc(var(--heightRate) * 27);
   line-height: calc(var(--heightRate) * 30);
   font-size: calc(var(--heightRate) * 16);
+
 }
 
 // searchpage
 .search_page_button {
   margin-top: calc(var(--heightRate) * 15);
   height: calc(var(--heightRate) * 50);
+}
+
+// new code
+
+.search_section_background {
+  display: flex;
+  background-color: #01d1bb;
+  width: 100%;
+  height: calc(100vh / 1080px * 220px);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+//search_section_background_left
+
+.search_section_topic {
+  cursor: default;
+  position: relative;
+  font-size: 23px;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-left: 25px;
+}
+.search_section_button {
+  cursor: pointer;
+  background-color: #00bdc8;
+  border-radius: 18px;
+  border-style: solid;
+  border-color: hsl(198, 100%, 20%);
+  border-width: 1px;
+  width: calc(1536px / 1920px * 143px);
+  height: calc(100vh / 1080px * 40px);
+  position: absolute;
+  margin-top: 100px;
+  margin-left: 25px;
+  color: white;
+  text-align: center;
+  line-height: calc(100vh / 1080px * 40px);
+  letter-spacing: 2px;
+}
+
+//search_section_background_right
+.search_section {
+  display: flex;
+  background-color: #00b6cc;
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  width: calc(1536px / 1920px * 523px);
+  height: calc(100vh / 1080px * 186px);
+  border-radius: 7px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #004766;
+}
+
+//search_section left
+.search_section_left {
+  width: calc(1536px / 1920px * 483px / 2);
+  height: 86%;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.search_section_left h2 {
+  cursor: default;
+  color: white;
+  margin-top: -5px;
+  font-weight: 10;
+  letter-spacing: 1px;
+  font-size: 40px;
+}
+.search_section_left p {
+  opacity: 0.75;
+  position: absolute;
+  left: 20px;
+  color: white;
+  height: calc(100vh / 1080px * 45px);
+  font-size: 8px;
+}
+#search_section_left_posts {
+  position: absolute;
+  margin-top: 10px;
+}
+#search_section_left_hots {
+  position: absolute;
+  margin-top: 25px;
+}
+#search_section_left_news {
+  position: absolute;
+  margin-top: 40px;
+}
+//search_section right
+.search_section_right {
+  width: calc(1536px / 1920px * 245px);
+  height: 86%;
+  margin-top: 10px;
+  margin-left: 10px;
+  //overflow:hidden;   可以用注释里面的部分来进行图片裁剪，但是可能只适用于部分图片
+}
+.search_section_right img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+  //top:-40px;
+}
+
+// searchList
+.searchList_item {
+  width: 90%;
+  margin: 0 auto;
+  height: calc(100vh / 1080px * 100px);
+  border-style: solid;
+  border-width: 1px;
+  border-color: transparent transparent #808080 transparent;
+  padding-bottom: 30px;
+}
+.item_topic {
+  display: flex;
+  position: relative;
+  margin-top: 10px;
+  height: 22px;
+  img {
+    margin-left: 10px;
+    width: 30px;
+    height: 19px;
+  }
+}
+// itemLabel
+.item_label {
+  display: flex;
+  position: relative;
+  margin-top: 10px;
+  width: 100%;
+  height: 22px;
+}
+#item_label_postlabel {
+  background-color: #01d1bb;
+  color: white;
+  height: 15px;
+  line-height: 15px;
+  font-size: 10px;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+#item_label_user {
+  color: #01d1bb;
+  height: 12px;
+  line-height: 15px;
+  font-size: 13px;
+  margin-left: 20px;
+}
+#item_label_date {
+  color: #01d1bb;
+  height: 12px;
+  line-height: 15px;
+  font-size: 13px;
+  margin-left: 5px;
+}
+#item_label_views {
+  color: #01d1bb;
+  height: 12px;
+  line-height: 15px;
+  font-size: 10px;
+  margin-left: 20px;
+}
+// itembrief
+.item_brief {
+  display: flex;
+  height: 10px;
+  line-height: 15px;
+  font-size: 10px;
+}
+// searchpage
+.search_page_button{
+  margin-top:15px;
+  height:50px;
 }
 </style>
