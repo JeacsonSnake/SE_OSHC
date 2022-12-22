@@ -23,7 +23,6 @@
           <el-form-item
             label="用户名"
             prop="userName"
-            style="margin-bottom: calc(100vh / 1080px * 25px)"
           >
             <el-input
               type="text"
@@ -34,7 +33,7 @@
           <el-form-item
             label="邮箱"
             prop="userEmail"
-            style="margin-bottom: 35px"
+         
           >
             <el-input
               type="text"
@@ -42,7 +41,7 @@
               autocomplete="off"
             ></el-input>
           </el-form-item>
-          <el-form-item label="密码" prop="pass" style="calc(100vh / 1080px * 35px)">
+          <el-form-item label="密码" prop="pass">
             <el-input
               type="password"
               v-model="ruleForm.pass"
@@ -268,7 +267,7 @@ a {
     display: flex;
     align-items: center;
     margin-top: calc(753.6px / 1080px * 55px);
-    margin-bottom: calc(753.6px / 1080px * 85px);
+    margin-bottom: calc(753.6px / 1080px * 115px);
     .ElForm {
       position: absolute;
       left: 15.7%;
@@ -324,7 +323,7 @@ a {
     .checkAttr{
       position:relative;
       height:30px;
-      margin-top:-12px;
+      margin-top:-15px;
      }
 
   }

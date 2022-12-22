@@ -23,7 +23,7 @@
           <el-form-item
             label="用户名"
             prop="userEmail"
-            style="margin-bottom: calc(var(--heightRate) * 35px);"
+            style="margin-bottom: 35px;"
           >
             <el-input
               type="text"
@@ -163,7 +163,7 @@ a {
 
 #webImage {
     width:  calc(100% / 1920px * 350px);
-  margin-top:calc(753.6px / 1080px * 60px);
+  margin-top:calc(100vh / 1080px * 60px);
   margin-bottom: calc(753.6px / 1080px * 80px);
 }
 
