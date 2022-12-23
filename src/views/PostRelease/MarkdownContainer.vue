@@ -54,9 +54,9 @@
 // import { mavonEditor } from "mavon-editor";
 // import "mavon-editor/dist/css/index.css";
 import axios from "axios";
-import { postCreateApi } from "../api";
+import { postCreateApi } from "../../api";
 
-import { imgUpload } from "../api";
+import { imgUpload } from "../../api";
 
 export default {
   data() {
