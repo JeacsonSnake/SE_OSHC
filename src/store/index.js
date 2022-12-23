@@ -24,7 +24,7 @@ export default new Vuex.Store({
         showUserCard: false,
         isRepeat: false,
         isFollowEmpty: true,
-        postTag: "接口测试数据1",
+        tagTitle: "接口测试数据1",
         tagId: "",
         postId: "",
         followObj: {
@@ -96,11 +96,15 @@ export default new Vuex.Store({
         },
 
         SETPOSTID(state, value) {
-            state.tagId = value;
+            state.postId = value;
         },
 
         SETPOSTINFO(state, value) {
             state.postInfo = { ...value };
+        },
+
+        SETTAGTITLE(state, value) {
+            state.tagTitle = value;
         },
   },
     actions: {
@@ -229,7 +233,11 @@ export default new Vuex.Store({
         async getTagPost(context, value) {
             await getTagPostApi(value).then((res) => {
                 if (res.code === 200) {
-                        context.commit('SETPOSTARR', res.data.resultArrList);
+                    if (res.data) {
+                            context.commit('SETPOSTARR', res.data.resultArrList);
+                    } else {
+                        context.commit('SETPOSTARR', [])
+                        }
                 }else {
                     throw 'Err!'
                 }

@@ -137,7 +137,7 @@ export const postCreateApi = (value) => {
             title: value.postTitle,
             contentHtml: value.contentHtml,
             contentMark: value.contentMark,
-            imgUrlArr: value.imgUrlArr,
+            imgUrlArr: value.imgUrlArr.join(),
             postBrief: value.postBrief
         }
     })

@@ -2,7 +2,7 @@
   <div class="tagPage">
     <div class="tagInfoBlock">
       <img
-        src="../../assets/images/tag_example/灌水.jpeg"
+        :src=" tagInfo.tagImg ? tagInfo.tagImg : require('../../assets/images/tag_example/灌水.jpeg')"
         class="tagImg"
         alt=""
       />
@@ -27,7 +27,7 @@
           class="btnColor"
           round
           icon="el-icon-edit-outline"
-          @click="toPostReasePage(tagInfo.tagId)"
+          @click="toPostReasePage(tagInfo.tagId, tagInfo.tagTitle)"
         >
           发帖
         </el-button>
@@ -58,8 +58,8 @@ export default {
 
   methods: {
 
-    toPostReasePage(value) {
-      this.$router.push({ name: "PostRelease" , params: {value}});
+    toPostReasePage(id, title) {
+      this.$router.push({ name: "PostRelease" , params: {id, title}});
     }
 
   },
@@ -89,7 +89,8 @@ export default {
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: calc(var(--heightRate) * 1642);
+  min-height: calc(var(--heightRate) * 1642);
+  height: fit-content;
 
   .tagInfoBlock {
     width: calc(var(--widthRate) * 1450);
@@ -155,7 +156,7 @@ export default {
   }
   .tagContentBlock {
     width: calc(var(--widthRate) * 1450);
-    height: calc(var(--heightRate) * 1004);
+    height: fit-content;
     margin-top: calc(var(--heightRate) * 45);
     margin-bottom: calc(var(--heightRate) * 45);
     display: flex;
@@ -163,6 +164,7 @@ export default {
     .newPostBlock {
       width: calc(var(--widthRate) * 1059);
       height: fit-content;
+      min-height: calc(var(--widthRate) * 1037);
       border-radius: calc(var(--heightRate) * 10);
       background: rgba(255, 255, 255, 1);
       border: calc(var(--heightRate) * 1) solid rgba(128, 128, 128, 1);

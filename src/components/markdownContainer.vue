@@ -66,7 +66,7 @@ export default {
       contentMark: "",
       contentHtml: "",
       configs: {},
-      postTitle: "111",
+      postTitle: "",
       imgUrlArr: [],
       postBrief: "这是一条帖子的简介~",
       userId: user ? user.userId : "",
@@ -155,23 +155,25 @@ export default {
         contentMark: this.contentMark,
         contentHtml: this.contentHtml,
         postTitle: this.postTitle,
-        imgUrlArr: this.imgUrlArr,
+        imgUrlArr: this.imgUrlArr.length == 0 ? ["no content"] : this.imgUrlArr ,
         postBrief: this.postBrief,
-        postTag: this.$store.state.postTag,
+        postTag: this.$store.state.tagTitle,
       };
       console.log(this.contentMark);
       console.log(this.contentHtml);
+      console.log(postObj);
       await postCreateApi(postObj)
         .then((res) => {
             console.log(res);
            if (res.code == 200) {
             console.log(res.data);
             this.$message.success("提交成功！");
+            this.$router.push({ name: "tagPage"});
           }
         })
         .catch((err) => {
           console.log(err);
-          this.$message.error("bruh");
+          this.$message.error("提交失败！");
         });
     },
     // saveMdFile() {
