@@ -18,7 +18,7 @@
                 <img src="../../assets/images/post_example/示例图3.png" alt="" class="CardImage" />
               </div>
               <div class="PublisherArea">
-                <el-avatar :size="20" :src="circleUrl"  class="SmallAvatar"></el-avatar>
+                <el-avatar :size="20" :src="item.avatar"  class="SmallAvatar"></el-avatar>
                 <p id="PubName">{{item.postAuthorName}}</p>
                 <p>·</p>
                 <p id="PublishTime">三天前</p>
@@ -155,7 +155,8 @@ export default {
       font-family: "HarmonyOS_Sans_SC_Regular";
       .SmallAvatar {
         margin-right: calc(var(--widthRate) * 5);
-        background-color: #ffffff;
+        // background-color: #ffffff;
+        border: calc(var(--heightRate) * 1) solid #808080;
       }
 
       p {

@@ -130,6 +130,7 @@ export default {
         height: calc(var(--heightRate) * 100);
         margin-right: calc(var(--widthRate) * 20);
         border-radius: calc(var(--heightRate) * 10);
+        border: calc(var(--heightRate) * 1) solid #808080;
       }
 
       .HotSectionInfo {
