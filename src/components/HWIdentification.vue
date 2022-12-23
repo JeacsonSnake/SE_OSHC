@@ -7,55 +7,48 @@
     class="IdentifyDialog"
     :lock-scroll="false"
     :close-on-click-modal="false"
+    v-loading="load"
   >
-    <el-form :model="form">
-      <el-row>
-        <el-col :span="11">
-          <el-form-item label="上传图片" :label-width="formLabelWidth">
-            <el-upload action="#" list-type="picture-card" :auto-upload="false">
-              <i slot="default" class="el-icon-plus"></i>
-              <div slot="file" slot-scope="{ file }">
-                <img
-                  class="el-upload-list__item-thumbnail"
-                  :src="file.url"
-                  alt=""
-                />
-                <span class="el-upload-list__item-actions">
-                  <span
-                    class="el-upload-list__item-preview"
-                    @click="handlePictureCardPreview(file)"
-                  >
-                    <i class="el-icon-zoom-in"></i>
-                  </span>
-                  <span
-                    v-if="!disabled"
-                    class="el-upload-list__item-delete"
-                    @click="handleDownload(file)"
-                  >
-                    <i class="el-icon-download"></i>
-                  </span>
-                  <span
-                    v-if="!disabled"
-                    class="el-upload-list__item-delete"
-                    @click="handleRemove(file)"
-                  >
-                    <i class="el-icon-delete"></i>
-                  </span>
-                </span>
-              </div>
-            </el-upload>
-            <el-dialog :visible.sync="imgDialogVisible">
-              <img width="100%" :src="dialogImageUrl" alt="" />
-            </el-dialog>
-          </el-form-item>
-        </el-col>
-      </el-row>
-    </el-form>
+    <div class="we">
+      <el-upload
+        class="upload-demo"
+        ref="upload"
+        action="https://jsonplaceholder.typicode.com/posts/"
+        :on-preview="handlePreview"
+        :on-remove="handleRemove"
+        :file-list="fileList"
+        :on-progress="successFile"
+        :auto-upload="false"
+        v-show="sder"
+      >
+        <el-button slot="trigger" size="small" type="primary"
+          >选取文件</el-button
+        >
+        <el-button
+          style="margin-left: 10px"
+          size="small"
+          type="success"
+          @click="submitUpload"
+          >上传到服务器</el-button
+        >
+        <div slot="tip" class="el-upload__tip">
+          只能上传jpg/png文件，且不超过500kb
+        </div>
+      </el-upload>
+      <div class="result" v-show="asdf">
+        <div class="title">结果：</div>
 
-    <span slot="footer" class="dialog-footer">
-      <el-button @click="handleClose()">取消识别</el-button>
-      <el-button type="primary" @click="HWI(false)"> 确 定 </el-button>
-    </span>
+        <div class="keo">{{ photoTitle }}</div>
+
+        <div class="title">识别正确概率:</div>
+
+        <div class="keo">{{ rate }}</div>
+      </div>
+      <!-- <span slot="footer" class="dialog-footer">
+        <el-button @click="handleClose()">取消识别</el-button>
+        <el-button type="primary" @click="HWI(false)"> 确 定 </el-button>
+      </span> -->
+    </div>
   </el-dialog>
 </template>
 
@@ -63,25 +56,17 @@
 export default {
   data() {
     return {
-      form: {
-        name: "",
-        imgUrl: "",
-        region: "",
-        date1: "",
-        date2: "",
-        delivery: false,
-        tags: [],
-        resource: "",
-        desc: "",
-      },
+      fileList: [],
       inputVisible: false,
       inputValue: "",
       formLabelWidth: "120px",
       dialogImageUrl: "",
-      imgDialogVisible: false,
       disabled: false,
       isSame: false,
-      isMax:false
+      isMax: false,
+      sder: true,
+      asdf: false,
+      load: false,
     };
   },
 
@@ -97,32 +82,35 @@ export default {
       })
         .then((_) => {
           this.$store.commit("HWIDENTIFICATION", false);
+          this.dialogImageUrl = "";
+          window.location.reload();
         })
         .catch((_) => {});
     },
 
-    handleTagClose(tag) {
-      this.form.tags.splice(this.form.tags.indexOf(tag), 1);
+    submitUpload() {
+      this.$refs.upload.submit();
     },
-
-    showTagInput() {
-      this.inputVisible = true;
-      this.$nextTick((_) => {
-        this.$refs.saveTagInput.$refs.input.focus();
-      });
+    handleRemove(file, fileList) {
+      //   console.log(file, fileList);
+      // this.fileList = [""]
     },
-
-    handleRemove(file) {
+    handlePreview(file) {
       console.log(file);
     },
+    successFile(responce, file, fileList) {
+      //   console.log(responce, file, fileList);
+      // this.fileList = [""]
+      this.load = true;
+      if (this.sder) {
+        this.$store.commit("ADDCOUNT");
+        this.sder = false;
+      }
 
-    handlePictureCardPreview(file) {
-      this.dialogImageUrl = file.url;
-      this.dialogVisible = true;
-    },
-
-    handleDownload(file) {
-      console.log(file);
+      setTimeout(() => {
+        this.load = false;
+        this.asdf = true;
+      }, 1300);
     },
   },
 
@@ -130,12 +118,51 @@ export default {
     HWIdentification() {
       return this.$store.state.HWIdentification;
     },
+    count() {
+      return this.$store.state.count;
+    },
+
+    photoTitle() {
+      return this.$store.state.photoUrlArr[this.count];
+    },
+    rate() {
+      return this.$store.state.rateArr[this.count];
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .IdentifyDialog {
+  .we {
+    width: calc(var(--widthRate) * 1000);
+    height: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .result {
+      width: calc(var(--widthRate) * 540);
+      height: 300px;
+
+      .title {
+        width: calc(var(--widthRate) * 540);
+        height: calc(var(--heightRate) * 80);
+        font-size: calc(var(--heightRate) * 55);
+        letter-spacing: calc(var(--widthRate) * 13);
+        margin-bottom: calc(var(--heightRate) * 20);
+
+        color: #4f4f4f;
+      }
+
+      .keo {
+        width: 100%;
+        height: calc(var(--heightRate) * 102);
+        font-size: calc(var(--heightRate) * 50);
+        letter-spacing: calc(var(--widthRate) * 13);
+        color: #00bdc8;
+      }
+    }
+  }
   :deep() .el-dialog {
     margin-top: 15vh;
     width: 820px;
@@ -143,7 +170,14 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
 
+  .dialog-footer {
+    width: 227px;
+    height: 43px;
+    position: absolute;
+    top: 87%;
+    left: 68%;
   }
 }
 </style>

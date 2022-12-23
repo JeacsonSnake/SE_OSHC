@@ -63,7 +63,25 @@ export default new Vuex.Store({
             "totalPage": 0,
             "resultArrList": [],
             "nowPage": 1
-        }
+        },
+        count: 0,
+        photoUrlArr: [
+                "ARDUINO",
+                "ARDUINO",
+                'Respberry pi',
+                "unknown",
+                'Respberry pi',
+                "ARDUINO",
+
+            ],
+        rateArr: [
+                "97%",
+                "98%",
+                "96%",
+                "unknown",
+                "95%",
+                "98%",
+            ]
   },
   getters: {
   },
@@ -150,6 +168,13 @@ export default new Vuex.Store({
 
         SETUSERNEEDOBJ(state, value) {
             state.userNeedObj = { ...value };
+        },
+
+        ADDCOUNT(state, value) {
+            state.count = state.count+1;
+            if (state.count > 5) {
+                state.count = 0
+            }
         },
   },
     actions: {
