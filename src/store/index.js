@@ -10,7 +10,8 @@ import {
     getTagApi,
     getTagPostApi,
     getPostApi,
-    searchApi
+    searchApi,
+    homeApi
 } from '../api'
 
 Vue.use(Vuex)
@@ -259,7 +260,18 @@ export default new Vuex.Store({
             await getTagPostApi(value).then((res) => {
                 if (res.code === 200) {
                     if (res.data) {
-                            context.commit('SETPOSTARR', res.data.resultArrList);
+                        let ele = [];
+                        res.data.resultArrList.forEach((element) => {
+                            let arr = element.imgUrlArr.split(" ");
+                            if (arr.length === 0 || arr[0].charAt(0) !== "h") {
+                                arr = [];
+                            }
+                            element.imgUrlArr = arr;
+                            ele.push(element);
+
+                        });
+
+                        context.commit('SETPOSTARR', ele);
                     } else {
                         context.commit('SETPOSTARR', [])
                         }
@@ -273,6 +285,7 @@ export default new Vuex.Store({
 
         async getPostCotent(context, value) {
             await getPostApi(value).then((res) => {
+                console.log("nihao");
                 if (res.code === 200) {
                         context.commit('SETPOSTINFO', res.data);
                 }else {
@@ -294,6 +307,34 @@ export default new Vuex.Store({
             }).catch((err) => {
                 console.log(err);
             })
-        }
+        },
+
+        async getHomeRecommand(context, value) {
+            await homeApi(value).then((res) => {
+                if (res.code === 200) {
+                    if (res.data) {
+                        res.data.resultArrList.pop()
+                        let ele = [];
+                            res.data.resultArrList.forEach((element) => {
+                            let arr = element.imgUrlArr.split(" ");
+                            if (arr.length === 0 || arr[0].charAt(0) !== "h") {
+                                arr = [];
+                            }
+                            element.imgUrlArr = arr;
+                            if (ele.length !== 3) {
+                                ele.push(element);
+                            }
+                        });
+
+                        context.commit('SETPOSTARR', ele);
+                    } else {
+                        context.commit('SETPOSTARR', [])
+                    }
+                }
+            }).catch((err) => {
+                console.log(err);
+            })
+        },
+
   },
 })

@@ -120,26 +120,17 @@ export default {
     async $imgAdd(pos, $file) {
       var formdata = new FormData();
       console.log("1: ", formdata);
-      let $uid = "69725009da0618599d1292a14cc61198";
-      let $token = "e0356b167e3a0088501158ecad2acd1c";
+
       formdata.append("file", $file);
       console.log(`$file`, $file);
-      formdata.append("uid", $uid);
-      console.log(`$uid`, $uid);
-      formdata.append("token", $token);
-      console.log(`$token`, $token);
 
       //将下面上传接口替换为你自己的服务器接口
-      console.log(
-        formdata.get("file"),
-        formdata.get("uid"),
-        formdata.get("token")
-      );
 
       await imgUpload(formdata)
         .then((res) => {
           console.log(res);
-          // this.$refs.md.$img2Url(pos, url);
+          this.$refs.md.$img2Url(pos, res.data.data.url);
+          this.imgUrlArr.push(url);
         })
         .catch((err) => {
           console.log(err);

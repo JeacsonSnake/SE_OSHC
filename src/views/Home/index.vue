@@ -12,7 +12,7 @@
       <div class="BulletinBoard">
         <img src="../../assets/images/label_head/公告标签.png" alt="" id="BulletinTag" />
         <div class="BulletinContent">
-          <p>push to devA ,try connect</p>
+          <p>Two bee or not two bee, is a QUESTION. ---- Shake a Spear</p>
         </div>
       </div>
       <RecommendationsRankings></RecommendationsRankings>

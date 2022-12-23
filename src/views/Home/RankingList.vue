@@ -36,8 +36,8 @@ export default {
       RankingList: [
         {
           num: 1,
-          title: "纯手工自制一个十六位RISC架构CPU",
-          author: "Rick_A",
+          title: "【精品】看看我这两天做了些什么东西出来！！",
+          author: "niass_A",
           view: 2426,
           isHot: true,
           isElite: false,
@@ -46,7 +46,7 @@ export default {
         {
           num: 2,
           title: "纯手工自制一个十六位RISC架构CPU",
-          author: "Rick_A",
+          author: "ERdcdk_A",
           view: 2426,
           isHot: false,
           isElite: true,
@@ -54,8 +54,8 @@ export default {
         },
         {
           num: 3,
-          title: "纯手工自制一个十六位RISC架构CPU",
-          author: "Rick_A",
+          title: "学学别人如何DIY一个嵌入式架构CPU",
+          author: "flasg_A",
           view: 2426,
           isHot: true,
           isElite: true,
@@ -63,7 +63,7 @@ export default {
         },
         {
           num: 4,
-          title: "纯手工自制一个十六位RISC架构CPU",
+          title: "我不信你会点开来看！！！！",
           author: "Rick_A",
           view: 2426,
           isHot: true,
@@ -72,7 +72,7 @@ export default {
         },
         {
           num: 5,
-          title: "纯手工自制一个十六位RISC架构CPU",
+          title: "因为在家想要整点东西，我",
           author: "Rick_A",
           view: 2426,
           isHot: false,
@@ -81,7 +81,7 @@ export default {
         },
         {
           num: 6,
-          title: "纯手工自制一个十六位RISC架构CPU",
+          title: "重复创作！！！！一个人自制一个十六位RISC架构CPU",
           author: "Rick_A",
           view: 2426,
           isHot: false,
@@ -90,7 +90,7 @@ export default {
         },
         {
           num: 7,
-          title: "纯手工自制一个十六位RISC架构CPU",
+          title: "什么是ARDUINO? 看看-学学-问问[1]",
           author: "Rick_A",
           view: 2426,
           isHot: false,
@@ -99,7 +99,7 @@ export default {
         },
         {
           num: 8,
-          title: "纯手工自制一个十六位RISC架构CPU",
+          title: "如何从零开始做开源？ 学学-问问[1]",
           author: "Rick_A",
           view: 2426,
           isHot: false,
@@ -108,7 +108,7 @@ export default {
         },
         {
           num: 9,
-          title: "纯手工自制一个十六位RISC架构CPU",
+          title: "什么是ARDUINO? 问问[1]",
           author: "Rick_A",
           view: 2426,
           isHot: false,
@@ -117,7 +117,7 @@ export default {
         },
         {
           num: 10,
-          title: "纯手工自制一个十六位RISC架构CPU",
+          title: "虽然我是个机器人，但我是个机器人！",
           author: "Rick_A",
           view: 2426,
           isHot: false,
@@ -156,6 +156,7 @@ export default {
         font-size: 12px;
         font-family: "HarmonyOS_Sans_SC_Medium";
         letter-spacing: 1px;
+        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         color: #808080;

@@ -39,6 +39,7 @@
         class="searchList_item"
         v-for="(item, index) in getSearchData.resultArrList"
         :key="index"
+         @click="toPostPage(item.postId)"
       >
         <!-- itemTopic -->
         <div class="item_topic">
@@ -154,6 +155,10 @@ export default {
     },
 
     handleCurrentChange() {},
+
+    toPostPage(id) {
+      this.$router.push({ name: "postContent", params: { postId: id } });
+    },
   },
 
   computed: {
@@ -335,6 +340,7 @@ export default {
 // searchList
 .searchList_item {
   width: 90%;
+  cursor: pointer;
   margin: 0 auto;
   height: calc(var(--heightRate) * 100);
   border-style: solid;

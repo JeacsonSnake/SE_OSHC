@@ -12,10 +12,15 @@
                     {{item.postBrief}}
                 </p>
               </div>
-              <div class="ImageGroup">
+              <div class="ImageGroup" v-if="item.imgUrlArr.length == 0">
                 <img src="../../assets/images/post_example/示例图1.png" alt="" class="CardImage" />
                 <img src="../../assets/images/post_example/示例图2.png" alt="" class="CardImage" />
                 <img src="../../assets/images/post_example/示例图3.png" alt="" class="CardImage" />
+              </div>
+              <div class="ImageGroup" v-else>
+                <template v-for="(item, index) in item.imgUrlArr">
+                <img :src="item" alt="" class="CardImage" />
+                </template>
               </div>
               <div class="PublisherArea">
                 <el-avatar :size="20" :src="item.avatar"  class="SmallAvatar"></el-avatar>
@@ -50,7 +55,7 @@ export default {
 
   methods: {
     toPostPage(id) {
-      this.$router.push({ name: "postContent", params: { postId:id } });
+      this.$router.push({ name: "postContent", params: { postId: id } });
     },
   },
 

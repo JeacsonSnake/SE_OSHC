@@ -3,16 +3,16 @@
     <div class="leftSlide">
       <div class="authorBlock">
         <div class="avatarName">
-          <el-avatar :size="59" :src="circleUrl" class="Avatar"></el-avatar>
+          <el-avatar :size="59" :src="postInfo.avatar" class="Avatar"></el-avatar>
           <div class="nameBrief">
-            <p class="name">sdfgasdgasdgf</p>
+            <p class="name">{{postInfo.authorName}}</p>
             <div class="briefGender">
               <i class="el-icon-male gender"></i>
-              <p class="brief">asdgasdgasdgasdgsfdggdfgsd</p>
+              <p class="brief">------------------</p>
             </div>
           </div>
         </div>
-        <p class="follow">32 关注 | 233 粉丝</p>
+        <p class="follow">无 关注 | 有 粉丝</p>
         <div class="ipFo">
           <p class="ip">
             <i class="el-icon-location-information"></i>
@@ -31,35 +31,39 @@
     <div class="rightSlide">
       <div class="post">
         <div class="titleWithTag">
-          <div class="title">纯手工自制一个十六位RISC架构CPU</div>
-        <img src="../../assets/images/label_head/精华_w30px.png" class="EliteTag"></img>
-        <img src="../../assets/images/label_head/热门_w30px.png" class="HotTag"></img>
-        <img src="../../assets/images/label_head/置顶_w30px.png" class="TopTag"></img>
+          <div class="title">{{postInfo.postTitle}}</div>
+                <img src="../../assets/images/label_head/精华_w30px.png" class="EliteTag" v-show="postInfo.isEssPost"></img>
+                <img src="../../assets/images/label_head/热门_w30px.png" class="HotTag" v-show="postInfo.isHotPost"></img>
+                <img src="../../assets/images/label_head/置顶_w30px.png" class="TopTag" v-show="postInfo.isTop"></img>
         </div>
 
         <div class="bar-content">
-            <div class="authorName">asdasfasfasd</div>
+            <div class="authorName">{{postInfo.authorName}}</div>
                     <img class="article-time-img" src="../../assets/images/small_icon/icon_时间.png" alt="">
                     <span class="title">于</span>
-                    <span class="time">2022-12-22 13:28:43</span>
+                    <span class="time">{{postInfo.postTime ? postTime : "2022-12-23 13:28:43"}}</span>
                     <span class="title">发布</span>
                     <img class="article-read-img" src="../../assets/images/small_icon/icon_浏览量.png" alt="">
-                    <span class="read-count">820</span>
-                    <span class="title">收藏</span>
+                    <span class="read-count">{{postInfo.viewNum}}</span>
+                    <span class="title">浏览</span>
+        </div>
+
+        <div class="postContentBlock" v-html="postInfo.postContent">
+
         </div>
       </div>
 
       <div class="authorBlock">
-            <el-avatar :size="45" :src="circleUrl" class="Avatar"></el-avatar>
-            <div class="authorName">asdasfasfasd</div>
+            <el-avatar :size="45" :src="postInfo.avatar" class="Avatar"></el-avatar>
+            <div class="authorName">{{postInfo.authorName}}</div>
             <div class="bar-content">
                     <img class="article-time-img" src="../../assets/images/small_icon/icon_时间.png" alt="">
                     <span class="title">于</span>
-                    <span class="time">2022-12-22 13:28:43</span>
+                    <span class="time">{{postInfo.postTime ? postTime : "2022-12-23 13:28:43"}}</span>
                     <span class="title">发布</span>
                     <img class="article-read-img" src="../../assets/images/small_icon/icon_浏览量.png" alt="">
-                    <span class="read-count">820</span>
-                    <span class="title">收藏</span>
+                    <span class="read-count">{{postInfo.viewNum}}</span>
+                    <span class="title">浏览</span>
         </div>
             <el-button class="btnColor" round> 收藏 </el-button>
       </div>
@@ -90,17 +94,24 @@ export default {
       commentNow: "",
     };
   },
+
+  computed: {
+    postInfo() {
+      return this.$store.state.postInfo;
+    },
+  },
+
   components: {
     HotSection,
   },
 
   created() {
-    const tagId = this.$route.params.postId;
+    const postId = this.$route.params.postId;
     console.log(postId);
     if (postId) {
       this.$store.commit("SETPOSTID", postId);
     }
-    this.$store.dispatch("getTag", this.$store.state.tagId);
+    this.$store.dispatch("getPostCotent", this.$store.state.postId);
   },
 };
 </script>
@@ -302,6 +313,25 @@ export default {
           height: 100%;
         }
       }
+
+      .postContentBlock {
+        width: calc(var(--widthRate) * 955);
+        height: fit-content;
+        margin-bottom: calc(var(--widthRate) * 40);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: start;
+        text-indent:2em;
+
+        ::v-deep() p {
+            img {
+                width: 100%;
+                display: flex;
+                align-items: center;
+            }
+        }
+      }
     }
 
     .authorBlock {
@@ -387,17 +417,17 @@ export default {
         }
 
         .btnColor {
-        width: calc(var(--widthRate) * 105);
-        height: calc(var(--heightRate) * 40);
-        line-height: calc(var(--heightRate) * 5);
-        font-family: "HarmonyOS_Sans_SC_Medium";
-        margin-left: calc(var(--widthRate) * 30);
-        margin-right: calc(var(--widthRate) * 30);
-        font-size: calc(var(--heightRate) * 24);
-        background-color: #fbfafa;
-        color: #383838;
-        text-align: center;
-      }
+          width: calc(var(--widthRate) * 105);
+          height: calc(var(--heightRate) * 40);
+          line-height: calc(var(--heightRate) * 5);
+          font-family: "HarmonyOS_Sans_SC_Medium";
+          margin-left: calc(var(--widthRate) * 30);
+          margin-right: calc(var(--widthRate) * 30);
+          font-size: calc(var(--heightRate) * 24);
+          background-color: #fbfafa;
+          color: #383838;
+          text-align: center;
+        }
       }
     }
   }
