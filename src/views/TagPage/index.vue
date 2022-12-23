@@ -2,7 +2,11 @@
   <div class="tagPage">
     <div class="tagInfoBlock">
       <img
-        :src=" tagInfo.tagImg ? tagInfo.tagImg : require('../../assets/images/tag_example/灌水.jpeg')"
+        :src="
+          tagInfo.tagImg
+            ? tagInfo.tagImg
+            : require('../../assets/images/tag_example/灌水.jpeg')
+        "
         class="tagImg"
         alt=""
       />
@@ -50,6 +54,12 @@ import HotSection from "../../components/HotSection/index.vue";
 import BriefRecommandBlock from "./BriefRecommandBlock.vue";
 import RecommendationCards from "./RecommendationCards.vue";
 export default {
+  data() {
+    return {
+      id: "",
+    };
+  },
+
   components: {
     HotSection,
     BriefRecommandBlock,
@@ -57,11 +67,9 @@ export default {
   },
 
   methods: {
-
     toPostReasePage(id, title) {
-      this.$router.push({ name: "PostRelease" , params: {id, title}});
-    }
-
+      this.$router.push({ name: "PostRelease", params: { id, title } });
+    },
   },
 
   computed: {
@@ -72,9 +80,13 @@ export default {
 
   created() {
     const tagId = this.$route.params.tagId;
-    console.log(tagId);
+    // console.log(tagId);
+    this.id = tagId;
     if (tagId) {
-        this.$store.commit("SETTAGID", tagId);
+      this.$store.commit("SETTAGID", tagId);
+      this.id = tagId;
+    } else {
+        this.id = this.$store.state.tagId;
     }
     this.$store.dispatch("getTag", this.$store.state.tagId);
   },

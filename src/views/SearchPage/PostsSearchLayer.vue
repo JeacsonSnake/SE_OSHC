@@ -2,7 +2,8 @@
   <div class="postsSearchLayer">
     <el-empty description="无搜索结果" v-show="isEmpty"></el-empty>
     <div class="searchResult" v-show="!isEmpty">
-      <!-- searchSection -->
+        <div>
+                  <!-- searchSection -->
       <div class="search_section_background" v-show="getSearchData.isTag">
         <div class="search_section_hidari">
           <p class="search_section_topic">
@@ -59,6 +60,7 @@
         <!-- itemBrief -->
         <div class="item_brief">{{ item.postBrief }}</div>
       </div>
+        </div>
 
       <!-- searchPage -->
       <div class="search_page_button">
@@ -143,7 +145,17 @@ export default {
   },
 
   methods: {
-    handleCurrentChange() {},
+    handleCurrentChange(val) {
+      this.searchData = this.$store.state.searchData;
+      let nowPage = val;
+      let size = this.$store.state.searchObj.size;
+      let value = {
+        searchData: this.searchData,
+        nowPage,
+        size,
+      };
+      this.$store.dispatch("getSearchResult", value);
+    },
 
     toPostPage(id) {
       this.$router.push({ name: "postContent", params: { postId: id } });
@@ -215,6 +227,12 @@ export default {
   display: flex;
   flex-direction: column;
   background-color: rgb(255, 255, 255);
+}
+
+.searchResult {
+  width: 100%;
+  min-height: calc(var(--heightRate) * 930);
+  display: flex;
 }
 
 .search_section_background {

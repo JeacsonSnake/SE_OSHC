@@ -162,3 +162,27 @@ export const getUserCollectApi = (value) => {
         }
     })
 }
+
+export const sendCommentApi = (value) => {
+    return requests({
+        url: 'post/addcomment',
+        method: 'post',
+        params: {
+            postId: value.postId,
+            userId: value.userId,
+            postComment: value.postComment,
+            commentFlour: value.commentFlour,
+        }
+    })
+}
+
+export const getCommentApi = (value) => {
+    return requests({
+        url: 'post/comment',
+        method: 'get',
+        params: {
+            postId: value.postId,
+            nowPage: value.nowPage,
+        }
+    })
+}

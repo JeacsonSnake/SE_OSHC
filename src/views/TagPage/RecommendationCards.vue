@@ -29,7 +29,7 @@
                 <p id="PublishTime">三天前</p>
                 <img src="../../assets/images/small_icon/icon_浏览量.png" alt="" id="eye">
                 <p id="noMargin">浏览量</p>
-                <p>2355</p>
+                <p>{{item.postView}}</p>
                 <div class="PostTags">
                     <div class="PostTag">#{{item.postTagName}}</div>
                 </div>
@@ -117,6 +117,8 @@ export default {
       margin-bottom: calc(var(--heightRate) * 8);
       .PostTag {
         width: fit-content;
+        padding-left: calc(var(--widthRate) * 4);
+        padding-right: calc(var(--widthRate) * 4);
         height: calc(var(--heightRate) * 24);
         background-color: #01d1bb;
         border-radius: calc(var(--heightRate) * 15);

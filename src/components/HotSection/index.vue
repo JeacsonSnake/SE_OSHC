@@ -83,7 +83,12 @@ export default {
     },
 
     toTagPage(tagId) {
-      this.$router.push({ name: "tagPage" , params: {tagId}});
+        if(this.$route.name == "tagPage") {
+             this.$store.commit("SETTAGID", tagId);
+              window.location.reload(); //监测到id时刷新一次页面
+        } else {
+            this.$router.push({ name: "tagPage" , params: {tagId}});
+        }
     },
   },
 

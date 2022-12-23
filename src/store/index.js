@@ -56,7 +56,14 @@ export default new Vuex.Store({
             "tagsObj": {},
             "resultArrList": [],
         },
-        userNeedObj: {}
+        userNeedObj: {},
+        commentObj: {
+            "showNum": 0,
+            "totalNum": 0,
+            "totalPage": 0,
+            "resultArrList": [],
+            "nowPage": 1
+        }
   },
   getters: {
   },

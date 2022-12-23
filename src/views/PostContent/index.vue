@@ -68,7 +68,7 @@
             <el-button class="btnColor" round> 收藏 </el-button>
       </div>
 
-      <div class="commentBlock">
+      <div class="commentSection">
         <div class="textBlock">
             <div class="title">
                 评论
@@ -79,7 +79,10 @@
                 class="textInput"
                 >
             </el-input>
-            <el-button class="btnColor" round> 发布 </el-button>
+            <el-button class="btnColor" round @click="sendComment()"> 发布 </el-button>
+        </div>
+        <div class="commentBlock">
+            <el-empty description="没有回复" :image-size="300"></el-empty>
         </div>
       </div>
     </div>
@@ -88,6 +91,7 @@
 
 <script>
 import HotSection from "../../components/HotSection/index.vue";
+import { sendCommentApi } from "../../api";
 export default {
   data() {
     return {
@@ -95,9 +99,37 @@ export default {
     };
   },
 
+  methods: {
+    async sendComment() {
+      const userDetail = JSON.parse(window.localStorage.getItem("userDetail"));
+      let data = {
+        postId: this.postInfo.postId,
+        userId: userDetail.userId,
+        postComment: this.commentNow,
+        commentFlour: this.commentObj.resultArrList.length ? this.commentObj.resultArrList.length : 1,
+      };
+      await sendCommentApi(data)
+        .then((res) => {
+          if (res.code == 200) {
+            this.$message({
+              message: "评论成功！等管理员通过就可以看到评论了！",
+              type: "success",
+            });
+            this.commentNow = ""
+          } else {
+            throw "服务器抽风了，大概。。。";
+          }
+        })
+        .catch((err) => {});
+    },
+  },
+
   computed: {
     postInfo() {
       return this.$store.state.postInfo;
+    },
+    commentObj() {
+      return this.$store.state.commentObj;
     },
   },
 
@@ -322,14 +354,14 @@ export default {
         flex-direction: column;
         align-items: flex-start;
         text-align: start;
-        text-indent:2em;
+        text-indent: 2em;
 
         ::v-deep() p {
-            img {
-                width: 100%;
-                display: flex;
-                align-items: center;
-            }
+          img {
+            width: 100%;
+            display: flex;
+            align-items: center;
+          }
         }
       }
     }
@@ -389,7 +421,7 @@ export default {
       }
     }
 
-    .commentBlock {
+    .commentSection {
       width: calc(var(--widthRate) * 1050);
       height: fit-content;
       background-color: #fff;
@@ -428,6 +460,14 @@ export default {
           color: #383838;
           text-align: center;
         }
+      }
+
+      .commentBlock {
+        width: calc(var(--widthRate) * 1050);
+        height: fit-content;
+        background-color: #fff;
+        border-radius: calc(var(--heightRate) * 10);
+        margin-top: calc(var(--heightRate) * 20);
       }
     }
   }
