@@ -9,7 +9,8 @@ import {
     hotTagApi,
     getTagApi,
     getTagPostApi,
-    getPostApi
+    getPostApi,
+    searchApi
 } from '../api'
 
 Vue.use(Vuex)
@@ -24,6 +25,7 @@ export default new Vuex.Store({
         showUserCard: false,
         isRepeat: false,
         isFollowEmpty: true,
+        isSearchUpdate: true,
         tagTitle: "接口测试数据1",
         tagId: "",
         postId: "",
@@ -39,6 +41,17 @@ export default new Vuex.Store({
         tagInfo: {},
         postArr: [],
         postInfo: {},
+        searchData: "",
+        searchObj: {
+            "nowPage": 1,
+            "size": 7,
+            "showNum": 1,
+            "totalNum": 1,
+            "totalPage": 1,
+            "isTag": false,
+            "tagsObj": {},
+            "resultArrList": [],
+        }
   },
   getters: {
   },
@@ -105,6 +118,18 @@ export default new Vuex.Store({
 
         SETTAGTITLE(state, value) {
             state.tagTitle = value;
+        },
+
+        SETSEARCHDATA(state, value) {
+            state.searchData = value;
+        },
+
+        SETSEARCHUPDATE(state, value) {
+            state.isSearchUpdate = value;
+        },
+
+        SETSEARCHOBJ(state, value) {
+            state.searchObj = { "tagsObj": {},...value };
         },
   },
     actions: {
@@ -250,6 +275,19 @@ export default new Vuex.Store({
             await getPostApi(value).then((res) => {
                 if (res.code === 200) {
                         context.commit('SETPOSTINFO', res.data);
+                }else {
+                    throw 'Err!'
+                }
+            }).catch((err) => {
+                console.log(err);
+            })
+        },
+
+        async getSearchResult(context, value) {
+            await searchApi(value).then((res) => {
+                if (res.code === 200) {
+                        context.commit("SETSEARCHUPDATE", true);
+                        context.commit('SETSEARCHOBJ', res.data);
                 }else {
                     throw 'Err!'
                 }

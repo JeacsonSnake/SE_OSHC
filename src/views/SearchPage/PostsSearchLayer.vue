@@ -3,7 +3,7 @@
     <el-empty description="无搜索结果" v-show="isEmpty"></el-empty>
     <div class="searchResult" v-show="!isEmpty">
       <!-- searchSection -->
-      <div class="search_section_background">
+      <div class="search_section_background" v-show="getSearchData.isTag">
         <div class="search_section_hidari">
           <p class="search_section_topic">
             {{ searchSection.topic }}
@@ -14,22 +14,22 @@
         <div class="search_section">
           <!-- left -->
           <div class="search_section_left">
-            <span class="section_lable">{{ searchSection.sectionLable }}</span>
+            <span class="section_lable">{{ getSearchData.tagsObj.tagTitle ? getSearchData.tagsObj.tagTitle : ""}}</span>
             <div class="section_content">
               <p id="search_section_left_posts">
-                贴子数：{{ searchSection.posts }}
+                贴子数：{{ getSearchData.tagsObj.tagPostNum ? getSearchData.tagsObj.tagPostNum : "0" }}
               </p>
               <p id="search_section_left_hots">
-                热度：{{ searchSection.hots }}
+                热度：{{ getSearchData.tagsObj.tagHot ? getSearchData.tagsObj.tagHot : "0" }}
               </p>
               <p id="search_section_left_news">
-                最新动态：{{ searchSection.news }}
+                最新动态：{{ getSearchData.tagsObj.lastPostTime ? getSearchData.tagsObj.lastPostTime : "异次元" }}
               </p>
             </div>
           </div>
           <!-- right -->
           <div class="search_section_right">
-            <img src="../../assets/images/tag_example/esp32.jpg" alt="" />
+            <img :src=" getSearchData.tagsObj.tagImg ? getSearchData.tagsObj.tagImg : require('../../assets/images/tag_example/灌水.jpeg') " alt="" />
           </div>
         </div>
       </div>
@@ -37,37 +37,38 @@
       <!-- searchList -->
       <div
         class="searchList_item"
-        v-for="(item, index) in getSearchData"
+        v-for="(item, index) in getSearchData.resultArrList"
         :key="index"
       >
         <!-- itemTopic -->
         <div class="item_topic">
-          {{ item.topic }}
-          <img src="../../assets/images/label_head/精华_w30px.png" />
+          {{ item.postTitle }}
+            <img src="../../assets/images/label_head/精华_w30px.png" class="EliteTag" v-show="item.isEssence"></img>
+            <img src="../../assets/images/label_head/热门_w30px.png" class="HotTag" v-show="item.isHot"></img>
+            <img src="../../assets/images/label_head/置顶_w30px.png" class="TopTag" v-show="item.isTop"></img>
         </div>
         <!-- itemLabel -->
         <div class="item_label">
-          <div id="item_label_postlabel">#{{ item.postLabel }}</div>
-          <div id="item_label_user">{{ item.user }}</div>
+          <div id="item_label_postlabel">#{{ item.relatedTagName }}</div>
+          <div id="item_label_user">{{ item.authorName }}</div>
           <div id="item_label_date">.</div>
-          <div id="item_label_date">{{ item.date }}</div>
-          <div id="item_label_views">浏览量{{ item.views }}</div>
+          <div id="item_label_date">{{ item.postTime ? item.postTime : "异时间" }}</div>
+          <div id="item_label_views">浏览量 {{ item.viewNum }}</div>
         </div>
         <!-- itemBrief -->
-        <div class="item_brief">{{ item.brief }}</div>
+        <div class="item_brief">{{ item.postBrief }}</div>
       </div>
 
       <!-- searchPage -->
       <div class="search_page_button">
         <el-pagination
-          @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
-          :current-page.sync="currentPage3"
+          :current-page.sync="getSearchData.nowPage"
           hide-on-single-page
-          :page-size="100"
+          :page-size="7"
           background
           layout="prev, pager, next, jumper"
-          :total="1000"
+          :total="getSearchData.totalNum"
           class="elPag"
         >
         </el-pagination>
@@ -83,7 +84,8 @@ export default {
       circleUrl:
         "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
       //   value: false,
-      searchData: [],
+      searchData: "",
+      isSearchUpdate: true,
       isEmpty: false,
 
       searchSection: {
@@ -94,48 +96,48 @@ export default {
         news: "666",
       },
 
-      getSearchData: [
-        {
-          user: "RICK_A",
-          date: "三天前",
-          postLabel: "ESP32",
-          views: "114514",
-          topic: "[新人必备] ESP32是个啥?全网最详细介绍ESP32!",
-          brief: "ESP32DDDDDDDDDDDDDDDDDD",
-        },
-        {
-          user: "RICK_b",
-          date: "三天前",
-          postLabel: "ESP32",
-          views: "1919810",
-          topic: "[新人必备] ESP32是个啥?全网最详细介绍ESP32!",
-          brief: "ESP32DDDDDDDDDDDDDDDDDD",
-        },
-        {
-          user: "RICK_c",
-          date: "三天前",
-          postLabel: "ESP32",
-          views: "114514",
-          topic: "[新人必备] ESP32是个啥?全网最详细介绍ESP32!",
-          brief: "ESP32DDDDDDDDDDDDDDDDDD",
-        },
-        {
-          user: "RICK_d",
-          date: "三天前",
-          postLabel: "ESP32",
-          views: "114514",
-          topic: "[新人必备] ESP32是个啥?全网最详细介绍ESP32!",
-          brief: "ESP32DDDDDDDDDDDDDDDDDD",
-        },
-        {
-          user: "RICK_e",
-          date: "三天前",
-          postLabel: "ESP32",
-          views: "114514",
-          topic: "[新人必备] ESP32是个啥?全网最详细介绍ESP32!",
-          brief: "ESP32DDDDDDDDDDDDDDDDDD",
-        },
-      ],
+      //   getSearchData: [
+      //     {
+      //       user: "RICK_A",
+      //       date: "三天前",
+      //       postLabel: "ESP32",
+      //       views: "114514",
+      //       topic: "[新人必备] ESP32是个啥?全网最详细介绍ESP32!",
+      //       brief: "ESP32DDDDDDDDDDDDDDDDDD",
+      //     },
+      //     {
+      //       user: "RICK_b",
+      //       date: "三天前",
+      //       postLabel: "ESP32",
+      //       views: "1919810",
+      //       topic: "[新人必备] ESP32是个啥?全网最详细介绍ESP32!",
+      //       brief: "ESP32DDDDDDDDDDDDDDDDDD",
+      //     },
+      //     {
+      //       user: "RICK_c",
+      //       date: "三天前",
+      //       postLabel: "ESP32",
+      //       views: "114514",
+      //       topic: "[新人必备] ESP32是个啥?全网最详细介绍ESP32!",
+      //       brief: "ESP32DDDDDDDDDDDDDDDDDD",
+      //     },
+      //     {
+      //       user: "RICK_d",
+      //       date: "三天前",
+      //       postLabel: "ESP32",
+      //       views: "114514",
+      //       topic: "[新人必备] ESP32是个啥?全网最详细介绍ESP32!",
+      //       brief: "ESP32DDDDDDDDDDDDDDDDDD",
+      //     },
+      //     {
+      //       user: "RICK_e",
+      //       date: "三天前",
+      //       postLabel: "ESP32",
+      //       views: "114514",
+      //       topic: "[新人必备] ESP32是个啥?全网最详细介绍ESP32!",
+      //       brief: "ESP32DDDDDDDDDDDDDDDDDD",
+      //     },
+      //   ],
     };
   },
 
@@ -150,22 +152,33 @@ export default {
         name: "userPage",
       });
     },
+
+    handleCurrentChange() {},
   },
 
   computed: {
-    isUpdate: function () {
+    isUpdate() {
       return this.$store.state.isSearchUpdate;
+    },
+
+    getSearchData() {
+      return this.$store.state.searchObj;
     },
   },
 
-  async created() {
-    this.searchData = await this.$store.state.searchData;
+  created() {
+    this.searchData = this.$store.state.searchData;
+    let nowPage = this.$store.state.searchObj.nowPage;
+    let size = this.$store.state.searchObj.size;
+    let value = {
+      searchData: this.searchData,
+      nowPage,
+      size,
+    };
     this.$store.commit("SETSEARCHUPDATE", false);
-    if (this.searchData.length !== 0) {
+    this.$store.dispatch("getSearchResult", value);
+    if (this.getSearchData.resultArrList.length !== 0) {
       this.isEmpty = false;
-      this.searchData.forEach(function (goods) {
-        goods.pictureUrl = goods.pictureUrl.split(" ");
-      });
     } else {
       this.isEmpty = true;
     }
@@ -173,16 +186,24 @@ export default {
 
   mounted() {},
 
-  async beforeUpdate() {
-    this.searchData = await this.$store.state.searchData;
-    if (this.searchData.length !== 0) {
-      this.$store.commit("SETSEARCHUPDATE", false);
-      this.isEmpty = false;
-      this.searchData.forEach(function (goods) {
-        goods.pictureUrl = goods.pictureUrl.split(" ");
-      });
+  beforeUpdate() {
+    if (this.searchData === this.$store.state.searchData) {
     } else {
-      this.isEmpty = true;
+      this.searchData = this.$store.state.searchData;
+      let nowPage = this.$store.state.searchObj.nowPage;
+      let size = this.$store.state.searchObj.size;
+      let value = {
+        searchData: this.searchData,
+        nowPage,
+        size,
+      };
+      this.$store.commit("SETSEARCHUPDATE", false);
+      this.$store.dispatch("getSearchResult", value);
+      if (this.getSearchData.resultArrList.length !== 0) {
+        this.isEmpty = false;
+      } else {
+        this.isEmpty = true;
+      }
     }
   },
 };
@@ -256,6 +277,7 @@ export default {
   border-style: solid;
   border-width: calc(var(--heightRate) * 1);
   border-color: #004766;
+  justify-content: space-between;
 }
 
 //search_section left
@@ -272,9 +294,10 @@ export default {
     cursor: default;
     color: white;
     margin-top: calc(var(--heightRate) * -5);
+    margin-bottom: calc(var(--heightRate) * 10);
     font-weight: 10;
     letter-spacing: calc(var(--widthRate) * 1);
-    font-size: calc(var(--heightRate) * 54);
+    font-size: calc(var(--heightRate) * 30);
   }
 
   .section_content {
@@ -294,10 +317,11 @@ export default {
 }
 //search_section right
 .search_section_right {
-  width: calc(var(--widthRate) * 245);
-  height: 86%;
-  margin-top: calc(var(--heightRate) * 10);
+  width: calc(var(--heightRate) * 170);
+  height: calc(var(--heightRate) * 170);
+  margin-top: calc(var(--heightRate) * 8);
   margin-left: calc(var(--widthRate) * 10);
+  margin-right: calc(var(--widthRate) * 10);
   //overflow:hidden;   可以用注释里面的部分来进行图片裁剪，但是可能只适用于部分图片
 }
 .search_section_right img {

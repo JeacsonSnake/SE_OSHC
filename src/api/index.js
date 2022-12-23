@@ -220,3 +220,15 @@ export const getPostApi = (value) => {
         }
     })
 }
+
+export const searchApi = (value) => {
+    return requests({
+        url: 'search',
+        method: 'get',
+        params: {
+            content: value.searchData,
+            nowPage: value.nowPage,
+            size: value.size
+        }
+    })
+}

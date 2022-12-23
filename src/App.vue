@@ -82,7 +82,7 @@ export default {
   --widthRate: calc(100vw / #{$base-width});
   text-align: center;
   color: #2c3e50;
-  background-color: #e8e2e0;
+  background-color: #f5f5f5;
 }
 </style>
 

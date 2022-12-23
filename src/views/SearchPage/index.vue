@@ -4,7 +4,7 @@
       <div id="searchRow">
         <SearchBar></SearchBar>
       </div>
-      <PostsSearchLayer v-show="isSearchUpdate"></PostsSearchLayer>
+      <PostsSearchLayer v-loading="!isSearchUpdate"></PostsSearchLayer>
     </div>
     <div class="rightSlide">
       <HotSection></HotSection>
@@ -18,18 +18,22 @@ import SearchBar from "../../components/SearchBar/index.vue";
 import HotSection from "../../components/HotSection/index.vue";
 export default {
   computed: {
-    isSearchUpdate: async function () {
-      return await this.$store.state.isSearchUpdate;
+    isSearchUpdate() {
+      return this.$store.state.isSearchUpdate;
     },
   },
-
-  props: ["searchItem"],
 
   components: {
     PostsSearchLayer,
     SearchBar,
     HotSection,
   },
+
+  beforeUpdate() {
+    if (this.isSearchUpdate === false) {
+        window.location.reload(); //监测到路由发生跳转时刷新一次页面
+      }
+  }
 };
 </script>
 
@@ -37,14 +41,15 @@ export default {
 .searchPage {
   background-image: url("../../assets/images/background/搜素结果页背景.png");
   background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: calc(var(--heightRate) * 115) ;
+  background-size: 100vw ;
+  padding-top: calc(var(--heightRate) * 115);
   display: flex;
   width: 100%;
-  height: calc(var(--heightRate) * 1130) ;
+  min-height: calc(var(--heightRate) * 1130);
 
   .leftSlide {
     margin-left: calc(var(--widthRate) * 215);
+    margin-bottom: calc(var(--heightRate) * 60);
     #searchRow {
       width: calc(var(--widthRate) * 1190);
 
@@ -56,7 +61,7 @@ export default {
 
   .rightSlide {
     width: calc(var(--widthRate) * 305);
-    height: calc(var(--heightRate) * 590) ;
+    height: calc(var(--heightRate) * 590);
     margin-left: calc(var(--widthRate) * 120);
   }
 }
