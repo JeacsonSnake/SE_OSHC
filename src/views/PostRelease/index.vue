@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import MarkdownContainer from "../../components/MarkdownContainer.vue";
+import MarkdownContainer from "../../components/markdownContainer.vue";
 export default {
   components: { MarkdownContainer },
   computed: {
