@@ -252,6 +252,9 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    top: 79%;
+    left: 25%;
   }
 }
 </style>

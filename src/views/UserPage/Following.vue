@@ -58,7 +58,13 @@ export default {
 
   methods: {
     handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
+      const userDetail = JSON.parse(window.localStorage.getItem("userDetail"));
+      const data = {
+        nowPage: val,
+        userId: userDetail.userId,
+      };
+
+      this.$store.dispatch("getFollowingArr", data);
     },
   },
 
@@ -76,18 +82,18 @@ export default {
 
 <style lang="scss" scoped>
 .followCard {
-  width:calc(var(--widthRate) * 900);
-  height:calc(var(--heightRate) * 100);
-  margin-left:calc(var(--widthRate) * 27);
-  margin-top:calc(var(--heightRate) * 15);
-  margin-bottom:calc(var(--heightRate) * 15);
+  width: calc(var(--widthRate) * 900);
+  height: calc(var(--heightRate) * 100);
+  margin-left: calc(var(--widthRate) * 27);
+  margin-top: calc(var(--heightRate) * 15);
+  margin-bottom: calc(var(--heightRate) * 15);
   border-bottom: calc(var(--heightRate) * 1) solid #808080;
   display: flex;
   position: relative;
 
   .Avatar {
-    margin-left:calc(var(--widthRate) * 22);
-    margin-right:calc(var(--widthRate) * 30);
+    margin-left: calc(var(--widthRate) * 22);
+    margin-right: calc(var(--widthRate) * 30);
     border: calc(var(--heightRate) * 1) solid #808080;
   }
 
@@ -95,13 +101,13 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height:calc(var(--heightRate) * 50);
-    max-width:calc(var(--widthRate) * 600);
+    height: calc(var(--heightRate) * 50);
+    max-width: calc(var(--widthRate) * 600);
     .followName {
       font-size: calc(var(--heightRate) * 29);
       color: #00bdc8;
       width: fit-content;
-      margin-bottom:calc(var(--heightRate) * 5);
+      margin-bottom: calc(var(--heightRate) * 5);
     }
 
     .briefContent {
@@ -123,9 +129,12 @@ export default {
 }
 
 .elPag {
-  margin-top:calc(var(--heightRate) * 25);
+  margin-top: calc(var(--heightRate) * 25);
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  top: 94%;
+  left: 54%;
 }
 </style>

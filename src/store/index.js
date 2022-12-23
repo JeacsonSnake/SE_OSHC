@@ -11,7 +11,9 @@ import {
     getTagPostApi,
     getPostApi,
     searchApi,
-    homeApi
+    homeApi,
+    getUserPostApi,
+    getUserCollectApi
 } from '../api'
 
 Vue.use(Vuex)
@@ -26,6 +28,7 @@ export default new Vuex.Store({
         showUserCard: false,
         isRepeat: false,
         isFollowEmpty: true,
+        isUserNeedEmpty: true,
         isSearchUpdate: true,
         tagTitle: "接口测试数据1",
         tagId: "",
@@ -52,7 +55,8 @@ export default new Vuex.Store({
             "isTag": false,
             "tagsObj": {},
             "resultArrList": [],
-        }
+        },
+        userNeedObj: {}
   },
   getters: {
   },
@@ -131,6 +135,14 @@ export default new Vuex.Store({
 
         SETSEARCHOBJ(state, value) {
             state.searchObj = { "tagsObj": {},...value };
+        },
+
+        ISUSERNEEDEMPTY(state, value) {
+            state.isUserNeedEmpty = value;
+        },
+
+        SETUSERNEEDOBJ(state, value) {
+            state.userNeedObj = { ...value };
         },
   },
     actions: {
@@ -330,6 +342,44 @@ export default new Vuex.Store({
                     } else {
                         context.commit('SETPOSTARR', [])
                     }
+                }
+            }).catch((err) => {
+                console.log(err);
+            })
+        },
+
+        async getCollectionArr(context, value) {
+            await getUserCollectApi(value).then((res) => {
+                if (res.code === 200) {
+                    if (res.data.totalNum == '0') {
+                        context.commit('ISUSERNEEDEMPTY', true);
+                    } else {
+                        context.commit('ISUSERNEEDEMPTY', false);
+                        context.commit('SETUSERNEEDOBJ',res.data);
+                    }
+                }else if (res.code = 409) {
+                    context.commit('ISUSERNEEDEMPTY', true);
+                }else {
+                    throw 'Err!'
+                }
+            }).catch((err) => {
+                console.log(err);
+            })
+        },
+
+        async getUserPostArr(context, value) {
+            await getUserPostApi(value).then((res) => {
+                if (res.code === 200) {
+                    if (res.data.totalNum == '0') {
+                        context.commit('ISUSERNEEDEMPTY', true);
+                    } else {
+                        context.commit('ISUSERNEEDEMPTY', false);
+                        context.commit('SETUSERNEEDOBJ',res.data);
+                    }
+                }else if (res.code = 409) {
+                    context.commit('ISUSERNEEDEMPTY', true);
+                }else {
+                    throw 'Err!'
                 }
             }).catch((err) => {
                 console.log(err);

@@ -82,7 +82,7 @@
             我的收藏 >>
           </p>
         </li>
-        <li class="selectBtn noBorder">
+        <!-- <li class="selectBtn noBorder">
           <p
             class="navBarTitle"
             :class="{ selected: navBarColorBool[4] }"
@@ -90,7 +90,7 @@
           >
             浏览记录 >>
           </p>
-        </li>
+        </li> -->
       </ul>
     </div>
 
@@ -148,7 +148,7 @@ export default {
     myCollection() {
       this.clearNavColor();
       this.navBarColorBool[3] = true;
-      this.$router.push({ name: "MyCollection" });
+      this.$router.push({ name: "MyCollectionPage" });
     },
 
     myHistory() {
@@ -164,7 +164,7 @@ export default {
       "userPage",
       "FollowerFollowing",
       "MyPost",
-      "MyCollection",
+      "MyCollectionPage",
       "BrowsingHistory",
     ];
     this.clearNavColor();

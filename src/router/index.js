@@ -17,7 +17,6 @@ import Following from '../views/UserPage/Following.vue'
 import MyCollection from '../views/UserPage/MyCollection.vue'
 import UserInfomation from '../views/UserPage/UserInfomation.vue'
 import BrowsingHistory from '../views/UserPage/BrowsingHistory.vue'
-import PostsSearchLayer from '../views/SearchPage/PostsSearchLayer.vue'
 import FollowerFollowing from '../views/UserPage/FollowerFollowing.vue'
 
 Vue.use(VueRouter)
@@ -41,7 +40,7 @@ const routes = [
                 component: UserInfomation,
             },
             {
-                name: 'MyCollection',
+                name: 'MyCollectionPage',
                 path: 'collection',
                 component: MyCollection,
             },

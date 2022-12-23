@@ -143,17 +143,6 @@ export default {
   },
 
   methods: {
-    pushGoodsPage() {
-      this.$router.push({
-        name: "goodsDisplayPage",
-      });
-    },
-    pushUserPage() {
-      this.$router.push({
-        name: "userPage",
-      });
-    },
-
     handleCurrentChange() {},
 
     toPostPage(id) {

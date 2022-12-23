@@ -68,20 +68,19 @@ export const followingApi = (value) => {
         method: 'post',
         params: {
             userId: value.userId,
-            page: value.needPage,
-            size: 7
+            needPage: value.needPage,
         }
     })
 }
 
 export const followerApi = (value) => {
+    console.log("value", value);
     return requests({
         url: 'user/GetFollower',
         method: 'post',
         params: {
             userId: value.userId,
-            page: value.needPage,
-            size: 7
+            needPage: value.nowPage,
         }
     })
 }
@@ -139,5 +138,27 @@ export const homeApi = (value) => {
     return requests({
         url: 'post/recommend',
         method: 'get',
+    })
+}
+
+export const getUserPostApi = (value) => {
+    return requests({
+        url: 'user/GetAllPost',
+        method: 'post',
+        params: {
+            userId: value.userId,
+            needPage: value.needPage
+        }
+    })
+}
+
+export const getUserCollectApi = (value) => {
+    return requests({
+        url: 'user/collection',
+        method: 'get',
+        params: {
+            userId: value.userId,
+            needPage: value.needPage
+        }
     })
 }
