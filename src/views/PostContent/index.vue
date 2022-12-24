@@ -154,7 +154,7 @@ export default {
   padding-top: calc(var(--heightRate) * 120);
   display: flex;
   width: 100%;
-  height: calc(var(--heightRate) * 1900);
+  height: fit-content;
 
   .leftSlide {
     width: calc(var(--widthRate) * 410);
@@ -284,7 +284,7 @@ export default {
 
   .rightSlide {
     margin-left: calc(var(--widthRate) * 75);
-
+    margin-bottom: calc(var(--heightRate) * 40);
     .post {
       width: calc(var(--widthRate) * 1000);
       height: fit-content;
