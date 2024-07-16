@@ -12,14 +12,14 @@
                     {{item.postBrief}}
                 </p>
               </div>
-              <div class="ImageGroup" v-if="item.imgUrlArr.length == 0">
+              <!-- <div class="ImageGroup" v-if="item.imgUrlArr.length == 0">
                 <img src="../../assets/images/post_example/示例图1.png" alt="" class="CardImage" />
                 <img src="../../assets/images/post_example/示例图2.png" alt="" class="CardImage" />
                 <img src="../../assets/images/post_example/示例图3.png" alt="" class="CardImage" />
-              </div>
-              <div class="ImageGroup" v-else>
+              </div> -->
+              <div class="ImageGroup" v-if="item.imgUrlArr.length !== 0">
                 <template v-for="(item, index) in item.imgUrlArr">
-                    <img :src="item" alt="" class="CardImage" />
+                <img :src="item" alt="" class="CardImage" />
                 </template>
               </div>
               <div class="PublisherArea">
@@ -36,6 +36,7 @@
               </div>
     </div>
 
+    <el-empty description="没有更多内容" :image-size="150"></el-empty>
   </div>
 </template>
 
@@ -46,7 +47,6 @@ export default {
       circleUrl: "",
     };
   },
-
   computed: {
     postArr() {
       return this.$store.state.postArr;
@@ -54,22 +54,22 @@ export default {
   },
 
   methods: {
-    toPostPage(postId) {
-      this.$router.push({ name: "postContent", params: { postId } });
+    toPostPage(id) {
+      this.$router.push({ name: "postContent", params: { postId: id } });
     },
   },
 
   mounted() {
-    this.$store.dispatch("getHomeRecommand");
+    this.$store.dispatch("getTagPost", this.$store.state.tagId);
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .RecommendationCards {
-  width: calc(var(--widthRate) * 580);
-  height: calc(var(--heightRate) * 678);
-  margin-top: calc(var(--heightRate) * 15);
+  width: calc(var(--widthRate) * 929);
+  height: 100%;
+  margin-top: calc(var(--heightRate) * 45);
   margin-left: calc(var(--widthRate) * 41);
   cursor: pointer;
 
@@ -78,13 +78,14 @@ export default {
   }
 
   .RecommendationCard {
-    width: calc(var(--widthRate) * 560);
+    width: 100%;
     height: calc(var(--heightRate) * 203);
     margin-left: calc(var(--widthRate) * 17);
     margin-bottom: calc(var(--heightRate) * 25);
     color: #808080;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: flex-start;
     border-bottom: calc(var(--heightRate) * 1) solid #808080;
 
@@ -94,8 +95,8 @@ export default {
 
       .title {
         max-width: calc(var(--widthRate) * 445);
-        height: calc(var(--heightRate) * 22);
-        font-size: calc(var(--heightRate) * 14);
+        height: calc(var(--heightRate) * 33);
+        font-size: calc(var(--heightRate) * 26);
         font-weight: 600;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -123,6 +124,7 @@ export default {
         border-radius: calc(var(--heightRate) * 15);
         color: #ffffff;
         font-size: calc(var(--heightRate) * 10);
+        font-weight: 600;
         margin-right: calc(var(--widthRate) * 4);
       }
     }
@@ -138,6 +140,7 @@ export default {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        color: #00b6cc;
       }
     }
 
@@ -154,10 +157,13 @@ export default {
     .PublisherArea {
       display: flex;
       margin-top: calc(var(--heightRate) * 5);
+      margin-bottom: calc(var(--heightRate) * 5);
       align-items: center;
-      font-family: "HarmonyOS_Sans_SC_Thin";
+      font-family: "HarmonyOS_Sans_SC_Regular";
       .SmallAvatar {
         margin-right: calc(var(--widthRate) * 5);
+        // background-color: #ffffff;
+        border: calc(var(--heightRate) * 1) solid #808080;
       }
 
       p {

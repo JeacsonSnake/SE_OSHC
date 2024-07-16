@@ -23,7 +23,7 @@
           <el-form-item
             label="用户名"
             prop="userName"
-            style="margin-bottom: 35px"
+            style="margin-bottom: calc(100vh / 1080px * 25px)"
           >
             <el-input
               type="text"
@@ -31,7 +31,22 @@
               autocomplete="off"
             ></el-input>
           </el-form-item>
-          <el-form-item label="密码" prop="pass" style="margin-bottom: 35px">
+          <el-form-item
+            label="邮箱"
+            prop="userEmail"
+            style="margin-bottom: 35px"
+          >
+            <el-input
+              type="text"
+              v-model="ruleForm.userEmail"
+              autocomplete="off"
+            ></el-input>
+          </el-form-item>
+          <el-form-item
+            label="密码"
+            prop="pass"
+            style="calc(100vh / 1080px * 35px)"
+          >
             <el-input
               type="password"
               v-model="ruleForm.pass"
@@ -45,6 +60,11 @@
               autocomplete="off"
             ></el-input>
           </el-form-item>
+          <el-form-item class="checkAttr">
+            <el-checkbox v-model="ruleForm.check">
+              我已阅读并同意「用户协议」和「隐私条款」
+            </el-checkbox>
+          </el-form-item>
           <el-form-item>
             <el-button
               type="primary"
@@ -56,21 +76,15 @@
             <el-button
               round
               @click="resetForm('ruleForm')"
-              style="width: 180px"
               class="clearBtns btns"
             >
               清空
             </el-button>
           </el-form-item>
-          <el-form-item class="checkAttr">
-            <el-checkbox v-model="ruleForm.check">
-              我已阅读并同意「用户协议」和「隐私条款」
-            </el-checkbox>
-          </el-form-item>
         </el-form>
       </div>
       <div>
-        <span>
+        <span class="spanLogin">
           已经注册?
           <router-link to="/login">点击登录</router-link>
         </span>
@@ -85,6 +99,14 @@ export default {
     const validateUserName = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("请输入用户名"));
+      } else {
+        callback();
+      }
+    };
+
+    const validateUserEmail = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("请输入用户邮箱"));
       } else {
         callback();
       }
@@ -114,6 +136,7 @@ export default {
     return {
       ruleForm: {
         userName: "",
+        userEmail: "",
         pass: "",
         checkPass: "",
         check: false,
@@ -124,6 +147,7 @@ export default {
           { validator: validateUserName, trigger: "blur" },
           { min: 2, max: 8, message: "长度在 2 到 8 个字符", trigger: "blur" },
         ],
+        userEmail: [{ validator: validateUserEmail, trigger: "blur" }],
         pass: [{ validator: validatePass, trigger: "blur" }],
         checkPass: [{ validator: validatePass2, trigger: "blur" }],
       },
@@ -135,7 +159,8 @@ export default {
         this.$refs.ruleForm.validate(async (valid) => {
           if (valid) {
             const v = {
-              username: this.$refs.ruleForm.model.userName,
+              userName: this.$refs.ruleForm.model.userName,
+              userEmail: this.$refs.ruleForm.model.userEmail,
               password: this.$refs.ruleForm.model.pass,
             };
             await this.$store.dispatch("regist", v);
@@ -143,7 +168,7 @@ export default {
             if (repeat) {
               this.$nextTick(() => {
                 this.$message({
-                  message: "该用户名已存在！！",
+                  message: "该用户邮箱已存在！！",
                   type: "error",
                 });
                 this.$store.commit("ISREPEAT", false);
@@ -181,7 +206,7 @@ export default {
 
 <style lang="scss" scoped>
 a {
-  color: #00A8D5;
+  color: #00a8d5;
   text-decoration: none;
 }
 
@@ -197,9 +222,9 @@ a {
 }
 
 #webImage {
-  width: 350px;
-  margin-top: 60px;
-  margin-bottom: 80px;
+  margin-top: calc(var(--heightRate) * 60);
+  margin-bottom: calc(var(--heightRate) * 80);
+  width: calc(var(--widthRate) * 350);
 }
 
 .cage {
@@ -207,47 +232,49 @@ a {
 }
 
 .login {
-  width: 900px;
-  height: 600px;
+  width: calc(var(--widthRate) * 900);
+  height: calc(var(--heightRate) * 720);
   background-color: rgba(228, 228, 228, 0.66);
-  border-radius: 12px;
+  border-radius: calc(var(--heightRate) * 12);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 
   .goBack {
-    width: 150px;
-    height: 45px;
-    margin-left: 10px;
-    margin-top: 10px;
-    font-size: 20px;
+    width: calc(var(--widthRate) * 150);
+    height: calc(var(--heightRate) * 45);
+    margin-left: calc(var(--widthRate) * 12);
+    margin-top: calc(var(--heightRate) * 10);
+    font-size: calc(var(--heightRate) * 18);
     color: #129fc6;
     display: flex;
-    letter-spacing: 5px;
+    letter-spacing: calc(var(--widthRate) * 5);
     align-items: center;
     justify-content: center;
   }
 
   .title {
-    width: 220px;
-    height: 102px;
-    font-size: 60px;
-    letter-spacing: 13px;
-    margin-bottom: 50px;
-    margin-top: 40px;
-    color: #00C4C3;
+    width: calc(var(--widthRate) * 220);
+    height: calc(var(--heightRate) * 102);
+    font-size: calc(var(--heightRate) * 80);
+    letter-spacing: calc(var(--widthRate) * 13);
+    margin-bottom: calc(var(--heightRate) * 20);
+    margin-top: calc(var(--heightRate) * -70);
+    color: #00c4c3;
   }
 
   .form {
     width: 100%;
-    height: 240px;
+    height: calc(var(--heightRate) * 240);
     position: relative;
     display: flex;
     align-items: center;
-    margin-bottom: 50px;
+    margin-top: calc(var(--heightRate) * 90);
+    margin-bottom: calc(var(--heightRate) * 85);
     .ElForm {
       position: absolute;
-      left: 19.7%;
+      left: 15.7%;
     }
 
     :deep() .el-form-item__label {
@@ -256,20 +283,59 @@ a {
     }
 
     .btns {
-      font-size: 24px;
+      font-size: calc(var(--heightRate) * 35);
+    }
+
+    .checkAttr {
+      ::v-deep() .el-checkbox {
+        vertical-align: super;
+
+        .el-checkbox__input.is-checked .el-checkbox__inner,
+        .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+          background-color: #00c4c3;
+          border-color: #00c4c3;
+        }
+
+        .el-checkbox__inner:hover {
+          border-color: #00c4c3;
+        }
+
+        .el-checkbox__input.is-checked + .el-checkbox__label {
+          color: #00c4c3;
+        }
+      }
     }
 
     .loginBtns {
-      background-color: #00BDC8;
-      width: 180px;
-      margin-right: 40px;
+      background-color: #00bdc8;
+      border: calc(var(--heightRate) * 1) solid #1ccfd8;
+      width: calc(var(--widthRate) * 180);
+      margin-right: calc(var(--widthRate) * 40);
     }
 
+    .loginBtns:hover,
+    .loginBtns:focus {
+      color: #ffffff;
+      border-color: #3abbb0;
+      background-color: #00c4c3;
+    }
+
+    .clearBtns {
+      position: relative;
+      left: 10%;
+      width: calc(var(--widthRate) * 180);
+      margin-right: calc(var(--widthRate) * 40);
+    }
     .clearBtns:hover,
     .clearBtns:focus {
       color: #ffffff;
-      border-color: #3aa8bb;
-      background-color: #34b8d3;
+      border-color: #3abb9b;
+      background-color: #00c4c3;
+    }
+    .checkAttr {
+      position: relative;
+      height: calc(var(--heightRate) * 30);
+      margin-top: calc(var(--heightRate) * -12);
     }
   }
 }

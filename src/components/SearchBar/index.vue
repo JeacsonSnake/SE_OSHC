@@ -79,7 +79,7 @@ export default {
     enterSearchBoxHanlder() {
       clearTimeout(this.searchBoxTimeout);
     },
-    async searchHandler(value) {
+    searchHandler(value) {
       //随机生成搜索历史tag式样
       let n = this.getRandomNumber(0, 5);
       let exist =
@@ -92,11 +92,12 @@ export default {
         this.historySearchList.push({ name: this.search, type: this.types[n] });
         searchStore.saveHistory(this.historySearchList);
       }
+      console.log(value);
       this.history = this.historySearchList.length == 0 ? false : true;
       let searchItem = this.search ? this.search : value;
-
       this.isFocus = false;
-      //   await this.$store.dispatch("getSearchData", searchItem);
+      this.$store.commit("SETSEARCHDATA", searchItem);
+      this.$store.commit("SETSEARCHUPDATE", false);
       if (this.$route.name !== "searchPage") {
         this.$router.push({
           name: "searchPage",
@@ -130,11 +131,19 @@ export default {
       return this.isFocus;
     },
   },
+
+  mounted() {
+    if (this.$route.name == "searchPage") {
+      if (this.$store.state.searchData === "") {
+      } else {
+        this.search = this.$store.state.searchData;
+      }
+    }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-
 .searchBar {
   :deep() .el-input__inner {
     border-radius: 20px 0 0 20px;
@@ -153,7 +162,7 @@ export default {
 }
 
 #searchBtn {
-  width: 81px;
+  width: calc(1536px / 1920px * 81px);
   font-size: 30px;
   height: 40px;
   margin: -6px -21px;
@@ -168,8 +177,8 @@ export default {
   position: fixed;
   z-index: 15;
   width: 100%;
-  width: 641px;
-  height: 300px;
+  width: calc(1536px / 1920px * 641px);
+  height: calc(100vh / 1080px * 300px);
   margin-top: 0px;
   padding-bottom: 20px;
 }
@@ -184,7 +193,7 @@ export default {
   color: #bdbaba;
   font-size: 15px;
   float: right;
-  margin-top: -2px;
+  margin-top: -calc(100vh / 1080px * 2px);
   cursor: pointer;
 }
 </style>
