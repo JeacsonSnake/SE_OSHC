@@ -82,7 +82,7 @@
             <el-button class="btnColor" round @click="sendComment()"> 发布 </el-button>
         </div>
         <div class="commentBlock">
-            <el-empty description="没有回复" :image-size="300"></el-empty>
+            <el-empty description="没有评论" :image-size="300"></el-empty>
         </div>
       </div>
     </div>

@@ -12,12 +12,12 @@
                     {{item.postBrief}}
                 </p>
               </div>
-              <div class="ImageGroup" v-if="item.imgUrlArr.length == 0">
+              <!-- <div class="ImageGroup" v-if="item.imgUrlArr.length == 0">
                 <img src="../../assets/images/post_example/示例图1.png" alt="" class="CardImage" />
                 <img src="../../assets/images/post_example/示例图2.png" alt="" class="CardImage" />
                 <img src="../../assets/images/post_example/示例图3.png" alt="" class="CardImage" />
-              </div>
-              <div class="ImageGroup" v-else>
+              </div> -->
+              <div class="ImageGroup" v-if="item.imgUrlArr.length !== 0">
                 <template v-for="(item, index) in item.imgUrlArr">
                 <img :src="item" alt="" class="CardImage" />
                 </template>

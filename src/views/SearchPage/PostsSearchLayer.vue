@@ -9,7 +9,7 @@
           <p class="search_section_topic">
             {{ searchSection.topic }}
           </p>
-          <div class="search_section_button">点击进入</div>
+          <div class="search_section_button" @click="toTagPage(getSearchData.tagsObj.tagId)">点击进入</div>
         </div>
 
         <div class="search_section">
@@ -160,6 +160,10 @@ export default {
     toPostPage(id) {
       this.$router.push({ name: "postContent", params: { postId: id } });
     },
+
+    toTagPage(tagId) {
+            this.$router.push({ name: "tagPage" , params: {tagId}});
+    },
   },
 
   computed: {
@@ -233,6 +237,7 @@ export default {
   width: 100%;
   min-height: calc(var(--heightRate) * 930);
   display: flex;
+  flex-direction: column;
 }
 
 .search_section_background {

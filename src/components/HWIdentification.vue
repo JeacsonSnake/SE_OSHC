@@ -32,7 +32,7 @@
           >上传到服务器</el-button
         >
         <div slot="tip" class="el-upload__tip">
-          只能上传jpg/png文件，且不超过500kb
+          只能上传jpg/png文件，且不超过1.2mb
         </div>
       </el-upload>
       <div class="result" v-show="asdf">
